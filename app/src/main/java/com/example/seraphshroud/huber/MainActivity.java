@@ -9,11 +9,13 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.Parse;
+import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +33,53 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "ENaimFMoqvCB6RgKMgPR8VD60OupUmE10R4atss5", "LqBZwLYBka8JOvGZKXvuBE91Ul5xbHnfq0ZrSqgY");
-
-        // Test Parse
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
         testObject.saveInBackground();
+
+
+        ParseUser Client = new ParseUser();
+        Client.setUsername("Brian");
+        Client.setPassword("lol");
+        Client.setEmail("crazy727@gmail.com");
+        Client.put("phoneNumber", "310-699-8188");
+        Client.put("location", "Muir");
+        Client.signUpInBackground(new SignUpCallback() {
+            @Override
+            public void done(com.parse.ParseException e) {
+                if (e == null) {
+                    // Hooray! Let them use the app now.
+                } else {
+                    // Sign up didn't succeed. Look at the ParseException
+                    // to figure out what went wrong
+                }
+            }
+        });
+
+        /* Creates a User in the parse database with name Paul with information pertaining to
+         * Barber.
+         */
+        ParseUser Barber = new ParseUser();
+        Barber.setUsername("Paul");
+        Barber.setPassword("rofl");
+        Barber.setEmail("angrychicken@gmail.com");
+        Barber.put("phoneNumber", "310-640-2311");
+        Barber.put("location", "La Jolla Village");
+        Barber.put("gender", "Male");
+        Barber.put("specialty", "Female asian hair");
+        Barber.put("priceRange", "$10-$20");
+        Barber.put("schedule", "Monday/Friday 3-5pm");
+        Barber.signUpInBackground(new SignUpCallback() {
+            @Override
+            public void done(com.parse.ParseException e) {
+                if (e == null) {
+                    // Hooray! Let them use the app now.
+                } else {
+                    // Sign up didn't succeed. Look at the ParseException
+                    // to figure out what went wrong
+                }
+            }
+        });
     }
 
     @Override
