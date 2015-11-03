@@ -38,7 +38,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/password"
         android:onClick="login"
-        android:text="@string/LoginBtn" />
+        android:text="@string/LoginBtn"
+        android:clickable="true" />
 
     <Button
         android:id="@+id/signup"
@@ -46,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/login"
         android:onClick="signup"
-        android:text="@string/SignupBtn" />
+        android:text="@string/SignupBtn"
+        android:clickable="true" />
 
 </RelativeLayout>
