@@ -41,7 +41,6 @@ public class LoginSignupActivity extends Activity {
 
         // Login Button Click Listener
         loginbutton.setOnClickListener(new OnClickListener() {
-
             public void onClick(View arg0) {
                 // Retrieve the text entered from the EditText
                 usernametxt = username.getText().toString();
@@ -73,7 +72,6 @@ public class LoginSignupActivity extends Activity {
         });
         // Sign up Button Click Listener
         signup.setOnClickListener(new OnClickListener() {
-
             public void onClick(View arg0) {
                 // Retrieve the text entered from the EditText
                 usernametxt = username.getText().toString();
