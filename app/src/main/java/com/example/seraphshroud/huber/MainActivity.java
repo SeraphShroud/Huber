@@ -1,5 +1,6 @@
 package com.example.seraphshroud.huber;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,11 +14,43 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.Parse;
 import com.parse.ParseUser;
+import com.parse.ParseAnonymousUtils;
 import com.parse.SignUpCallback;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Determine whether the current user is an anonymous user
+        if (ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())) {
+            // If user is anonymous, send the user to LoginSignupActivity.class
+            Intent intent = new Intent(MainActivity.this,
+                    LoginSignupActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            // If current user is NOT anonymous user
+            // Get current user data from Parse.com
+            ParseUser currentUser = ParseUser.getCurrentUser();
+            if (currentUser != null) {
+                // Send logged in users to Welcome.class
+                Intent intent = new Intent(MainActivity.this, Welcome.class);
+                startActivity(intent);
+                finish();
+            } else {
+                // Send user to LoginSignupActivity.class
+                Intent intent = new Intent(MainActivity.this,
+                        LoginSignupActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }
+
+    }
+
+    /*
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -56,9 +89,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /* Creates a User in the parse database with name Paul with information pertaining to
+         Creates a User in the parse database with name Paul with information pertaining to
          * Barber.
-         */
+
         ParseUser Barber = new ParseUser();
         Barber.setUsername("Paul");
         Barber.setPassword("rofl");
@@ -81,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    */
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
