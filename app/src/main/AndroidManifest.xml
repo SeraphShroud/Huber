@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.seraphshroud.huber" >
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -10,7 +11,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
@@ -30,6 +31,11 @@
         <activity android:name=".BarberInfo" >
         </activity>
         <activity android:name=".ClientOrBarber" >
+        </activity>
+        <activity
+            android:name=".Calendar"
+            android:label="@string/title_activity_calendar"
+            android:theme="@style/AppTheme.NoActionBar" >
         </activity>
     </application>
 
