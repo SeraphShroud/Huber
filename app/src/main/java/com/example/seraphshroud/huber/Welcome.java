@@ -6,6 +6,7 @@ package com.example.seraphshroud.huber;
 import com.parse.ParseUser;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -16,6 +17,7 @@ public class Welcome extends Activity {
 
     // Declare Variable
     Button logout;
+    View calendar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,14 @@ public class Welcome extends Activity {
                 // Logout current user
                 ParseUser.logOut();
                 finish();
+            }
+        });
+
+        calendar = (Button) findViewById(R.id.calendar);
+
+        calendar.setOnClickListener(new OnClickListener() {
+            public void onClick(View arg0) {
+                startActivity(new Intent(Welcome.this, Calendar.class));
             }
         });
     }
