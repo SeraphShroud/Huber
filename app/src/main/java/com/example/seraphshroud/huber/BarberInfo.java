@@ -15,7 +15,7 @@ import com.parse.ParseUser;
  */
 public class BarberInfo extends Activity {
 
-    Button donebutton;
+    Button nextbutton;
     EditText email;
     EditText phone;
     EditText location;
@@ -37,26 +37,26 @@ public class BarberInfo extends Activity {
         // Get the view from singleitemview.xml
         setContentView(R.layout.barber_info);
 
-        donebutton = (Button) findViewById(R.id.done);
+        nextbutton = (Button) findViewById(R.id.next);
 
-        gender = (EditText) findViewById(R.id.gender);
+        /*gender = (EditText) findViewById(R.id.gender);
         specialty = (EditText) findViewById(R.id.specialty);
         pricerange = (EditText) findViewById(R.id.pricerange);
-        name = (EditText) findViewById(R.id.name);
+        name = (EditText) findViewById(R.id.name);*/
         email = (EditText) findViewById(R.id.email);
         phone = (EditText) findViewById(R.id.phone);
         location = (EditText) findViewById(R.id.location);
 
-        donebutton.setOnClickListener(new View.OnClickListener() {
+        nextbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 // Retrieve current user from Parse.com
                 ParseUser currentUser = ParseUser.getCurrentUser();
 
                 // Retrieve the text entered from the EditText
-                nametxt = name.getText().toString();
+                /*nametxt = name.getText().toString();
                 gendertxt = gender.getText().toString();
                 specialtytxt = specialty.getText().toString();
-                pricerangetxt = pricerange.getText().toString();
+                pricerangetxt = pricerange.getText().toString();*/
                 emailtxt = email.getText().toString();
                 phonetxt = phone.getText().toString();
                 locationtxt = location.getText().toString();
@@ -64,10 +64,10 @@ public class BarberInfo extends Activity {
                 // Insert the user's information into the database
                 currentUser.setEmail(emailtxt);
                 currentUser.put("location", locationtxt);
-                currentUser.put("name", nametxt);
+                /*currentUser.put("name", nametxt);
                 currentUser.put("gender", gendertxt);
                 currentUser.put("pricerange", pricerangetxt);
-                currentUser.put("specialty", specialtytxt);
+                currentUser.put("specialty", specialtytxt);*/
                 currentUser.put("phoneNumber", phonetxt);
                 currentUser.saveInBackground();
                 /*System.out.println("emailtxt" + emailtxt);
