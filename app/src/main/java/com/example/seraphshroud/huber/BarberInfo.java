@@ -13,17 +13,23 @@ import com.parse.ParseUser;
 /**
  * Created by SeraphShroud on 11/3/2015.
  */
-public class ClientInfo extends Activity {
+public class BarberInfo extends Activity {
 
     Button donebutton;
     EditText email;
     EditText phone;
     EditText location;
+    EditText gender;
+    EditText specialty;
+    EditText pricerange;
     EditText name;
-    String nametxt;
     String emailtxt;
     String phonetxt;
     String locationtxt;
+    String gendertxt;
+    String specialtytxt;
+    String pricerangetxt;
+    String nametxt;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,9 @@ public class ClientInfo extends Activity {
 
         donebutton = (Button) findViewById(R.id.done);
 
+        gender = (EditText) findViewById(R.id.gender);
+        specialty = (EditText) findViewById(R.id.specialty);
+        pricerange = (EditText) findViewById(R.id.pricerange);
         name = (EditText) findViewById(R.id.name);
         email = (EditText) findViewById(R.id.email);
         phone = (EditText) findViewById(R.id.phone);
@@ -45,14 +54,20 @@ public class ClientInfo extends Activity {
 
                 // Retrieve the text entered from the EditText
                 nametxt = name.getText().toString();
+                gendertxt = gender.getText().toString();
+                specialtytxt = specialty.getText().toString();
+                pricerangetxt = pricerange.getText().toString();
                 emailtxt = email.getText().toString();
                 phonetxt = phone.getText().toString();
                 locationtxt = location.getText().toString();
 
                 // Insert the user's information into the database
                 currentUser.setEmail(emailtxt);
-                currentUser.put("name,", nametxt);
                 currentUser.put("location", locationtxt);
+                currentUser.put("name", nametxt);
+                currentUser.put("gender", gendertxt);
+                currentUser.put("pricerange", pricerangetxt);
+                currentUser.put("specialty", specialtytxt);
                 currentUser.put("phoneNumber", phonetxt);
                 currentUser.saveInBackground();
                 /*System.out.println("emailtxt" + emailtxt);
@@ -60,12 +75,12 @@ public class ClientInfo extends Activity {
                 System.out.println("locationtxt" + emailtxt);*/
                 // Once finished, go to welcome page
                 Intent intent = new Intent(
-                        ClientInfo.this, Welcome.class);
+                        BarberInfo.this, Welcome.class);
                 startActivity(intent);
             }
 
-        // Locate TextView in welcome.xml
-        TextView txtuser = (TextView) findViewById(R.id.txtuser);
+            // Locate TextView in welcome.xml
+            TextView txtuser = (TextView) findViewById(R.id.txtuser);
 
         });
     }
