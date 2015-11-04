@@ -35,7 +35,7 @@ public class BarberInfo extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the view from singleitemview.xml
-        setContentView(R.layout.clientinfo);
+        setContentView(R.layout.barber_info);
 
         donebutton = (Button) findViewById(R.id.done);
 

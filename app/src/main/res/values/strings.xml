@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Huber</string>
+    <string name="app_name">HUBER</string>
     <string name="action_settings">Settings</string>
     <string name="hello">Hello World!</string>
     <string name="Username">Username</string>
@@ -8,6 +8,6 @@
     <string name="LoginBtn">Login</string>
     <string name="SignupBtn">Sign Up</string>
     <string name="LogoutBtn">Log Out</string>
-    <string name="Welcome">Welcome!</string>
+    <string name="Welcome">Welcome to Huber!</string>
 
 </resources>

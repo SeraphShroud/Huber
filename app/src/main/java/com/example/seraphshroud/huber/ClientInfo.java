@@ -29,14 +29,14 @@ public class ClientInfo extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the view from singleitemview.xml
-        setContentView(R.layout.clientinfo);
+        setContentView(R.layout.client_info);
 
         donebutton = (Button) findViewById(R.id.done);
 
-        name = (EditText) findViewById(R.id.name);
-        email = (EditText) findViewById(R.id.email);
-        phone = (EditText) findViewById(R.id.phone);
-        location = (EditText) findViewById(R.id.location);
+        //name = (EditText) findViewById(R.id.name);
+        email = (EditText) findViewById(R.id.client_email);
+        phone = (EditText) findViewById(R.id.client_phone);
+        location = (EditText) findViewById(R.id.client_location);
 
         donebutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -44,14 +44,14 @@ public class ClientInfo extends Activity {
                 ParseUser currentUser = ParseUser.getCurrentUser();
 
                 // Retrieve the text entered from the EditText
-                nametxt = name.getText().toString();
+                //nametxt = name.getText().toString();
                 emailtxt = email.getText().toString();
                 phonetxt = phone.getText().toString();
                 locationtxt = location.getText().toString();
 
                 // Insert the user's information into the database
                 currentUser.setEmail(emailtxt);
-                currentUser.put("name,", nametxt);
+                //currentUser.put("name,", nametxt);
                 currentUser.put("location", locationtxt);
                 currentUser.put("phoneNumber", phonetxt);
                 currentUser.saveInBackground();
