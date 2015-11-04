@@ -93,7 +93,7 @@ public class LoginSignupActivity extends Activity {
                             if (e == null) {
                                 Intent intent = new Intent(
                                         LoginSignupActivity.this,
-                                        ClientInfo.class);
+                                        ClientOrBarber.class);
                                 startActivity(intent);
                                 // Show a simple Toast message upon successful registration
                                 /*Toast.makeText(getApplicationContext(),

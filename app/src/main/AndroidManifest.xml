@@ -29,6 +29,8 @@
         </activity>
         <activity android:name=".BarberInfo" >
         </activity>
+        <activity android:name=".ClientOrBarber" >
+        </activity>
     </application>
 
 </manifest>
