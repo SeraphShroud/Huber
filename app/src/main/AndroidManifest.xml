@@ -35,7 +35,8 @@
         <activity
             android:name=".Calendar"
             android:label="@string/title_activity_calendar"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustPan">
         </activity>
     </application>
 

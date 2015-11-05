@@ -29,14 +29,14 @@ public class Calendar extends AppCompatActivity {
         timeAdapter1 = new ArrayAdapter<String>(this, R.layout.activity_calendar, time1);
         timeAdapter2 = new ArrayAdapter<String>(this, R.layout.activity_calendar, time2);*/
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
     }
 
     private EditText dayIn;

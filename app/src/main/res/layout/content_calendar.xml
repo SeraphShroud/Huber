@@ -10,6 +10,12 @@
     <!-- This FrameLayout insets its children based on system windows using
          android:fitsSystemWindows. -->
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="614dp"
+        android:id="@+id/scrollView"
+        android:fillViewport="false" />
+
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -49,7 +55,6 @@
             android:layout_below="@+id/textView"
             android:layout_alignLeft="@+id/textView"
             android:layout_alignStart="@+id/textView"
-            android:text="Time"
             android:layout_alignRight="@+id/textView"
             android:layout_alignEnd="@+id/textView" />
 
@@ -72,7 +77,6 @@
             android:layout_below="@+id/textView2"
             android:layout_alignLeft="@+id/textView2"
             android:layout_alignStart="@+id/textView2"
-            android:text="Time"
             android:layout_alignRight="@+id/textView"
             android:layout_alignEnd="@+id/textView" />
 
@@ -98,14 +102,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
             android:id="@+id/textView4" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
             android:id="@+id/textView5" />
 
         <TextView
@@ -119,7 +121,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Large Text"
             android:id="@+id/textView6" />
 
     </LinearLayout>
