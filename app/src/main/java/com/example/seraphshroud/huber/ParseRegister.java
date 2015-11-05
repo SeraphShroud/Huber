@@ -14,7 +14,6 @@ public class ParseRegister extends Application {
         super.onCreate();
         // Do not enable this or it will not connect to the database.
         // Parse.enableLocalDatastore(this);
-        // ParseObject.registerSubclass(Client.class);
 
         Parse.initialize(this, "ENaimFMoqvCB6RgKMgPR8VD60OupUmE10R4atss5", "LqBZwLYBka8JOvGZKXvuBE91Ul5xbHnfq0ZrSqgY");
 

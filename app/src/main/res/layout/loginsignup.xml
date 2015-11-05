@@ -12,14 +12,14 @@
         android:layout_height="wrap_content"
         android:text="@string/Username"
         android:textColor="#fff"
-        android:layout_above="@+id/username"
+        android:layout_above="@+id/client_username"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:textSize="20dp"
         android:typeface="normal" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/client_username"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:inputType="text"

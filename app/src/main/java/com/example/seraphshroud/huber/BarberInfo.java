@@ -7,8 +7,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.SignUpCallback;
 
 /**
  * Created by SeraphShroud on 11/3/2015.
@@ -16,20 +19,18 @@ import com.parse.ParseUser;
 public class BarberInfo extends Activity {
 
     Button nextbutton;
+    EditText username, password;
     EditText email;
     EditText phone;
     EditText location;
-    EditText gender;
     EditText specialty;
-    EditText pricerange;
-    EditText name;
+    EditText priceRange;
+    String usernametxt, passwordtxt;
     String emailtxt;
     String phonetxt;
     String locationtxt;
-    String gendertxt;
     String specialtytxt;
-    String pricerangetxt;
-    String nametxt;
+    String priceRangetxt;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -39,49 +40,63 @@ public class BarberInfo extends Activity {
 
         nextbutton = (Button) findViewById(R.id.next);
 
-        /*gender = (EditText) findViewById(R.id.gender);
-        specialty = (EditText) findViewById(R.id.specialty);
-        pricerange = (EditText) findViewById(R.id.pricerange);
-        name = (EditText) findViewById(R.id.name);*/
-        email = (EditText) findViewById(R.id.email);
-        phone = (EditText) findViewById(R.id.phone);
-        location = (EditText) findViewById(R.id.location);
+        username = (EditText) findViewById(R.id.barber_username);
+        password = (EditText) findViewById(R.id.barber_password);
+        email = (EditText) findViewById(R.id.barber_email);
+        phone = (EditText) findViewById(R.id.barber_phone);
+        location = (EditText) findViewById(R.id.barber_location);
+        specialty = (EditText) findViewById(R.id.barber_specialty);
+        priceRange = (EditText) findViewById(R.id.barber_price);
 
         nextbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 // Retrieve current user from Parse.com
-                ParseUser currentUser = ParseUser.getCurrentUser();
+                ParseUser user = new ParseUser();
 
                 // Retrieve the text entered from the EditText
-                /*nametxt = name.getText().toString();
-                gendertxt = gender.getText().toString();
-                specialtytxt = specialty.getText().toString();
-                pricerangetxt = pricerange.getText().toString();*/
+                usernametxt = username.getText().toString();
+                passwordtxt = password.getText().toString();
                 emailtxt = email.getText().toString();
                 phonetxt = phone.getText().toString();
                 locationtxt = location.getText().toString();
+                specialtytxt = specialty.getText().toString();
+                priceRangetxt = priceRange.getText().toString();
 
                 // Insert the user's information into the database
-                currentUser.setEmail(emailtxt);
-                currentUser.put("location", locationtxt);
-                /*currentUser.put("name", nametxt);
-                currentUser.put("gender", gendertxt);
-                currentUser.put("pricerange", pricerangetxt);
-                currentUser.put("specialty", specialtytxt);*/
-                currentUser.put("phoneNumber", phonetxt);
-                currentUser.saveInBackground();
-                /*System.out.println("emailtxt" + emailtxt);
-                System.out.println("phonetxt" + emailtxt);
-                System.out.println("locationtxt" + emailtxt);*/
-                // Once finished, go to welcome page
-                Intent intent = new Intent(
-                        BarberInfo.this, Welcome.class);
-                startActivity(intent);
+                user.setUsername(usernametxt);
+                user.setPassword(passwordtxt);
+                user.setEmail(emailtxt);
+                user.put("phoneNumber", phonetxt);
+                user.put("location", locationtxt);
+                user.put("specialty", specialtytxt);
+                user.put("priceRange", priceRangetxt);
+                user.put("isBarber", true);
+                user.signUpInBackground(new SignUpCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null) {
+                            // Once finished, go to welcome page
+                            Intent intent = new Intent(
+                                    BarberInfo.this, Calendar.class);
+                            startActivity(intent);
+                            // Show a simple Toast message upon successful registration
+                                /*Toast.makeText(getApplicationContext(),
+                                        "Successfully Signed up, please log in.",
+                                        Toast.LENGTH_LONG).show();*/
+                        } else {
+                            int error = e.getCode();
+                            System.out.println(error);
+                            Toast.makeText(getApplicationContext(),
+                                    "Sign up Error", Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    }
+                });
+
             }
 
             // Locate TextView in welcome.xml
             TextView txtuser = (TextView) findViewById(R.id.txtuser);
-
         });
     }
 }
