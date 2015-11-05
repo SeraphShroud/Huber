@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -19,15 +22,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="USERNAME"
+        android:paddingTop="40dp"
+        android:paddingLeft="10dp"
+        android:id="@+id/textView10" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/barber_username"
+        android:editable="true"
+        android:paddingLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="PASSWORD"
+        android:paddingTop="40dp"
+        android:paddingLeft="10dp"
+        android:id="@+id/textView12" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/barber_password" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="EMAIL"
-        android:id="@+id/barber_email"
         android:paddingTop="40dp"
         android:paddingLeft="10dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/email"
+        android:id="@+id/barber_email"
         android:editable="true"
         android:paddingLeft="10dp" />
 
@@ -36,14 +70,13 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="PHONE NUMBER"
-        android:id="@+id/barber_phone"
         android:paddingTop="40dp"
         android:paddingLeft="10dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/phone"
+        android:id="@+id/barber_phone"
         android:editable="true"
         android:layout_gravity="center_horizontal"
         android:paddingLeft="10dp" />
@@ -52,15 +85,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="GENDER"
-        android:id="@+id/barber_gender"
+        android:text="LOCATION"
+        android:id="@+id/textView9"
         android:paddingTop="40dp"
         android:paddingLeft="10dp" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/location"
+        android:id="@+id/barber_location"
+        android:editable="true"
+        android:paddingLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="SPECIALTIES"
+        android:id="@+id/textView11"
+        android:paddingTop="40dp"
+        android:paddingLeft="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/barber_specialty"
+        android:editable="true"
+        android:paddingLeft="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="PRICE RANGE"
+        android:paddingTop="40dp"
+        android:paddingLeft="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/barber_price"
         android:editable="true"
         android:paddingLeft="10dp" />
 
@@ -75,3 +139,4 @@
         android:textSize="17dp"
         android:layout_marginTop="20dp" />
 </LinearLayout>
+</ScrollView>
