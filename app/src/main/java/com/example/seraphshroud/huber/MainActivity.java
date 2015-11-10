@@ -24,13 +24,13 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // COMMENT THIS OUT IF YOU WANT TO USE OLD LOGIN SCREEN
+        /* COMMENT THIS OUT IF YOU WANT TO USE OLD LOGIN SCREEN
         ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
-        startActivityForResult(builder.build(), 0);
+        startActivityForResult(builder.build(), 0);*/
 
         // ************* UNCOMMENT THIS TO USE OLD LOGIN SCREEN ************
 
-        /* Determine whether the current user is an anonymous user
+        // Determine whether the current user is an anonymous user
         if (ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())) {
             // If user is anonymous, send the user to LoginSignupActivity.class
             Intent intent = new Intent(MainActivity.this,
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }*/
+        }
 
     }
 
