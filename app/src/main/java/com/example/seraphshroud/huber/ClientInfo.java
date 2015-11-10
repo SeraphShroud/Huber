@@ -75,7 +75,7 @@ public class ClientInfo extends Activity {
                         if (e == null) {
                             // Once finished, go to welcome page
                             Intent intent = new Intent(
-                                    ClientInfo.this, Welcome.class);
+                                    ClientInfo.this, ClientWelcome.class);
                             startActivity(intent);
                             // Show a simple Toast message upon successful registration
                                 /*Toast.makeText(getApplicationContext(),

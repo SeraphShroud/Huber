@@ -6,9 +6,15 @@
     <string name="hello">Hello World!</string>
     <string name="Username">Username</string>
     <string name="Password">Password</string>
+    <string name="Price">Price</string>
+    <string name="Time">Time</string>
+    <string name="Barber">Available Barbers</string>
+    <string name="FindBarber">Find a Barber!</string>
+    <string name="SearchBtn">Search</string>
     <string name="LoginBtn">Login</string>
     <string name="SignupBtn">Sign Up</string>
     <string name="LogoutBtn">Log Out</string>
+    <string name="FindBarberBtn">Find Barber</string>
     <string name="Welcome">Welcome to Huber!</string>
     <string name="title_activity_calendar">Calendar</string>
 </resources>
