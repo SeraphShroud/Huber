@@ -24,6 +24,10 @@
         </activity>
         <activity android:name=".LoginSignupActivity" >
         </activity>
+        <activity android:name=".ClientWelcome" >
+        </activity>
+        <activity android:name=".BarberWelcome" >
+        </activity>
         <activity android:name=".Welcome" >
         </activity>
         <activity android:name=".ClientInfo" >
@@ -31,6 +35,10 @@
         <activity android:name=".BarberInfo" >
         </activity>
         <activity android:name=".ClientOrBarber" >
+        </activity>
+        <activity android:name=".FindBarber" >
+        </activity>
+        <activity android:name=".BarberSearchResults" >
         </activity>
         <activity
             android:name=".Calendar"

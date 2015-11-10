@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txtFindBarber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/FindBarber"
+        android:paddingTop="30dp"
+        android:paddingLeft="25dp"
+        android:textSize="25sp"
+        android:textColor="#000"
+        android:typeface="sans"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/txtPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/Price"
+        android:paddingTop="30dp"
+        android:paddingLeft="25dp"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:typeface="sans"
+        android:visibility="visible" />
+
+    <Spinner
+        android:id="@+id/price_range"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="20dp" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/Time"
+        android:paddingTop="30dp"
+        android:paddingLeft="25dp"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:typeface="sans"
+        android:visibility="visible" />
+
+    <Spinner
+        android:id="@+id/time_range"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:gravity="center_horizontal"
+        android:layout_marginLeft="20dp" />
+
+    <Button
+        android:id="@+id/searchbtn"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="@string/SearchBtn"
+        android:background="#000"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        android:layout_below="@+id/Search"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="98dp"
+        android:layout_gravity="center_horizontal" />
+
+</LinearLayout>
