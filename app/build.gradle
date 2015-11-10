@@ -29,4 +29,11 @@ dependencies {
     compile 'com.android.support:design:23.1.0'
     compile 'com.parse.bolts:bolts-android:1.+'
     compile 'com.parse:parse-android:1.+'
+    // Module dependency on ParseUI libraries sources
+    compile project(':ParseUI-Login')
+    compile project(':ParseUI-Widget')
+
+// Uncomment if using Facebook Login (optional Maven dependency)
+    compile 'com.facebook.android:facebook-android-sdk:4.6.0'
+    compile 'com.parse:parsefacebookutils-v4-android:1.10.3@aar'
 }
