@@ -30,10 +30,12 @@
             android:text="What day are you available?"
             android:id="@+id/textView8" />
 
-        <EditText
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/editText" />
+            android:text="Choose a Date"
+            android:id="@+id/datePicker"
+            android:onClick="showDatePickerDialog" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -46,17 +48,12 @@
             android:layout_alignStart="@+id/editText2"
             android:layout_marginTop="35dp" />
 
-        <EditText
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="time"
-            android:ems="10"
-            android:id="@+id/editText3"
-            android:layout_below="@+id/textView"
-            android:layout_alignLeft="@+id/textView"
-            android:layout_alignStart="@+id/textView"
-            android:layout_alignRight="@+id/textView"
-            android:layout_alignEnd="@+id/textView" />
+            android:text="Choose a Time"
+            android:id="@+id/timePicker1"
+            android:onClick="showTimePickerDialog" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,17 +65,13 @@
             android:layout_alignLeft="@+id/editText3"
             android:layout_alignStart="@+id/editText3" />
 
-        <EditText
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="time"
-            android:ems="10"
-            android:id="@+id/editText4"
-            android:layout_below="@+id/textView2"
-            android:layout_alignLeft="@+id/textView2"
-            android:layout_alignStart="@+id/textView2"
-            android:layout_alignRight="@+id/textView"
-            android:layout_alignEnd="@+id/textView" />
+            android:text="Choose a Time"
+            android:id="@+id/timePicker2"
+            android:onClick="showTimePickerDialog2"
+            android:nestedScrollingEnabled="false" />
 
         <Button
             android:layout_width="237dp"
