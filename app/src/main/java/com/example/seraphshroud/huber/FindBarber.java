@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 /**
  * Created by Alicia on 11/10/2015.
@@ -35,9 +36,13 @@ public class FindBarber extends Activity {
         timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         timeDropdown.setAdapter(timeAdapter);
 
+        final String priceTxt = priceDropdown.getSelectedItem().toString();
+        String timeTxt = timeDropdown.getSelectedItem().toString();
+
         searchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "You select price @ : " + priceTxt, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(
                         FindBarber.this,
                         BarberSearchResults.class);
