@@ -16,12 +16,19 @@ import com.parse.Parse;
 import com.parse.ParseUser;
 import com.parse.ParseAnonymousUtils;
 import com.parse.SignUpCallback;
+import com.parse.ui.ParseLoginBuilder;
 
 public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        /* COMMENT THIS OUT IF YOU WANT TO USE OLD LOGIN SCREEN
+        ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
+        startActivityForResult(builder.build(), 0);*/
+
+        // ************* UNCOMMENT THIS TO USE OLD LOGIN SCREEN ************
 
         // Determine whether the current user is an anonymous user
         if (ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())) {

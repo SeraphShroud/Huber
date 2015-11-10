@@ -41,6 +41,28 @@
         <activity android:name=".BarberSearchResults" >
         </activity>
         <activity
+            android:name="com.parse.ui.ParseLoginActivity"
+            android:label="string/Huber"
+            android:launchMode="singleTop">
+            <!-- We reference a drawable resource here, so we must use android:resource -->
+            <meta-data
+                android:name="com.parse.ui.ParseLoginActivity.APP_LOGO"
+                android:resource="@drawable/scissor"/>
+            <!-- For these non-resource options, use android:value -->
+            <meta-data
+                android:name="com.parse.ui.ParseLoginActivity.PARSE_LOGIN_ENABLED"
+                android:value="true"/>
+            <meta-data
+                android:name="com.parse.ui.ParseLoginActivity.PARSE_LOGIN_EMAIL_AS_USERNAME"
+                android:value="true"/>
+            <meta-data
+                android:name="com.parse.ui.ParseLoginActivity.PARSE_LOGIN_HELP_TEXT"
+                android:value="Reset Password"/>
+            <meta-data
+                android:name="com.parse.ui.ParseLoginActivity.MIN_PASSWORD_LENGTH"
+                android:value="8"/>
+        </activity>
+        <activity
             android:name=".Calendar"
             android:label="@string/title_activity_calendar"
             android:theme="@style/AppTheme.NoActionBar" >
