@@ -43,7 +43,7 @@ public class Calendar extends AppCompatActivity {
         timeOut2.setText("");
         Intent intent = new Intent(
                 Calendar.this,
-                Welcome.class);
+                BarberWelcome.class);
         startActivity(intent);
         ParseUser currentUser = ParseUser.getCurrentUser();
         currentUser.put("schedule", dayOut.toString() + " " + timeOut1.toString() + " " + timeOut2.toString() );

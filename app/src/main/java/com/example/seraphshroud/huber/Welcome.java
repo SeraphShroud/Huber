@@ -47,6 +47,10 @@ public class Welcome extends Activity {
                 // Logout current user
                 ParseUser.logOut();
                 finish();
+                Intent intent = new Intent(
+                        Welcome.this,
+                        LoginSignupActivity.class);
+                startActivity(intent);
             }
         });
 
