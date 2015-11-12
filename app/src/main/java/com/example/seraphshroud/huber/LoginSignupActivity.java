@@ -50,7 +50,7 @@ public class LoginSignupActivity extends Activity {
                 {
                     Toast.makeText(
                             getApplicationContext(),
-                            "Must enter valid email to login",
+                            "Must enter valid username to login",
                             Toast.LENGTH_LONG).show();
                 }
                 else if(passwordtxt.isEmpty() || passwordtxt.length() < 6)
@@ -96,7 +96,7 @@ public class LoginSignupActivity extends Activity {
                 {
                     Toast.makeText(
                             getApplicationContext(),
-                            "Must enter valid email to sign up",
+                            "Must enter valid username to sign up",
                             Toast.LENGTH_LONG).show();
                 }
                 else if(usernametxt.length() < 6 || passwordtxt.length() < 6)
