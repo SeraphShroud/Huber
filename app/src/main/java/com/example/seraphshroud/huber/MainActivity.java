@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -24,13 +25,23 @@ public class MainActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /* COMMENT THIS OUT IF YOU WANT TO USE OLD LOGIN SCREEN
-        ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
-        startActivityForResult(builder.build(), 0);*/
+
+        /* COMMENT THIS OUT IF YOU WANT TO USE OLD LOGIN SCREEN */
+        /*ParseUser currentUser = ParseUser.getCurrentUser();
+        System.out.println("USER: " + currentUser);
+        if (currentUser == null) {
+            ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
+            startActivityForResult(builder.build(), 0);
+        } else {
+            Intent launchMainActivity = new Intent(MainActivity.this, ClientOrBarber.class);
+            startActivity(launchMainActivity );
+            //ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
+            //startActivityForResult(builder.build(), 0);
+        }*/
 
         // ************* UNCOMMENT THIS TO USE OLD LOGIN SCREEN ************
 
-        // Determine whether the current user is an anonymous user
+        // Determine whether the current user is an anonymous use
         if (ParseAnonymousUtils.isLinked(ParseUser.getCurrentUser())) {
             // If user is anonymous, send the user to LoginSignupActivity.class
             Intent intent = new Intent(MainActivity.this,

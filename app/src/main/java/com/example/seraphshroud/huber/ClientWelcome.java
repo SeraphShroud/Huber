@@ -48,6 +48,10 @@ public class ClientWelcome extends Activity {
                 // Logout current user
                 ParseUser.logOut();
                 finish();
+                Intent intent = new Intent(
+                        ClientWelcome.this,
+                        LoginSignupActivity.class);
+                startActivity(intent);
             }
         });
 

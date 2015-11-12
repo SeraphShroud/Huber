@@ -67,10 +67,17 @@ public class LoginSignupActivity extends Activity {
                             public void done(ParseUser user, ParseException e) {
                                 if (user != null) {
                                     // If user exist and authenticated, send user to Welcome.class
-                                    Intent intent = new Intent(
-                                            LoginSignupActivity.this,
-                                            Welcome.class);
-                                    startActivity(intent);
+                                    if(user.getBoolean("isBarber") == true) {
+                                        Intent intent = new Intent(
+                                                LoginSignupActivity.this,
+                                                Welcome.class);
+                                        startActivity(intent);
+                                    } else {
+                                        Intent intent = new Intent(
+                                                LoginSignupActivity.this,
+                                                ClientWelcome.class);
+                                        startActivity(intent);
+                                    }
                                     Toast.makeText(getApplicationContext(),
                                             "Successfully Logged in",
                                             Toast.LENGTH_LONG).show();
@@ -89,9 +96,9 @@ public class LoginSignupActivity extends Activity {
         signup.setOnClickListener(new OnClickListener() {
             public void onClick(View arg0) {
                 // Retrieve the text entered from the EditText
-                usernametxt = username.getText().toString();
-                passwordtxt = password.getText().toString();
-
+                //usernametxt = username.getText().toString();
+                //passwordtxt = password.getText().toString();
+                /*
                 if(usernametxt.isEmpty())
                 {
                     Toast.makeText(
@@ -135,7 +142,7 @@ public class LoginSignupActivity extends Activity {
                             user.setPassword(passwordtxt);
                             user.signUpInBackground(new SignUpCallback() {
                                 public void done(ParseException e) {
-                                    if (e == null) {
+                                    if (e == null) { */
                                         Intent intent = new Intent(
                                                 LoginSignupActivity.this,
                                                 ClientOrBarber.class);
@@ -143,7 +150,7 @@ public class LoginSignupActivity extends Activity {
                                         // Show a simple Toast message upon successful registration
                                 /*Toast.makeText(getApplicationContext(),
                                         "Successfully Signed up, please log in.",
-                                        Toast.LENGTH_LONG).show();*/
+                                        Toast.LENGTH_LONG).show();
                                     } else {
                                         Toast.makeText(getApplicationContext(),
                                                 "Sign up Error", Toast.LENGTH_LONG)
@@ -153,7 +160,7 @@ public class LoginSignupActivity extends Activity {
                             });
                         }
                     }
-                }
+                }*/
 
             }
         });
