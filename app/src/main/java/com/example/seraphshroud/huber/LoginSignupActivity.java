@@ -66,11 +66,20 @@ public class LoginSignupActivity extends Activity {
                         new LogInCallback() {
                             public void done(ParseUser user, ParseException e) {
                                 if (user != null) {
-                                    // If user exist and authenticated, send user to Welcome.class
-                                    Intent intent = new Intent(
-                                            LoginSignupActivity.this,
-                                            Welcome.class);
-                                    startActivity(intent);
+                                    if (user.getBoolean("isBarber") == true) {
+                                        // If user exist and authenticated, send user to Welcome.class
+                                        Intent intent = new Intent(
+                                                LoginSignupActivity.this,
+                                                Welcome.class);
+                                        startActivity(intent);
+                                    }
+                                    else {
+                                        // If user exist and authenticated, send user to Welcome.class
+                                        Intent intent = new Intent(
+                                                LoginSignupActivity.this,
+                                                ClientWelcome.class);
+                                        startActivity(intent);
+                                    }
                                     Toast.makeText(getApplicationContext(),
                                             "Successfully Logged in",
                                             Toast.LENGTH_LONG).show();

@@ -20,10 +20,10 @@ public class FindBarber extends Activity {
         // Get the view from singleitemview.xml
         setContentView(R.layout.find_barber);
 
-        Spinner priceDropdown = (Spinner) findViewById(R.id.price_range);
+        final Spinner priceDropdown = (Spinner) findViewById(R.id.price_range);
         String[] priceItems = new String[]{"$0-$10", "$10-$15", "$15-$20", "$20-$25"};
 
-        Spinner timeDropdown = (Spinner) findViewById(R.id.time_range);
+        final Spinner timeDropdown = (Spinner) findViewById(R.id.time_range);
         String[] timeItems = new String[]{"8:00am - 11:00am", "11:00am - 2:00pm", "2:00pm - 5:00pm"};
 
         Button searchbtn = (Button) findViewById(R.id.searchbtn);
@@ -36,16 +36,24 @@ public class FindBarber extends Activity {
         timeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         timeDropdown.setAdapter(timeAdapter);
 
-        final String priceTxt = priceDropdown.getSelectedItem().toString();
-        String timeTxt = timeDropdown.getSelectedItem().toString();
-
+        // TODO check getselecteditem and see why price and time isn't changing
         searchbtn.setOnClickListener(new View.OnClickListener() {
+
+            final String priceTxt = priceDropdown.getSelectedItem().toString();
+            final String timeTxt = timeDropdown.getSelectedItem().toString();
+
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "You select price @ : " + priceTxt, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(
                         FindBarber.this,
                         BarberSearchResults.class);
+
+                // Pass in the price and time to the BarberSearchResults page
+                Bundle b = new Bundle();
+                b.putString("price", priceTxt);
+                b.putString("time", timeTxt);
+                intent.putExtras(b);
                 startActivity(intent);
             }
         });

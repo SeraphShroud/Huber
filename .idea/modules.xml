@@ -4,8 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Huber.iml" filepath="$PROJECT_DIR$/Huber.iml" />
       <module fileurl="file://$PROJECT_DIR$/ParseUI-Android-master/ParseUI-Login/ParseUI-Login.iml" filepath="$PROJECT_DIR$/ParseUI-Android-master/ParseUI-Login/ParseUI-Login.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ParseUI-Android-master/ParseUI-Login/ParseUI-Login.iml" filepath="$PROJECT_DIR$/ParseUI-Android-master/ParseUI-Login/ParseUI-Login.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ParseUI-Android-master/ParseUI-Widget/ParseUI-Widget.iml" filepath="$PROJECT_DIR$/ParseUI-Android-master/ParseUI-Widget/ParseUI-Widget.iml" />
       <module fileurl="file://$PROJECT_DIR$/ParseUI-Android-master/ParseUI-Widget/ParseUI-Widget.iml" filepath="$PROJECT_DIR$/ParseUI-Android-master/ParseUI-Widget/ParseUI-Widget.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
