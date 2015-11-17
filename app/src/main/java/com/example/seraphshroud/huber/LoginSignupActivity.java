@@ -71,10 +71,11 @@ public class LoginSignupActivity extends Activity {
                                             Toast.LENGTH_LONG).show();
                                     finish();
                                 }
+                                // If username/password fail, print message
                                 else {
                                     Toast.makeText(
                                             getApplicationContext(),
-                                            "No such user exist, please signup",
+                                            "Invalid username or password.",
                                             Toast.LENGTH_LONG).show();
                                 }
                             }
