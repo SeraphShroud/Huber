@@ -22,10 +22,10 @@ public class ClientInfo extends Activity {
     EditText email;
     EditText phone;
     EditText location;
-    EditText firstName, lastName;
+    //EditText name;
     EditText username, password;
     String usernametxt, passwordtxt;
-    //String firstNametxt, lastNametxt; Anything with name in it will not work in the database
+    //String name; Anything with name in it will not work in the database
     String emailtxt;
     String phonetxt;
     String locationtxt;

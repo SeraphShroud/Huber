@@ -2,11 +2,14 @@ package com.example.seraphshroud.huber;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.parse.Parse;
 import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
-import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import java.util.Arrays;
 
@@ -45,23 +48,30 @@ public class BarberSearchResults extends Activity {
             low = 20;
             high = 25;
         }
+        else {
+            low = 0;
+            high = 100;
+        }
 
         System.out.println("Price is: " + price);
         System.out.println("Time is: " + time);
 
         // Create the Query adapter and search for only barbers
-        ParseQueryAdapter<ParseObject> adapter =
-                new ParseQueryAdapter<ParseObject>(this, new ParseQueryAdapter.QueryFactory<ParseObject>() {
-                    public ParseQuery<ParseObject> create() {
+        ParseQueryAdapter<ParseUser> adapter =
+                new ParseQueryAdapter<ParseUser>(this, new ParseQueryAdapter.QueryFactory<ParseUser>() {
+                    public ParseQuery<ParseUser> create() {
                         // Here we can configure a ParseQuery to our heart's desire.
-                        ParseQuery query = new ParseQuery("_User");
+
+                        ParseQuery query = ParseUser.getQuery();
                         //query.whereContainedIn("isBarber", Arrays.asList({"priceRange"}));
-                        query.whereGreaterThanOrEqualTo("priceRange", low);
-                        query.whereLessThanOrEqualTo("priceRange", high);
-                        query.orderByDescending("name");
+                        //query.whereGreaterThanOrEqualTo("priceRange", low);
+                        //query.whereLessThanOrEqualTo("priceRange", high);
+                        query.orderByAscending("username");
+                        query.whereEqualTo("isBarber", true);
                         return query;
                     }
                 });
+        adapter.setTextKey("username");
         ListView listView = (ListView) findViewById(R.id.listview);
         listView.setAdapter(adapter);
     }
