@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.parse.ParseUser;
 
+import java.util.Arrays;
+
 
 public class Calendar extends AppCompatActivity {
 
@@ -42,7 +44,9 @@ public class Calendar extends AppCompatActivity {
         //timeOut1.setText("");
         //timeOut2.setText("");
         ParseUser currentUser = ParseUser.getCurrentUser();
-        currentUser.put("schedule", dayOut.getText().toString() + " " + timeOut1.getText().toString() + " " + timeOut2.getText().toString() );
+        currentUser.add("schedule", dayOut.getText().toString() + " " + timeOut1.getText().toString() + " " + timeOut2.getText().toString() );
+        //String a[] = new String[] {"Goodbye", "Adele"};
+        //currentUser.add("schedule", "Hello");
         currentUser.saveInBackground();
         Intent intent = new Intent(
                 Calendar.this,
