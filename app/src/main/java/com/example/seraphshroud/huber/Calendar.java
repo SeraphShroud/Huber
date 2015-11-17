@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.ParseUser;
 
@@ -37,21 +38,29 @@ public class Calendar extends AppCompatActivity {
 
     public void buttonOnClick(View v)
     {
-        ((Button) v).setText("Added!");
+        if( (dayOut.getText().toString() != "") && (timeOut1.getText().toString() != "") && (timeOut2.getText().toString() != "")) {
+            ((Button) v).setText("Added!");
 
-        //TODO: Add Code to Add the Data to the Database
-        //dayOut.setText("");
-        //timeOut1.setText("");
-        //timeOut2.setText("");
-        ParseUser currentUser = ParseUser.getCurrentUser();
-        currentUser.add("schedule", dayOut.getText().toString() + " " + timeOut1.getText().toString() + " " + timeOut2.getText().toString() );
-        //String a[] = new String[] {"Goodbye", "Adele"};
-        //currentUser.add("schedule", "Hello");
-        currentUser.saveInBackground();
-        Intent intent = new Intent(
-                Calendar.this,
-                BarberWelcome.class);
-        startActivity(intent);
+            //TODO: Add Code to Add the Data to the Database
+            //dayOut.setText("");
+            //timeOut1.setText("");
+            //timeOut2.setText("");
+            ParseUser currentUser = ParseUser.getCurrentUser();
+            currentUser.add("schedule", dayOut.getText().toString() + " " + timeOut1.getText().toString() + " " + timeOut2.getText().toString());
+            //String a[] = new String[] {"Goodbye", "Adele"};
+            //currentUser.add("schedule", "Hello");
+            currentUser.saveInBackground();
+            Intent intent = new Intent(
+                    Calendar.this,
+                    BarberWelcome.class);
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Please input a date and a time range.",
+                    Toast.LENGTH_LONG).show();
+        }
 
     }
 
