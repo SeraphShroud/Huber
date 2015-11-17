@@ -39,7 +39,7 @@ public class DatePickerFragment extends DialogFragment
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        dateView.setText(Integer.toString(month) + "/" + Integer.toString(day)
+        dateView.setText(Integer.toString(month+1) + "/" + Integer.toString(day)
                 + "/" + Integer.toString(year));
 
     }
