@@ -46,32 +46,20 @@ public class LoginSignupActivity extends Activity {
                 usernametxt = username.getText().toString();
                 passwordtxt = password.getText().toString();
 
-                if(usernametxt.isEmpty() || usernametxt.length() < 6 || usernametxt.contains(" "))
-                {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Must enter valid username to login",
-                            Toast.LENGTH_LONG).show();
-                }
-                else if(passwordtxt.isEmpty() || passwordtxt.length() < 6)
-                {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Not a valid password. Please try again.",
-                            Toast.LENGTH_LONG).show();
-                }
-
                 // Send data to Parse.com for verification
                 ParseUser.logInInBackground(usernametxt, passwordtxt,
                         new LogInCallback() {
                             public void done(ParseUser user, ParseException e) {
                                 if (user != null) {
+                                    // Check if the user is a barber
                                     if (user.getBoolean("isBarber") == true) {
-                                        // If user exist and authenticated, send user to Welcome.class
+                                        // If user exist and authenticatated, go to barber welcome page
                                         Intent intent = new Intent(
                                                 LoginSignupActivity.this,
-                                                Welcome.class);
+                                                BarberWelcome.class);
                                         startActivity(intent);
+
+                                    // If user is a client, go to client welcome page
                                     } else {
                                         Intent intent = new Intent(
                                                 LoginSignupActivity.this,
@@ -82,7 +70,8 @@ public class LoginSignupActivity extends Activity {
                                             "Successfully Logged in",
                                             Toast.LENGTH_LONG).show();
                                     finish();
-                                } else {
+                                }
+                                else {
                                     Toast.makeText(
                                             getApplicationContext(),
                                             "No such user exist, please signup",
@@ -95,73 +84,10 @@ public class LoginSignupActivity extends Activity {
         // Sign up Button Click Listener
         signup.setOnClickListener(new OnClickListener() {
             public void onClick(View arg0) {
-                // Retrieve the text entered from the EditText
-                //usernametxt = username.getText().toString();
-                //passwordtxt = password.getText().toString();
-                /*
-                if(usernametxt.isEmpty())
-                {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Must enter valid username to sign up",
-                            Toast.LENGTH_LONG).show();
-                }
-                else if(usernametxt.length() < 6 || passwordtxt.length() < 6)
-                {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Username & Password must be at least 6 characters long",
-                            Toast.LENGTH_LONG).show();
-                }
-                else if(usernametxt.contains(" "))
-                {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Username must not contain any spaces",
-                            Toast.LENGTH_LONG).show();
-                }
-                else if(passwordtxt.isEmpty()) {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Not a valid password. Please try again.",
-                            Toast.LENGTH_LONG).show();
-                }
-
-                // Force user to fill up the form
-                if (usernametxt.equals("") && passwordtxt.equals("")) {
-                    Toast.makeText(getApplicationContext(),
-                            "Please complete the sign up form",
-                            Toast.LENGTH_LONG).show();
-
-                } else {
-                    if(usernametxt != null && usernametxt.length() >= 6 && !(usernametxt.contains(" "))) {
-                        if (passwordtxt != null && passwordtxt.length() >= 6) {
-                            // Save new user data into Parse.com Data Storage
-                            ParseUser user = new ParseUser();
-                            user.setUsername(usernametxt);
-                            user.setPassword(passwordtxt);
-                            user.signUpInBackground(new SignUpCallback() {
-                                public void done(ParseException e) {
-                                    if (e == null) { */
-                                        Intent intent = new Intent(
-                                                LoginSignupActivity.this,
-                                                ClientOrBarber.class);
-                                        startActivity(intent);
-                                        // Show a simple Toast message upon successful registration
-                                /*Toast.makeText(getApplicationContext(),
-                                        "Successfully Signed up, please log in.",
-                                        Toast.LENGTH_LONG).show();
-                                    } else {
-                                        Toast.makeText(getApplicationContext(),
-                                                "Sign up Error", Toast.LENGTH_LONG)
-                                                .show();
-                                    }
-                                }
-                            });
-                        }
-                    }
-                }*/
-
+                Intent intent = new Intent(
+                        LoginSignupActivity.this,
+                        ClientOrBarber.class);
+                startActivity(intent);
             }
         });
 
