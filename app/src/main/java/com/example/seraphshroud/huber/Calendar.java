@@ -38,16 +38,17 @@ public class Calendar extends AppCompatActivity {
         ((Button) v).setText("Added!");
 
         //TODO: Add Code to Add the Data to the Database
-        dayOut.setText("");
-        timeOut1.setText("");
-        timeOut2.setText("");
+        //dayOut.setText("");
+        //timeOut1.setText("");
+        //timeOut2.setText("");
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        currentUser.put("schedule", dayOut.getText().toString() + " " + timeOut1.getText().toString() + " " + timeOut2.getText().toString() );
+        currentUser.saveInBackground();
         Intent intent = new Intent(
                 Calendar.this,
                 BarberWelcome.class);
         startActivity(intent);
-        ParseUser currentUser = ParseUser.getCurrentUser();
-        currentUser.put("schedule", dayOut.toString() + " " + timeOut1.toString() + " " + timeOut2.toString() );
-        currentUser.saveInBackground();
+
     }
 
     public void showTimePickerDialog(View v) {
