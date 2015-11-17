@@ -57,7 +57,7 @@ public class BarberSearchResults extends Activity {
         System.out.println("Time is: " + time);
 
         // Create the Query adapter and search for only barbers
-        ParseQueryAdapter<ParseUser> adapter =
+        ParseQueryAdapter<ParseUser> userAdapter =
                 new ParseQueryAdapter<ParseUser>(this, new ParseQueryAdapter.QueryFactory<ParseUser>() {
                     public ParseQuery<ParseUser> create() {
                         // Here we can configure a ParseQuery to our heart's desire.
@@ -66,13 +66,53 @@ public class BarberSearchResults extends Activity {
                         //query.whereContainedIn("isBarber", Arrays.asList({"priceRange"}));
                         //query.whereGreaterThanOrEqualTo("priceRange", low);
                         //query.whereLessThanOrEqualTo("priceRange", high);
-                        query.orderByAscending("username");
+                        query.orderByAscending("name");
                         query.whereEqualTo("isBarber", true);
                         return query;
                     }
                 });
-        adapter.setTextKey("username");
-        ListView listView = (ListView) findViewById(R.id.listview);
-        listView.setAdapter(adapter);
+        userAdapter.setTextKey("name");
+
+        ListView listView = (ListView) findViewById(R.id.barberList);
+        listView.setAdapter(userAdapter);
+
+        // Create the Query adapter and search for only barbers
+        ParseQueryAdapter<ParseUser> locationAdapter =
+                new ParseQueryAdapter<ParseUser>(this, new ParseQueryAdapter.QueryFactory<ParseUser>() {
+                    public ParseQuery<ParseUser> create() {
+                        // Here we can configure a ParseQuery to our heart's desire.
+
+                        ParseQuery query = ParseUser.getQuery();
+                        //query.whereContainedIn("isBarber", Arrays.asList({"priceRange"}));
+                        //query.whereGreaterThanOrEqualTo("priceRange", low);
+                        //query.whereLessThanOrEqualTo("priceRange", high);
+                        query.orderByAscending("name");
+                        query.whereEqualTo("isBarber", true);
+                        return query;
+                    }
+                });
+        locationAdapter.setTextKey("location");
+        ListView listView3 = (ListView) findViewById(R.id.locationList);
+        listView3.setAdapter(locationAdapter);
+
+        // Create the Query adapter and search for only barbers
+        ParseQueryAdapter<ParseUser> priceAdapter =
+                new ParseQueryAdapter<ParseUser>(this, new ParseQueryAdapter.QueryFactory<ParseUser>() {
+                    public ParseQuery<ParseUser> create() {
+                        // Here we can configure a ParseQuery to our heart's desire.
+
+                        ParseQuery query = ParseUser.getQuery();
+                        //query.whereContainedIn("isBarber", Arrays.asList({"priceRange"}));
+                        //query.whereGreaterThanOrEqualTo("priceRange", low);
+                        //query.whereLessThanOrEqualTo("priceRange", high);
+                        query.orderByAscending("name");
+                        query.whereEqualTo("isBarber", true);
+                        return query;
+                    }
+                });
+
+        priceAdapter.setTextKey("price");
+        ListView listView2 = (ListView) findViewById(R.id.priceList);
+        listView2.setAdapter(priceAdapter);
     }
 }
