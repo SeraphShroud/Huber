@@ -46,6 +46,10 @@ public class BarberWelcome extends Activity {
                 // Logout current user
                 ParseUser.logOut();
                 finish();
+                Intent intent = new Intent(
+                        BarberWelcome.this,
+                        LoginSignupActivity.class);
+                startActivity(intent);
             }
         });
 

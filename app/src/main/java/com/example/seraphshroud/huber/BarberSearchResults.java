@@ -11,7 +11,7 @@ import com.parse.ParseObject;
 import java.util.Arrays;
 
 /**
- * Created by Alicia on 11/10/2015.
+ * Created by Brian on 11/10/2015.
  */
 public class BarberSearchResults extends Activity {
 

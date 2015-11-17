@@ -1,5 +1,6 @@
 package com.example.seraphshroud.huber;
 
+import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.parse.ParseUser;
 
 
 public class Calendar extends AppCompatActivity {
@@ -38,6 +41,13 @@ public class Calendar extends AppCompatActivity {
         dayOut.setText("");
         timeOut1.setText("");
         timeOut2.setText("");
+        Intent intent = new Intent(
+                Calendar.this,
+                BarberWelcome.class);
+        startActivity(intent);
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        currentUser.put("schedule", dayOut.toString() + " " + timeOut1.toString() + " " + timeOut2.toString() );
+        currentUser.saveInBackground();
     }
 
     public void showTimePickerDialog(View v) {

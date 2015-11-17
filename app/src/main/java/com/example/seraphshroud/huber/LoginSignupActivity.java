@@ -50,7 +50,7 @@ public class LoginSignupActivity extends Activity {
                 {
                     Toast.makeText(
                             getApplicationContext(),
-                            "Must enter valid email to login",
+                            "Must enter valid username to login",
                             Toast.LENGTH_LONG).show();
                 }
                 else if(passwordtxt.isEmpty() || passwordtxt.length() < 6)
@@ -72,9 +72,7 @@ public class LoginSignupActivity extends Activity {
                                                 LoginSignupActivity.this,
                                                 Welcome.class);
                                         startActivity(intent);
-                                    }
-                                    else {
-                                        // If user exist and authenticated, send user to Welcome.class
+                                    } else {
                                         Intent intent = new Intent(
                                                 LoginSignupActivity.this,
                                                 ClientWelcome.class);
@@ -98,14 +96,14 @@ public class LoginSignupActivity extends Activity {
         signup.setOnClickListener(new OnClickListener() {
             public void onClick(View arg0) {
                 // Retrieve the text entered from the EditText
-                usernametxt = username.getText().toString();
-                passwordtxt = password.getText().toString();
-
+                //usernametxt = username.getText().toString();
+                //passwordtxt = password.getText().toString();
+                /*
                 if(usernametxt.isEmpty())
                 {
                     Toast.makeText(
                             getApplicationContext(),
-                            "Must enter valid email to sign up",
+                            "Must enter valid username to sign up",
                             Toast.LENGTH_LONG).show();
                 }
                 else if(usernametxt.length() < 6 || passwordtxt.length() < 6)
@@ -144,7 +142,7 @@ public class LoginSignupActivity extends Activity {
                             user.setPassword(passwordtxt);
                             user.signUpInBackground(new SignUpCallback() {
                                 public void done(ParseException e) {
-                                    if (e == null) {
+                                    if (e == null) { */
                                         Intent intent = new Intent(
                                                 LoginSignupActivity.this,
                                                 ClientOrBarber.class);
@@ -152,7 +150,7 @@ public class LoginSignupActivity extends Activity {
                                         // Show a simple Toast message upon successful registration
                                 /*Toast.makeText(getApplicationContext(),
                                         "Successfully Signed up, please log in.",
-                                        Toast.LENGTH_LONG).show();*/
+                                        Toast.LENGTH_LONG).show();
                                     } else {
                                         Toast.makeText(getApplicationContext(),
                                                 "Sign up Error", Toast.LENGTH_LONG)
@@ -162,7 +160,7 @@ public class LoginSignupActivity extends Activity {
                             });
                         }
                     }
-                }
+                }*/
 
             }
         });

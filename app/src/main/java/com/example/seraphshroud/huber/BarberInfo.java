@@ -32,6 +32,19 @@ public class BarberInfo extends Activity {
     String specialtytxt;
     String priceRangetxt;
 
+    public static boolean isNumeric(String str)
+    {
+        try
+        {
+            double d = Double.parseDouble(str);
+        }
+        catch(NumberFormatException nfe)
+        {
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,6 +74,21 @@ public class BarberInfo extends Activity {
                 locationtxt = location.getText().toString();
                 specialtytxt = specialty.getText().toString();
                 priceRangetxt = priceRange.getText().toString();
+
+                if(phonetxt.length() != 13 || !(phonetxt.contains("(")) || !
+                        (phonetxt.contains(")")) || !(phonetxt.contains("-"))) {
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Please enter a valid phone number to sign up ex. (123)456-7890",
+                            Toast.LENGTH_LONG).show();
+                }
+
+                else if(!(isNumeric(priceRangetxt))) {
+                    Toast.makeText(
+                            getApplicationContext(),
+                            "Please enter a valid price range ex. 5.50",
+                            Toast.LENGTH_LONG).show();
+                }
 
                 // Insert the user's information into the database
                 user.setUsername(usernametxt);
