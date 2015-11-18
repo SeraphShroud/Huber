@@ -75,21 +75,29 @@ public class ClientInfo extends Activity {
                 } else { inputError = 6; }
 
                 if (inputError != 0) {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Please fill out all the fields.",
-                            Toast.LENGTH_SHORT).show();
-                    System.out.println("Error code: " + inputError);
+                    // If there was a previous error, check to see if user fixed the errors
+                    if (phonetxt.length() == 13 && (phonetxt.contains("(")) &&
+                            (phonetxt.contains(")")) && (phonetxt.contains("-"))) {
+                        // If user fixed errors for phone and price, set flag to good
+                        inputError = 0;
+                    }
+                    else {
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "Please fill out all the fields.",
+                                Toast.LENGTH_SHORT).show();
+                        System.out.println("Error code: " + inputError);
+                    }
                 }
-                // TODO This verification doesn't work even if it's right. Please correct this
-                /*else if (phonetxt.length() != 13 || !(phonetxt.contains("(")) || !
+                // Check if the phone number has the correct format
+                else if (phonetxt.length() != 13 || !(phonetxt.contains("(")) || !
                         (phonetxt.contains(")")) || !(phonetxt.contains("-"))) {
-                    inputError = 5;
+                    inputError = 9;
                     Toast.makeText(
                             getApplicationContext(),
                             "Please enter a valid phone number to sign up ex. (123)456-7890",
                             Toast.LENGTH_LONG).show();
-                }*/
+                }
 
                 // If no errors, create a new client user
                 if (inputError == 0) {
