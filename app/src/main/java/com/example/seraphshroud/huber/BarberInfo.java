@@ -101,28 +101,40 @@ public class BarberInfo extends Activity {
                     priceRangetxt = priceRange.getText().toString();
                 } else { inputError = 8; }
 
+                // Check if all fields were filled
                 if (inputError != 0) {
-                    Toast.makeText(
-                            getApplicationContext(),
-                            "Please fill out all the fields.",
-                            Toast.LENGTH_SHORT).show();
-                    System.out.println("Error code: " + inputError);
+                    // If there was a previous error, check to see if user fixed the errors
+                    if (phonetxt.length() == 13 && (phonetxt.contains("(")) &&
+                            (phonetxt.contains(")")) && (phonetxt.contains("-")) && (isNumeric(priceRangetxt)) ) {
+                        // If user fixed errors for phone and price, set flag to good
+                        inputError = 0;
+                    }
+                    else {
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "Please fill out all the fields.",
+                                Toast.LENGTH_SHORT).show();
+                        System.out.println("Error code: " + inputError);
+                    }
                 }
-                // TODO This verification doesn't work even if it's right. Please correct this
-                /*else if (phonetxt.length() != 13 || !(phonetxt.contains("(")) || !
+                // Check if the phone number has the correct format
+                else if (phonetxt.length() != 13 || !(phonetxt.contains("(")) || !
                         (phonetxt.contains(")")) || !(phonetxt.contains("-"))) {
-                    inputError = 5;
+                    inputError = 9;
                     Toast.makeText(
                             getApplicationContext(),
                             "Please enter a valid phone number to sign up ex. (123)456-7890",
                             Toast.LENGTH_LONG).show();
-                }*/ else if (!(isNumeric(priceRangetxt))) {
-                    inputError = 8;
+                }
+                // Check if the user inputted a numeric number for price
+                else if (!(isNumeric(priceRangetxt))) {
+                    inputError = 10;
                     Toast.makeText(
                             getApplicationContext(),
                             "Please enter a valid price range ex. 5.50",
                             Toast.LENGTH_LONG).show();
                 }
+
 
                 // If no errors, create a new barber user
                 if (inputError == 0) {
