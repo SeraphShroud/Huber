@@ -8,7 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.parse.ParseUser;
@@ -29,9 +32,9 @@ public class Calendar extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        dayOut = (TextView) findViewById(R.id.textView4);
-        timeOut1 = (TextView) findViewById(R.id.textView5);
-        timeOut2 = (TextView) findViewById(R.id.textView6);
+        //dayOut = (TextView) findViewById(R.id.textView4);
+        //timeOut1 = (TextView) findViewById(R.id.textView5);
+        //timeOut2 = (TextView) findViewById(R.id.textView6);
 
     }
 
