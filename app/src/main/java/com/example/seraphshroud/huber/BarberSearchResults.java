@@ -73,7 +73,7 @@ public class BarberSearchResults extends Activity {
                 });
         userAdapter.setTextKey("name");
 
-        ListView listView = (ListView) findViewById(R.id.barberList);
+        ListView listView = (ListView) findViewById(R.id.listView);
         listView.setAdapter(userAdapter);
 
         // Create the Query adapter and search for only barbers
