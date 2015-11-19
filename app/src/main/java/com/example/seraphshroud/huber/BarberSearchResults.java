@@ -63,9 +63,6 @@ public class BarberSearchResults extends Activity {
                         // Here we can configure a ParseQuery to our heart's desire.
 
                         ParseQuery query = ParseUser.getQuery();
-                        //query.whereContainedIn("isBarber", Arrays.asList({"priceRange"}));
-                        //query.whereGreaterThanOrEqualTo("priceRange", low);
-                        //query.whereLessThanOrEqualTo("priceRange", high);
                         query.orderByAscending("name");
                         query.whereEqualTo("isBarber", true);
                         return query;
@@ -83,9 +80,6 @@ public class BarberSearchResults extends Activity {
                         // Here we can configure a ParseQuery to our heart's desire.
 
                         ParseQuery query = ParseUser.getQuery();
-                        //query.whereContainedIn("isBarber", Arrays.asList({"priceRange"}));
-                        //query.whereGreaterThanOrEqualTo("priceRange", low);
-                        //query.whereLessThanOrEqualTo("priceRange", high);
                         query.orderByAscending("name");
                         query.whereEqualTo("isBarber", true);
                         return query;

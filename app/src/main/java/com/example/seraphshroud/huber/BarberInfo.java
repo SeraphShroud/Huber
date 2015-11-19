@@ -25,14 +25,14 @@ public class BarberInfo extends Activity {
     EditText name;
     EditText location;
     EditText specialty;
-    EditText priceRange;
+    EditText price;
     String usernametxt, passwordtxt;
     String nametxt = null;
     String emailtxt = null;
     String phonetxt = null;
     String locationtxt = null;
     String specialtytxt = null;
-    String priceRangetxt = null;
+    String pricetxt = null;
     int inputError = 0;
 
     public static boolean isNumeric(String str)
@@ -63,7 +63,7 @@ public class BarberInfo extends Activity {
         phone = (EditText) findViewById(R.id.barber_phone);
         location = (EditText) findViewById(R.id.barber_location);
         specialty = (EditText) findViewById(R.id.barber_specialty);
-        priceRange = (EditText) findViewById(R.id.barber_price);
+        price = (EditText) findViewById(R.id.barber_price);
 
         nextbutton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -97,15 +97,15 @@ public class BarberInfo extends Activity {
                     specialtytxt = specialty.getText().toString();
                 } else { inputError = 7; }
 
-                if ( priceRange!= null) {
-                    priceRangetxt = priceRange.getText().toString();
+                if ( price!= null) {
+                    pricetxt = price.getText().toString();
                 } else { inputError = 8; }
 
                 // Check if all fields were filled
                 if (inputError != 0) {
                     // If there was a previous error, check to see if user fixed the errors
                     if (phonetxt.length() == 13 && (phonetxt.contains("(")) &&
-                            (phonetxt.contains(")")) && (phonetxt.contains("-")) && (isNumeric(priceRangetxt)) ) {
+                            (phonetxt.contains(")")) && (phonetxt.contains("-")) && (isNumeric(pricetxt)) ) {
                         // If user fixed errors for phone and price, set flag to good
                         inputError = 0;
                     }
@@ -127,11 +127,11 @@ public class BarberInfo extends Activity {
                             Toast.LENGTH_LONG).show();
                 }
                 // Check if the user inputted a numeric number for price
-                else if (!(isNumeric(priceRangetxt))) {
+                else if (!(isNumeric(pricetxt))) {
                     inputError = 10;
                     Toast.makeText(
                             getApplicationContext(),
-                            "Please enter a valid price range ex. 5.50",
+                            "Please enter a valid price ex. 5.50",
                             Toast.LENGTH_LONG).show();
                 }
 
@@ -151,7 +151,7 @@ public class BarberInfo extends Activity {
                     user.put("phoneNumber", phonetxt);
                     user.put("location", locationtxt);
                     user.put("specialty", specialtytxt);
-                    user.put("priceRange", priceRangetxt);
+                    user.put("price", pricetxt);
                     user.put("isBarber", true);
 
                     user.signUpInBackground(new SignUpCallback() {
