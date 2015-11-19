@@ -53,10 +53,18 @@ public class MainActivity extends AppCompatActivity {
             // Get current user data from Parse.com
             ParseUser currentUser = ParseUser.getCurrentUser();
             if (currentUser != null) {
-                // Send logged in users to Welcome.class
-                Intent intent = new Intent(MainActivity.this, Welcome.class);
-                startActivity(intent);
-                finish();
+                // If logged in as Client, go to ClientWelcome.class
+                if (!currentUser.getBoolean("isBarber")) {
+                    Intent intent = new Intent(MainActivity.this, ClientWelcome.class);
+                    startActivity(intent);
+                    finish();
+                }
+                // If logged in as Barber, go to BarberWelcome.class
+                else {
+                    Intent intent = new Intent(MainActivity.this, BarberWelcome.class);
+                    startActivity(intent);
+                    finish();
+                }
             } else {
                 // Send user to LoginSignupActivity.class
                 Intent intent = new Intent(MainActivity.this,
