@@ -1,9 +1,11 @@
 package com.example.seraphshroud.huber;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.parse.Parse;
@@ -76,43 +78,16 @@ public class BarberSearchResults extends Activity {
         ListView listView = (ListView) findViewById(R.id.barberList);
         listView.setAdapter(userAdapter);
 
-        // Create the Query adapter and search for only barbers
-        ParseQueryAdapter<ParseUser> locationAdapter =
-                new ParseQueryAdapter<ParseUser>(this, new ParseQueryAdapter.QueryFactory<ParseUser>() {
-                    public ParseQuery<ParseUser> create() {
-                        // Here we can configure a ParseQuery to our heart's desire.
+        // Clicking on a certain item will redirect to profile page
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> a, View v, int position,
+                                    long id) {
 
-                        ParseQuery query = ParseUser.getQuery();
-                        //query.whereContainedIn("isBarber", Arrays.asList({"priceRange"}));
-                        //query.whereGreaterThanOrEqualTo("priceRange", low);
-                        //query.whereLessThanOrEqualTo("priceRange", high);
-                        query.orderByAscending("name");
-                        query.whereEqualTo("isBarber", true);
-                        return query;
-                    }
-                });
-        locationAdapter.setTextKey("location");
-        ListView listView3 = (ListView) findViewById(R.id.locationList);
-        listView3.setAdapter(locationAdapter);
+                Intent intent = new Intent(BarberSearchResults.this, BarberProfile.class);
 
-        // Create the Query adapter and search for only barbers
-        ParseQueryAdapter<ParseUser> priceAdapter =
-                new ParseQueryAdapter<ParseUser>(this, new ParseQueryAdapter.QueryFactory<ParseUser>() {
-                    public ParseQuery<ParseUser> create() {
-                        // Here we can configure a ParseQuery to our heart's desire.
-
-                        ParseQuery query = ParseUser.getQuery();
-                        //query.whereContainedIn("isBarber", Arrays.asList({"priceRange"}));
-                        //query.whereGreaterThanOrEqualTo("priceRange", low);
-                        //query.whereLessThanOrEqualTo("priceRange", high);
-                        query.orderByAscending("name");
-                        query.whereEqualTo("isBarber", true);
-                        return query;
-                    }
-                });
-
-        priceAdapter.setTextKey("price");
-        ListView listView2 = (ListView) findViewById(R.id.priceList);
-        listView2.setAdapter(priceAdapter);
+                startActivity(intent);
+            }
+        });
     }
 }
