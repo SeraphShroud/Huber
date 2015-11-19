@@ -63,16 +63,12 @@ public class BarberSearchResults extends Activity {
                         // Here we can configure a ParseQuery to our heart's desire.
 
                         ParseQuery query = ParseUser.getQuery();
-                        //query.whereContainedIn("isBarber", Arrays.asList({"priceRange"}));
-                        //query.whereGreaterThanOrEqualTo("priceRange", low);
-                        //query.whereLessThanOrEqualTo("priceRange", high);
                         query.orderByAscending("name");
                         query.whereEqualTo("isBarber", true);
                         return query;
                     }
                 });
         userAdapter.setTextKey("name");
-
         ListView listView = (ListView) findViewById(R.id.barberList);
         listView.setAdapter(userAdapter);
 
@@ -83,9 +79,6 @@ public class BarberSearchResults extends Activity {
                         // Here we can configure a ParseQuery to our heart's desire.
 
                         ParseQuery query = ParseUser.getQuery();
-                        //query.whereContainedIn("isBarber", Arrays.asList({"priceRange"}));
-                        //query.whereGreaterThanOrEqualTo("priceRange", low);
-                        //query.whereLessThanOrEqualTo("priceRange", high);
                         query.orderByAscending("name");
                         query.whereEqualTo("isBarber", true);
                         return query;
