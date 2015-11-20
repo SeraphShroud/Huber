@@ -48,7 +48,7 @@
         android:textColor="#fff"
         android:textSize="17dp"
         android:capitalize="characters"
-        android:fontFamily="sans-serif-regular"
+        android:fontFamily="sans-serif-light"
         android:layout_marginTop="53dp"
         android:layout_below="@+id/password"
         android:layout_alignParentLeft="true"
@@ -71,7 +71,7 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/textView16"
         android:backgroundTint="#0000"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="8dp"
         android:textSize="15dp" />
 
 
@@ -84,12 +84,13 @@
         android:id="@+id/textView15"
         android:textColor="#fff"
         android:textIsSelectable="false"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="sans-serif"
         android:textSize="50dp"
         android:layout_alignParentTop="true"
         android:paddingTop="25dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="40dp"
+        android:typeface="normal" />
 
     <TextView
         android:layout_width="wrap_content"
