@@ -20,7 +20,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="49dp"
         android:textColor="#fff"
-        android:textColorHint="#fff" />
+        android:textColorHint="#fff"
+        android:textSize="15dp" />
 
     <EditText
         android:id="@+id/password"
@@ -36,7 +37,8 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textColor="#fff"
-        android:textColorHint="#fff" />
+        android:textColorHint="#fff"
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/login"
@@ -57,20 +59,20 @@
 
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:text="Register Today!"
         android:id="@+id/signup"
-
+        android:fontFamily="sans-serif-light"
         android:capitalize="characters"
         android:background="#0000"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_toRightOf="@+id/textView16"
         android:layout_toEndOf="@+id/textView16"
-        android:layout_alignTop="@+id/textView16"
-        android:backgroundTint="#0000" />
+        android:backgroundTint="#0000"
+        android:layout_marginBottom="5dp"
+        android:textSize="15dp" />
 
 
 
@@ -97,9 +99,11 @@
         android:fontFamily="sans-serif-light"
         android:id="@+id/textView16"
         android:textColor="#fff"
-        android:textSize="20dp"
+        android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp" />
 
 </RelativeLayout>
