@@ -64,9 +64,6 @@ public class BarberSearchResults extends Activity {
                     public ParseQuery<ParseUser> create() {
                         // Here we can configure a ParseQuery to our heart's desire.
                         ParseQuery query = ParseUser.getQuery();
-                        //query.whereContainedIn("isBarber", Arrays.asList({"priceRange"}));
-                        //query.whereGreaterThanOrEqualTo("price", low);
-                        //query.whereLessThanOrEqualTo("price", high);
                         query.orderByAscending("name");
                         query.whereEqualTo("isBarber", true);
                         query.whereEqualTo("price", low);
@@ -83,6 +80,7 @@ public class BarberSearchResults extends Activity {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position,
                                     long id) {
+
 
                 Intent intent = new Intent(BarberSearchResults.this, BarberProfile.class);
 
