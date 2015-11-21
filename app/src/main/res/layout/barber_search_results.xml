@@ -37,30 +37,10 @@
             android:textStyle="bold" />
     </TableRow>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-
-        <ListView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/barberList"
-            tools:listitem="@android:layout/simple_list_item_1"
-            android:layout_weight="0.39" />
-        <ListView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/locationList"
-            tools:listitem="@android:layout/simple_list_item_1" />
-        <ListView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/priceList"
-            tools:listitem="@android:layout/simple_list_item_1" />
-
-    </LinearLayout>>
-
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/barberList" />
 
 
 </LinearLayout>

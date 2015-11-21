@@ -151,7 +151,9 @@ public class BarberInfo extends Activity {
                     user.put("phoneNumber", phonetxt);
                     user.put("location", locationtxt);
                     user.put("specialty", specialtytxt);
-                    user.put("price", pricetxt);
+
+                    float number = Float.valueOf(pricetxt);
+                    user.put("price", number);
                     user.put("isBarber", true);
 
                     user.signUpInBackground(new SignUpCallback() {
@@ -167,6 +169,7 @@ public class BarberInfo extends Activity {
                                         "Successfully Signed up, please log in.",
                                         Toast.LENGTH_LONG).show();*/
                             } else {
+                                System.out.println("Error is: " + e.getCode());
                                 switch (e.getCode()) {
                                     case ParseException.INVALID_EMAIL_ADDRESS:
                                         Toast.makeText(getApplicationContext(),
