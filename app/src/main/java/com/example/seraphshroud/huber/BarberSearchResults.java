@@ -21,7 +21,7 @@ import java.util.Arrays;
 public class BarberSearchResults extends Activity {
 
     String price, time;
-    int low, high;
+    float low, high;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,19 +34,19 @@ public class BarberSearchResults extends Activity {
         time = b.getString("time");
 
         // Adjust lower and upper bounds based on user's price
-        if (price == "$0-$10") {
+        if (price.equals("$0-$10")) {
             low = 0;
             high = 10;
         }
-        else if (price == "$10-$15") {
+        else if (price.equals("$10-$15")) {
             low = 10;
             high = 15;
         }
-        else if (price == "$15-$20") {
+        else if (price.equals("$15-$20")) {
             low = 15;
             high = 20;
         }
-        else if (price == "$20-$25") {
+        else if (price.equals("$20-$25")) {
             low = 20;
             high = 25;
         }
@@ -55,18 +55,16 @@ public class BarberSearchResults extends Activity {
             high = 100;
         }
 
-        System.out.println("Price is: " + price);
-        System.out.println("Time is: " + time);
-
         // Create the Query adapter and search for only barbers
         ParseQueryAdapter<ParseUser> userAdapter =
                 new ParseQueryAdapter<ParseUser>(this, new ParseQueryAdapter.QueryFactory<ParseUser>() {
                     public ParseQuery<ParseUser> create() {
                         // Here we can configure a ParseQuery to our heart's desire.
                         ParseQuery query = ParseUser.getQuery();
-                        query.orderByAscending("name");
+                        query.orderByAscending("price");
                         query.whereEqualTo("isBarber", true);
-                        query.whereEqualTo("price", low);
+                        query.whereGreaterThanOrEqualTo("price", low);
+                        query.whereLessThanOrEqualTo("price", high);
                         return query;
                     }
                 });
