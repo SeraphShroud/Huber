@@ -71,6 +71,7 @@ public class BarberSearchResults extends Activity {
         userAdapter.setTextKey("name");
 
         ListView listView = (ListView) findViewById(R.id.barberList);
+
         listView.setAdapter(userAdapter);
 
         // Clicking on a certain item will redirect to profile page
