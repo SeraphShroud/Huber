@@ -17,66 +17,63 @@
         android:layout_marginLeft="10dp"
         android:textStyle="bold" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="USERNAME"
-        android:paddingTop="40dp"
-        android:paddingLeft="10dp"
-        android:id="@+id/textView3" />
-
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/client_username"
         android:editable="true"
-        android:paddingLeft="10dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="PASSWORD"
-        android:paddingTop="40dp"
-        android:paddingLeft="10dp" />
+        android:paddingLeft="10dp"
+        android:hint="Username" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/client_password" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="EMAIL"
-        android:paddingTop="40dp"
-        android:paddingLeft="10dp" />
+        android:id="@+id/client_password"
+        android:hint="Password" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/client_email"
         android:editable="true"
-        android:paddingLeft="10dp" />
+        android:paddingLeft="10dp"
+        android:hint="Email" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="NAME"
+        android:paddingTop="40dp"
+        android:paddingLeft="10dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold" />
 
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/client_name"
+        android:editable="true"
+        android:paddingLeft="10dp"
+        android:hint="Paul Masquarade" />
     <TextView
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:textAppearance="?android:attr/textAppearanceMedium"
          android:text="PHONE NUMBER"
          android:paddingTop="40dp"
-         android:paddingLeft="10dp" />
+         android:paddingLeft="10dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold" />
 
      <EditText
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:inputType="phone"
          android:ems="10"
-         android:id="@+id/client_phone" />
+         android:id="@+id/client_phone"
+         android:hint="(555)555-5555" />
 
      <TextView
          android:layout_width="wrap_content"
@@ -84,14 +81,17 @@
          android:textAppearance="?android:attr/textAppearanceMedium"
          android:text="LOCATION"
          android:paddingTop="40dp"
-         android:paddingLeft="10dp" />
+         android:paddingLeft="10dp"
+         android:layout_gravity="center_horizontal"
+         android:textStyle="bold" />
 
      <EditText
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
          android:id="@+id/client_location"
          android:editable="true"
-         android:paddingLeft="10dp" />
+         android:paddingLeft="10dp"
+         android:hint="Revelle Apartments" />
 
     <Button
         android:layout_width="200dp"
