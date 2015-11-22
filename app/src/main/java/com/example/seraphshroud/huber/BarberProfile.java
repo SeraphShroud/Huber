@@ -14,6 +14,7 @@ public class BarberProfile extends Activity {
 
         setContentView(R.layout.barber_profile);
 
+        // Retrieve all the information from barber's search results to display on profile page
         String nameTxt = getIntent().getExtras().getString("name");
         String locationTxt = getIntent().getExtras().getString("location");
         String priceTxt = getIntent().getExtras().getString("price");

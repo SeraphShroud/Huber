@@ -89,12 +89,14 @@ public class BarberSearchResults extends Activity {
 //        ListView listView = (ListView) findViewById(R.id.barberList);
 //        listView.setAdapter(userAdapter);
 
-        //Populates the barber search results list
+        // Create new arrays to store barber's name, location, price, and specialty
         final ArrayList<String> barberNames = new ArrayList<String>();
         final ArrayList<String> barberLocation = new ArrayList<String>();
         final ArrayList<Integer> barberPrice = new ArrayList<Integer>();
         final ArrayList<String> barberSpecialty = new ArrayList<String>();
-        //final ArrayList<String> username = new ArrayList<String>();
+
+
+        //Populates the barber search results list
         final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1);
         final ListView listView = (ListView)findViewById(R.id.barberList);
@@ -105,14 +107,15 @@ public class BarberSearchResults extends Activity {
             public void done(List<ParseUser> objects, ParseException e) {
                 if (e == null) {
 
-                    // Gets all the barber's name, location, and price
+                    // Gets all the barber's name, location, and price and add to array
                     for (int i = 0; i < objects.size(); i++) {
-                        ParseUser u = (ParseUser)objects.get(i);
+                        ParseUser u = (ParseUser) objects.get(i);
                         String name = u.getString("name");
                         String location = u.getString("location");
                         int priceTxt = u.getInt("price");
                         //String specTxt = u.getString("specialty");
-                        //username.set(i, u.getUsername());
+
+
                         barberNames.add(name);
                         barberLocation.add(location);
                         barberPrice.add(priceTxt);
@@ -137,6 +140,8 @@ public class BarberSearchResults extends Activity {
                 //String itemSpec = barberSpecialty.get(position);
 
                 Intent intent = new Intent(BarberSearchResults.this, BarberProfile.class);
+
+                // Pass all the barber's information to be used in profile page
                 intent.putExtra("name", itemName);
                 intent.putExtra("location", itemLoc);
                 intent.putExtra("price", itemPrice);
