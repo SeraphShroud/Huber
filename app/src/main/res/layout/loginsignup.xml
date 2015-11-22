@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:text="Register Today!"
         android:id="@+id/signup"
-        android:fontFamily="sans-serif-light"
+        android:fontFamily="sans-serif-bold"
         android:capitalize="characters"
         android:background="#0000"
         android:layout_alignParentBottom="true"
