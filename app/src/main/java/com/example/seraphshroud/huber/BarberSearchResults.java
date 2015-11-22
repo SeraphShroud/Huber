@@ -64,11 +64,7 @@ public class BarberSearchResults extends Activity {
             low = 0;
             high = 100;
         }
-        System.out.println("Price is: " + price);
-        System.out.println("Time is: " + time);
-
 /*
-
 
         // Create the Query adapter and search for only barbers
         ParseQueryAdapter<ParseUser> userAdapter =
@@ -93,7 +89,7 @@ public class BarberSearchResults extends Activity {
         // Create new arrays to store barber's name, location, price, and specialty
         final ArrayList<String> barberNames = new ArrayList<String>();
         final ArrayList<String> barberLocation = new ArrayList<String>();
-        final ArrayList<Integer> barberPrice = new ArrayList<Integer>();
+        final ArrayList<Float> barberPrice = new ArrayList<Float>();
         final ArrayList<String> barberSpecialty = new ArrayList<String>();
 
 
@@ -113,7 +109,7 @@ public class BarberSearchResults extends Activity {
                         ParseUser u = (ParseUser) objects.get(i);
                         String name = u.getString("name");
                         String location = u.getString("location");
-                        int priceTxt = u.getInt("price");
+                        float priceTxt = u.getInt("price");
                         //String specTxt = u.getString("specialty");
 
 
@@ -127,6 +123,7 @@ public class BarberSearchResults extends Activity {
                 }
             }
         });
+
         // Clicking on a certain item will redirect to profile page
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
