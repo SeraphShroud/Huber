@@ -14,33 +14,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Barber Name"
+            android:text="Found Barbers"
+            android:fontFamily="sans-serif-regular"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
-            android:textStyle="bold" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Location"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="45dp"
             android:textStyle="bold"
-            android:layout_marginRight="15dp" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Price"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="10dp"
-            android:textStyle="bold" />
+            android:layout_marginBottom="20dp" />
     </TableRow>
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/barberList" />
+        android:fontFamily="sans-serif-light"
+        android:id="@+id/barberList"
+        android:layout_marginLeft="5dp"
+        android:textFilterEnabled="false"
+        android:scrollingCache="false"
+        android:footerDividersEnabled="false"
+        android:clickable="false" />
 
 
 </LinearLayout>
