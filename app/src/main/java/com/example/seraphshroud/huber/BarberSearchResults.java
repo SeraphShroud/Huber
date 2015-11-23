@@ -18,6 +18,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -37,6 +38,9 @@ public class BarberSearchResults extends Activity {
         super.onCreate(savedInstanceState);
         // Get the view from singleitemview.xml
         setContentView(R.layout.barber_search_results);
+
+        DecimalFormat df = new DecimalFormat();
+        df.setMaximumFractionDigits(2);
 
         // Grab the price and time from FindBarber.java
         Bundle b = getIntent().getExtras();
@@ -89,7 +93,7 @@ public class BarberSearchResults extends Activity {
         // Create new arrays to store barber's name, location, price, and specialty
         final ArrayList<String> barberNames = new ArrayList<String>();
         final ArrayList<String> barberLocation = new ArrayList<String>();
-        final ArrayList<Integer> barberPrice = new ArrayList<Integer>();
+        final ArrayList<Double> barberPrice = new ArrayList<Double>();
         final ArrayList<String> barberSpecialty = new ArrayList<String>();
 
 
@@ -115,20 +119,19 @@ public class BarberSearchResults extends Activity {
                     // Gets all the barber's name, location, and price and add to array
                     for (int i = 0; i < objects.size(); i++) {
                         ParseUser u = (ParseUser) objects.get(i);
-                        //if (u.getBoolean("isBarber") && u.getInt("price") <= high && u.getInt("price") >= low) {
                         String name = u.getString("name");
                         String location = u.getString("location");
-                        int priceTxt = u.getInt("price");
-                        //String specTxt = u.getString("specialty");
+                        double priceTxt = u.getDouble("price");
+                        String specTxt = u.getString("specialty");
 
 
                         barberNames.add(name);
                         barberLocation.add(location);
                         barberPrice.add(priceTxt);
-                        //barberSpecialty.add(specTxt);
+                        barberSpecialty.add(specTxt);
 
+                        // Tabs sometimes don't show on phones
                         listAdapter.add("Barber:\t\t" + name + "\n" + "Location:\t" + location + "\n" + "Price:\t\t\t" + priceTxt);
-                        //}
                     }
                 }
             }
@@ -140,10 +143,11 @@ public class BarberSearchResults extends Activity {
             public void onItemClick(AdapterView<?> a, View v, int position,
                                     long id) {
 
+
                 String itemName = barberNames.get(position);
                 String itemLoc = barberLocation.get(position);
-                String itemPrice = barberPrice.get(position).toString();
-                //String itemSpec = barberSpecialty.get(position);
+                double itemPrice = barberPrice.get(position);
+                String itemSpec = barberSpecialty.get(position);
 
                 Intent intent = new Intent(BarberSearchResults.this, BarberProfile.class);
 
@@ -151,7 +155,7 @@ public class BarberSearchResults extends Activity {
                 intent.putExtra("name", itemName);
                 intent.putExtra("location", itemLoc);
                 intent.putExtra("price", itemPrice);
-//                intent.putExtra("specialty", itemSpec);
+                intent.putExtra("specialty", itemSpec);
                 startActivity(intent);
             }
         });

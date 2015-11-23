@@ -78,7 +78,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:id="@+id/specialities"
+        android:id="@+id/barber_specialty"
         android:layout_marginLeft="15dp" />
 
     <Button
