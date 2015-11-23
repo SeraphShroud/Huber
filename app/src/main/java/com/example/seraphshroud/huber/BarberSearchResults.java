@@ -89,15 +89,17 @@ public class BarberSearchResults extends Activity {
         // Create new arrays to store barber's name, location, price, and specialty
         final ArrayList<String> barberNames = new ArrayList<String>();
         final ArrayList<String> barberLocation = new ArrayList<String>();
-        final ArrayList<Float> barberPrice = new ArrayList<Float>();
+        final ArrayList<Integer> barberPrice = new ArrayList<Integer>();
         final ArrayList<String> barberSpecialty = new ArrayList<String>();
 
 
-        //Populates the barber search results list
+        // Populates the barber search results list
         final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1);
         final ListView listView = (ListView)findViewById(R.id.barberList);
         listView.setAdapter(listAdapter);
+
+        // Check the database for Users
         final ParseQuery query = ParseUser.getQuery();
         query.findInBackground(new FindCallback<ParseUser>() {
             @Override
@@ -107,18 +109,20 @@ public class BarberSearchResults extends Activity {
                     // Gets all the barber's name, location, and price and add to array
                     for (int i = 0; i < objects.size(); i++) {
                         ParseUser u = (ParseUser) objects.get(i);
-                        String name = u.getString("name");
-                        String location = u.getString("location");
-                        float priceTxt = u.getInt("price");
-                        //String specTxt = u.getString("specialty");
+                        //if (u.getBoolean("isBarber") && u.getInt("price") <= high && u.getInt("price") >= low) {
+                            String name = u.getString("name");
+                            String location = u.getString("location");
+                            int priceTxt = u.getInt("price");
+                            //String specTxt = u.getString("specialty");
 
 
-                        barberNames.add(name);
-                        barberLocation.add(location);
-                        barberPrice.add(priceTxt);
-                        //barberSpecialty.add(specTxt);
+                            barberNames.add(name);
+                            barberLocation.add(location);
+                            barberPrice.add(priceTxt);
+                            //barberSpecialty.add(specTxt);
 
-                        listAdapter.add("Barber:\t" + name + "\n" + "Location:\t" + location + "\n" + "Price:\t" + priceTxt);
+                            listAdapter.add("Barber:\t\t" + name + "\n" + "Location:\t" + location + "\n" + "Price:\t\t\t" + priceTxt);
+                        //}
                     }
                 }
             }
