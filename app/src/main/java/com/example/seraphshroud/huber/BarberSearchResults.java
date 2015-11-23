@@ -89,7 +89,7 @@ public class BarberSearchResults extends Activity {
         // Create new arrays to store barber's name, location, price, and specialty
         final ArrayList<String> barberNames = new ArrayList<String>();
         final ArrayList<String> barberLocation = new ArrayList<String>();
-        final ArrayList<Integer> barberPrice = new ArrayList<Integer>();
+        final ArrayList<Double> barberPrice = new ArrayList<Double>();
         final ArrayList<String> barberSpecialty = new ArrayList<String>();
 
 
@@ -118,14 +118,14 @@ public class BarberSearchResults extends Activity {
                         //if (u.getBoolean("isBarber") && u.getInt("price") <= high && u.getInt("price") >= low) {
                         String name = u.getString("name");
                         String location = u.getString("location");
-                        int priceTxt = u.getInt("price");
-                        //String specTxt = u.getString("specialty");
+                        double priceTxt = u.getDouble("price");
+                        String specTxt = u.getString("specialty");
 
 
                         barberNames.add(name);
                         barberLocation.add(location);
                         barberPrice.add(priceTxt);
-                        //barberSpecialty.add(specTxt);
+                        barberSpecialty.add(specTxt);
 
                         listAdapter.add("Barber:\t\t" + name + "\n" + "Location:\t" + location + "\n" + "Price:\t\t\t" + priceTxt);
                         //}
@@ -143,7 +143,7 @@ public class BarberSearchResults extends Activity {
                 String itemName = barberNames.get(position);
                 String itemLoc = barberLocation.get(position);
                 String itemPrice = barberPrice.get(position).toString();
-                //String itemSpec = barberSpecialty.get(position);
+                String itemSpec = barberSpecialty.get(position);
 
                 Intent intent = new Intent(BarberSearchResults.this, BarberProfile.class);
 
@@ -151,7 +151,7 @@ public class BarberSearchResults extends Activity {
                 intent.putExtra("name", itemName);
                 intent.putExtra("location", itemLoc);
                 intent.putExtra("price", itemPrice);
-//                intent.putExtra("specialty", itemSpec);
+                intent.putExtra("specialty", itemSpec);
                 startActivity(intent);
             }
         });

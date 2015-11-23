@@ -18,16 +18,16 @@ public class BarberProfile extends Activity {
         String nameTxt = getIntent().getExtras().getString("name");
         String locationTxt = getIntent().getExtras().getString("location");
         String priceTxt = getIntent().getExtras().getString("price");
-//        String specTxt = getIntent().getExtras().getString("specialty");
+        String specTxt = getIntent().getExtras().getString("specialty");
 
         TextView barberNameTxt = (TextView) findViewById(R.id.barber_name);
         TextView barberPriceTxt = (TextView) findViewById(R.id.barber_price);
         TextView barberLocationTxt = (TextView) findViewById(R.id.barber_location);
-//        TextView barberSpecTxt = (TextView) findViewById(R.id.barber_specialty);
+        TextView barberSpecTxt = (TextView) findViewById(R.id.barber_specialty);
 
         barberNameTxt.setText(nameTxt);
         barberLocationTxt.setText(locationTxt);
         barberPriceTxt.setText(priceTxt);
-//        barberSpecTxt.setText(specTxt);
+        barberSpecTxt.setText(specTxt);
     }
 }
