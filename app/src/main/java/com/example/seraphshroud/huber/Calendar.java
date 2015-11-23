@@ -17,7 +17,9 @@ import android.widget.Toast;
 
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class Calendar extends AppCompatActivity {
@@ -80,6 +82,15 @@ public class Calendar extends AppCompatActivity {
         time11 = (TextView) findViewById(R.id.time11);
         time12 = (TextView) findViewById(R.id.time12);
         time13 = (TextView) findViewById(R.id.time13);
+
+        ParseUser user = ParseUser.getCurrentUser();
+        List<String> temp;
+
+        temp = user.getList("schedule");
+
+        String[] schedule = new String[7];
+        temp.toArray(schedule);
+        time0.setText(schedule[0].);
     }
 
     public void buttonOnClick(View v)
@@ -218,11 +229,5 @@ public class Calendar extends AppCompatActivity {
         DialogFragment newFrag14 = new TimePickerFragment(time13);
         FragmentManager frag14 = getSupportFragmentManager();
         newFrag14.show(frag14, "timePicker14");
-    }
-
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment(dayOut);
-        FragmentManager frag = getSupportFragmentManager();
-        newFragment.show(frag, "datePicker");
     }
 }
