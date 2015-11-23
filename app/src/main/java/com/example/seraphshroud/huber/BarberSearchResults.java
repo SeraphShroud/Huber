@@ -101,6 +101,12 @@ public class BarberSearchResults extends Activity {
 
         // Check the database for Users
         final ParseQuery query = ParseUser.getQuery();
+
+        query.orderByAscending("price");
+        query.whereEqualTo("isBarber", true);
+        query.whereGreaterThanOrEqualTo("price", low);
+        query.whereLessThanOrEqualTo("price", high);
+
         query.findInBackground(new FindCallback<ParseUser>() {
             @Override
             public void done(List<ParseUser> objects, ParseException e) {
@@ -110,18 +116,18 @@ public class BarberSearchResults extends Activity {
                     for (int i = 0; i < objects.size(); i++) {
                         ParseUser u = (ParseUser) objects.get(i);
                         //if (u.getBoolean("isBarber") && u.getInt("price") <= high && u.getInt("price") >= low) {
-                            String name = u.getString("name");
-                            String location = u.getString("location");
-                            int priceTxt = u.getInt("price");
-                            //String specTxt = u.getString("specialty");
+                        String name = u.getString("name");
+                        String location = u.getString("location");
+                        int priceTxt = u.getInt("price");
+                        //String specTxt = u.getString("specialty");
 
 
-                            barberNames.add(name);
-                            barberLocation.add(location);
-                            barberPrice.add(priceTxt);
-                            //barberSpecialty.add(specTxt);
+                        barberNames.add(name);
+                        barberLocation.add(location);
+                        barberPrice.add(priceTxt);
+                        //barberSpecialty.add(specTxt);
 
-                            listAdapter.add("Barber:\t\t" + name + "\n" + "Location:\t" + location + "\n" + "Price:\t\t\t" + priceTxt);
+                        listAdapter.add("Barber:\t\t" + name + "\n" + "Location:\t" + location + "\n" + "Price:\t\t\t" + priceTxt);
                         //}
                     }
                 }
