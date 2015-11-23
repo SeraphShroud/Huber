@@ -13,10 +13,13 @@ import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class Calendar extends AppCompatActivity {
@@ -79,6 +82,30 @@ public class Calendar extends AppCompatActivity {
         time11 = (TextView) findViewById(R.id.time11);
         time12 = (TextView) findViewById(R.id.time12);
         time13 = (TextView) findViewById(R.id.time13);
+
+        ParseUser user = ParseUser.getCurrentUser();
+        List<String> temp;
+
+        temp = user.getList("schedule");
+
+        if(temp != null) {
+            String[] schedule = new String[7];
+            temp.toArray(schedule);
+            time0.setText(schedule[0].substring(0, schedule[0].indexOf(" ")));
+            time1.setText(schedule[0].substring(schedule[0].indexOf(" ") + 1));
+            time2.setText(schedule[1].substring(0, schedule[1].indexOf(" ")));
+            time3.setText(schedule[1].substring(schedule[1].indexOf(" ") + 1));
+            time4.setText(schedule[2].substring(0, schedule[2].indexOf(" ")));
+            time5.setText(schedule[2].substring(schedule[2].indexOf(" ") + 1));
+            time6.setText(schedule[3].substring(0, schedule[3].indexOf(" ")));
+            time7.setText(schedule[3].substring(schedule[3].indexOf(" ") + 1));
+            time8.setText(schedule[4].substring(0, schedule[4].indexOf(" ")));
+            time9.setText(schedule[4].substring(schedule[4].indexOf(" ") + 1));
+            time10.setText(schedule[5].substring(0, schedule[5].indexOf(" ")));
+            time11.setText(schedule[5].substring(schedule[5].indexOf(" ") + 1));
+            time12.setText(schedule[6].substring(0, schedule[6].indexOf(" ")));
+            time13.setText(schedule[6].substring(schedule[6].indexOf(" ") + 1));
+        }
     }
 
     public void buttonOnClick(View v)
@@ -217,11 +244,5 @@ public class Calendar extends AppCompatActivity {
         DialogFragment newFrag14 = new TimePickerFragment(time13);
         FragmentManager frag14 = getSupportFragmentManager();
         newFrag14.show(frag14, "timePicker14");
-    }
-
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment(dayOut);
-        FragmentManager frag = getSupportFragmentManager();
-        newFragment.show(frag, "datePicker");
     }
 }
