@@ -2,170 +2,241 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#9B9DA0"
-    android:scrollIndicators="right"
-    android:weightSum="1">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Barber Infomation"
-        android:id="@+id/barber_info"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/barber_username"
-        android:editable="true"
-        android:paddingLeft="10dp"
-        android:hint="Username" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/barber_password"
-        android:hint="Password" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/barber_email"
-        android:editable="true"
-        android:paddingLeft="10dp"
-        android:hint="Email" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Name"
-        android:paddingTop="40dp"
-        android:paddingLeft="10dp"
-        android:layout_gravity="center_horizontal"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/barber_name"
-        android:editable="true"
-        android:paddingLeft="10dp"
-        android:hint="Alicia Ushijima" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="PHONE NUMBER"
-        android:paddingTop="40dp"
-        android:paddingLeft="10dp"
-        android:layout_gravity="center_horizontal"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/barber_phone"
-        android:editable="true"
-        android:layout_gravity="center_horizontal"
-        android:paddingLeft="10dp"
-        android:hint="(555)555-5555" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="LOCATION"
-        android:id="@+id/textView9"
-        android:paddingTop="40dp"
-        android:paddingLeft="10dp"
-        android:layout_gravity="center_horizontal"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/barber_location"
-        android:editable="true"
-        android:paddingLeft="10dp"
-        android:hint="Muir College" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="SPECIALTIES"
-        android:id="@+id/textView11"
-        android:paddingTop="40dp"
-        android:paddingLeft="10dp"
-        android:layout_gravity="center_horizontal"
-        android:textStyle="bold" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/barber_specialty"
-        android:editable="true"
-        android:paddingLeft="10dp"
-        android:hint="Female hair" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="PRICE (i.e. $20)"
-        android:paddingTop="40dp"
-        android:paddingLeft="10dp"
-        android:layout_gravity="center_horizontal"
-        android:textStyle="bold" />
-
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
+        android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="right"
-        android:orientation="horizontal" >
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+        android:background="@drawable/beach"
+        android:scrollIndicators="right"
+        android:weightSum="1">
 
         <TextView
-            android:id="@+id/dollarsign"
-            android:layout_width="10dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:text="$"
-            android:editable="false" />
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Huber"
+            android:id="@+id/textView15"
+            android:textColor="#fff"
+            android:textIsSelectable="false"
+            android:fontFamily="sans-serif"
+            android:textSize="50dp"
+            android:layout_alignParentTop="true"
+            android:paddingTop="25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:typeface="normal"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:id="@+id/barber_username"
+            android:editable="true"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:background="#33333333"
+            android:fontFamily="sans-serif-light"
+            android:layout_below="@+id/textView15"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="49dp"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:hint="Username" />
+
+        <EditText
+            android:inputType="textPassword"
+            android:ems="10"
+            android:id="@+id/barber_password"
+            android:hint="Password"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            android:background="#33333333"
+            android:fontFamily="sans-serif-light"
+            android:layout_below="@+id/textView15"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="49dp"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <EditText
+            android:id="@+id/barber_email"
+            android:editable="true"
+            android:hint="Email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:background="#33333333"
+            android:fontFamily="sans-serif-light"
+            android:layout_below="@+id/textView15"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="49dp"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <EditText
+            android:id="@+id/barber_name"
+            android:editable="true"
+            android:paddingLeft="10dp"
+            android:hint="Full Name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:background="#33333333"
+            android:fontFamily="sans-serif-light"
+            android:layout_below="@+id/textView15"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="49dp"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <EditText
+            android:id="@+id/barber_phone"
+            android:editable="true"
+            android:hint="(555)555-5555"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:background="#33333333"
+            android:fontFamily="sans-serif-light"
+            android:layout_below="@+id/textView15"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="49dp"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <EditText
+            android:id="@+id/barber_location"
+            android:editable="true"
+            android:hint="Location"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:background="#33333333"
+            android:fontFamily="sans-serif-light"
+            android:layout_below="@+id/textView15"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="49dp"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+        <EditText
+            android:id="@+id/barber_specialty"
+            android:editable="true"
+            android:hint="Specialty"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:background="#33333333"
+            android:fontFamily="sans-serif-light"
+            android:layout_below="@+id/textView15"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="49dp"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
         <EditText
             android:id="@+id/barber_price"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:singleLine="true"
-            android:autoText="false"
-            android:layout_marginRight="150dp" />
+            android:editable="true"
+            android:hint="Price e.g. $55"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:inputType="text"
+            android:paddingLeft="10dp"
+            android:background="#33333333"
+            android:fontFamily="sans-serif-light"
+            android:layout_below="@+id/textView15"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="49dp"
+            android:textColor="#fff"
+            android:textColorHint="#fff"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
+
+
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:textAppearance="?android:attr/textAppearanceMedium"-->
+            <!--android:text="PRICE (i.e. $20)"-->
+            <!--android:paddingTop="40dp"-->
+            <!--android:paddingLeft="10dp"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:textStyle="bold" />-->
+    <!-- -->
+        <!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="right"-->
+            <!--android:orientation="horizontal" >-->
+    <!-- -->
+            <!--<View-->
+                <!--android:layout_width="0dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"/>-->
+    <!-- -->
+            <!--<TextView-->
+                <!--android:id="@+id/dollarsign"-->
+                <!--android:layout_width="10dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:singleLine="true"-->
+                <!--android:text="$"-->
+                <!--android:editable="false" />-->
+    <!-- -->
+            <!--<EditText-->
+                <!--android:id="@+id/barber_price"-->
+                <!--android:layout_width="60dp"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:singleLine="true"-->
+                <!--android:autoText="false"-->
+                <!--android:layout_marginRight="150dp" />-->
+    <!-- -->
+        <!--</LinearLayout>-->
+
+        <Button
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+            android:text="Next"
+            android:id="@+id/next"
+            android:layout_gravity="center_horizontal"
+            android:background="#000"
+            android:textColor="#fff"
+            android:textSize="15dp"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginTop="60dp" />
     </LinearLayout>
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:text="NEXT"
-        android:id="@+id/next"
-        android:layout_gravity="center_horizontal"
-        android:background="#000"
-        android:textColor="#fff"
-        android:textSize="17dp"
-        android:layout_marginTop="20dp" />
-</LinearLayout>
 </ScrollView>

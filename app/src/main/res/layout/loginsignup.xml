@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical"
-    android:padding="10dip">
+    android:padding="10dp"
+    android:background="@drawable/beach">
 
     <EditText
         android:id="@+id/client_username"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:inputType="text"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="22dp"
         android:paddingLeft="10dp"
         android:hint="Username"
-        android:layout_above="@+id/password" />
+        android:background="#33333333"
+        android:fontFamily="sans-serif-light"
+        android:layout_below="@+id/textView15"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="49dp"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:textSize="15dp" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="fill_parent"
         android:layout_height="50dp"
         android:inputType="textPassword"
-        android:layout_above="@+id/login"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="19dp"
         android:hint="Password"
-        android:paddingLeft="10dp" />
+        android:paddingLeft="10dp"
+        android:autoText="false"
+        android:fontFamily="sans-serif-light"
+        android:background="#33333333"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#fff"
+        android:textColorHint="#fff"
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/login"
@@ -35,44 +46,65 @@
         android:layout_height="wrap_content"
         android:text="@string/LoginBtn"
         android:textColor="#fff"
-        android:background="#000"
         android:textSize="17dp"
-        android:layout_centerVertical="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:capitalize="characters"
+        android:fontFamily="sans-serif-light"
+        android:layout_marginTop="53dp"
+        android:layout_below="@+id/password"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:capitalize="characters" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:background="#000" />
 
-    <ImageView
-        android:src="@drawable/scissor"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:id="@+id/imageView"
-        android:layout_above="@+id/signup"
-        android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:text="Register Today!"
         android:id="@+id/signup"
+        android:fontFamily="sans-serif-bold"
+        android:capitalize="characters"
+        android:background="#0000"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/textView16"
+        android:backgroundTint="#0000"
+        android:layout_marginBottom="8dp"
+        android:textSize="15dp" />
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Huber"
+        android:id="@+id/textView15"
+        android:textColor="#fff"
+        android:textIsSelectable="false"
+        android:fontFamily="sans-serif"
+        android:textSize="50dp"
+        android:layout_alignParentTop="true"
+        android:paddingTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:typeface="normal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Don&apos;t have an account?"
+        android:fontFamily="sans-serif-light"
+        android:id="@+id/textView16"
+        android:textColor="#fff"
+        android:textSize="15dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/login"
-        android:layout_alignEnd="@+id/login"
-        android:capitalize="characters" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:text="Huber"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="30dp"
-        android:capitalize="characters"
-        android:clickable="false" />
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp" />
 
 </RelativeLayout>
