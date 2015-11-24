@@ -24,12 +24,15 @@ public class BarberProfile extends Activity {
         double price = getIntent().getExtras().getDouble("price");
         String priceTxt = "$" + df.format(price);
         String specTxt = getIntent().getExtras().getString("specialty");
+        String scheduleTxt = getIntent().getExtras().getString("schedule");
 
         TextView barberNameTxt = (TextView) findViewById(R.id.barber_name);
         TextView barberPriceTxt = (TextView) findViewById(R.id.barber_price);
         TextView barberLocationTxt = (TextView) findViewById(R.id.barber_location);
         TextView barberSpecTxt = (TextView) findViewById(R.id.barber_specialty);
+        TextView barberScheduleTxt = (TextView) findViewById(R.id.barber_schedule);
 
+        barberScheduleTxt.setText(scheduleTxt);
         barberNameTxt.setText(nameTxt);
         barberLocationTxt.setText(locationTxt);
         barberPriceTxt.setText(priceTxt);

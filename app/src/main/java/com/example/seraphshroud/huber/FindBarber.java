@@ -38,7 +38,7 @@ public class FindBarber extends Activity {
 
                 String price = priceDropdown.getSelectedItem().toString();
                 parent.getItemAtPosition(pos);
-                Log.i("Selected item : ", price);
+                //Log.i("Selected item : ", price);
                 priceTxt = price;
                 switch (pos) {
                     case 0: low = 0;
@@ -78,7 +78,7 @@ public class FindBarber extends Activity {
 
                 String day = dayDropdown.getSelectedItem().toString();
                 parent.getItemAtPosition(pos);
-                Log.i("Selected item : ", day);
+                //Log.i("Selected item : ", day);
                 dayTxt = day;
                 dayPos = pos;
             }
@@ -103,7 +103,7 @@ public class FindBarber extends Activity {
 
                 String time = timeDropdown.getSelectedItem().toString();
                 parent.getItemAtPosition(pos);
-                Log.i("Selected item : ", time);
+                //Log.i("Selected item : ", time);
                 timeTxt = time;
                 switch (pos) {
                     case 0: startTime = 800;
@@ -157,7 +157,7 @@ public class FindBarber extends Activity {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "You selected price : " + priceTxt + "\n @ " + timeTxt, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "You selected price : " + priceTxt + "\n" + dayTxt + " @ " + timeTxt, Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(
                         FindBarber.this,
                         BarberSearchResults.class);
