@@ -4,26 +4,18 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.parse.FindCallback;
-import com.parse.Parse;
 import com.parse.ParseException;
-import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.parse.ParseQueryAdapter;
 import com.parse.ParseUser;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by Brian on 11/10/2015.
@@ -31,43 +23,30 @@ import java.util.Map;
 public class BarberSearchResults extends Activity {
 
 
-    String price, time, name;
+    String day;
+    int startTime, endTime;
     int low, high;
+    int pos;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the view from singleitemview.xml
         setContentView(R.layout.barber_search_results);
 
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
+        final DecimalFormat df = new DecimalFormat("#.00");
 
         // Grab the price and time from FindBarber.java
         Bundle b = getIntent().getExtras();
-        price = b.getString("price");
-        time = b.getString("time");
+        day = b.getString("day");
+        startTime = b.getInt("startTime");
+        endTime = b.getInt("endTime");
+        low = b.getInt("low");
+        high = b.getInt("high");
+        pos = b.getInt("dayPos");
 
-        // Adjust lower and upper bounds based on user's price
-        if (price.equals("$0-$10")) {
-            low = 0;
-            high = 10;
-        }
-        else if (price.equals("$10-$15")) {
-            low = 10;
-            high = 15;
-        }
-        else if (price.equals("$15-$20")) {
-            low = 15;
-            high = 20;
-        }
-        else if (price.equals("$20-$25")) {
-            low = 20;
-            high = 25;
-        }
-        else {
-            low = 0;
-            high = 100;
-        }
+        System.out.println("Start time is: " + startTime + "\n End time is: " + endTime);
+        System.out.println("Day is: " + day + ", dayPos is: " + pos);
+        System.out.println("Low price is: " + low + "\n High price is: " + high);
 /*
 
         // Create the Query adapter and search for only barbers
@@ -96,7 +75,6 @@ public class BarberSearchResults extends Activity {
         final ArrayList<Double> barberPrice = new ArrayList<Double>();
         final ArrayList<String> barberSpecialty = new ArrayList<String>();
 
-
         // Populates the barber search results list
         final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_1);
@@ -124,14 +102,13 @@ public class BarberSearchResults extends Activity {
                         double priceTxt = u.getDouble("price");
                         String specTxt = u.getString("specialty");
 
-
                         barberNames.add(name);
                         barberLocation.add(location);
                         barberPrice.add(priceTxt);
                         barberSpecialty.add(specTxt);
 
                         // Tabs sometimes don't show on phones
-                        listAdapter.add("Barber:\t\t" + name + "\n" + "Location:\t" + location + "\n" + "Price:\t\t\t" + priceTxt);
+                        listAdapter.add("Barber:\t\t" + name + "\n" + "Location:\t" + location + "\n" + "Price:\t\t\t" + "$" + df.format(priceTxt));
                     }
                 }
             }
@@ -142,7 +119,6 @@ public class BarberSearchResults extends Activity {
             @Override
             public void onItemClick(AdapterView<?> a, View v, int position,
                                     long id) {
-
 
                 String itemName = barberNames.get(position);
                 String itemLoc = barberLocation.get(position);
