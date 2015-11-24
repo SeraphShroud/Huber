@@ -67,6 +67,23 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Schedule"
+        android:fontFamily="sans-serif-regular"
+        android:id="@+id/textView2"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="50dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/barber_schedule"
+        android:layout_marginLeft="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:fontFamily="sans-serif-regular"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Specialities"

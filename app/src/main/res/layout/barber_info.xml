@@ -169,7 +169,7 @@
         <EditText
             android:id="@+id/barber_price"
             android:editable="true"
-            android:hint="Price e.g. $55"
+            android:hint="Price e.g. 5.50"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:inputType="text"

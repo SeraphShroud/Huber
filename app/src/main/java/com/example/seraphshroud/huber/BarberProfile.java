@@ -12,14 +12,14 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
-
 import java.text.ParseException;
+import java.text.DecimalFormat;
+
 
 /**
  * Created by Alicia on 11/19/2015.
@@ -31,11 +31,15 @@ public class BarberProfile extends Activity {
 
         setContentView(R.layout.barber_profile);
 
+        final DecimalFormat df = new DecimalFormat("#.00");
+
         // Retrieve all the information from barber's search results to display on profile page
         String nameTxt = getIntent().getExtras().getString("name");
         String locationTxt = getIntent().getExtras().getString("location");
-        String priceTxt = getIntent().getExtras().getString("price");
+        double price = getIntent().getExtras().getDouble("price");
+        String priceTxt = "$" + df.format(price);
         String specTxt = getIntent().getExtras().getString("specialty");
+        String scheduleTxt = getIntent().getExtras().getString("schedule");
 
         final Button messageBtn = (Button) findViewById(R.id.messageBtn);
         final EditText messageTxt = (EditText) findViewById(R.id.message);
@@ -45,7 +49,9 @@ public class BarberProfile extends Activity {
         TextView barberPriceTxt = (TextView) findViewById(R.id.barber_price);
         final TextView barberLocationTxt = (TextView) findViewById(R.id.barber_location);
         TextView barberSpecTxt = (TextView) findViewById(R.id.barber_specialty);
+        TextView barberScheduleTxt = (TextView) findViewById(R.id.barber_schedule);
 
+        barberScheduleTxt.setText(scheduleTxt);
         barberNameTxt.setText(nameTxt);
         barberLocationTxt.setText(locationTxt);
         barberPriceTxt.setText(priceTxt);
