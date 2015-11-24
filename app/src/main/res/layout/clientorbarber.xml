@@ -1,41 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#9B9DA0"
-    android:weightSum="1">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:padding="10dp"
+    android:background="@drawable/beach">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Huber"
+        android:id="@+id/textView15"
+        android:textColor="#fff"
+        android:textIsSelectable="false"
+        android:fontFamily="sans-serif"
+        android:textSize="50dp"
+        android:paddingTop="25dp"
+        android:layout_marginTop="37dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="353dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Choose either"
-        android:layout_marginTop="30dp"
-        android:layout_marginLeft="10dp"
-        android:textStyle="bold"
-        android:layout_weight="0.10"
-        android:textSize="40dp"
-        android:gravity="center" />
-
-    <Button
-        android:layout_width="110dp"
-        android:layout_height="wrap_content"
-        android:text="Client"
-        android:id="@+id/clientbutton"
-        android:layout_weight="0.10"
-        android:typeface="sans"
-        android:focusable="false"
+        android:text="Are you a barber / client?"
+        android:layout_marginTop="61dp"
+        android:fontFamily="sans-serif-thin"
         android:textSize="20dp"
-        android:layout_gravity="center_horizontal" />
+        android:gravity="center"
+        android:textColor="#fff"
+        android:layout_below="@+id/textView15"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView17" />
 
-    <Button
-        android:layout_width="110dp"
+    <TableRow
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Barber"
-        android:id="@+id/barberbutton"
-        android:layout_weight="0.10"
-        android:layout_gravity="center_horizontal"
-        android:textSize="20dp"
-        android:typeface="sans" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textView17"
+        android:layout_alignStart="@+id/textView17"
+        android:layout_marginBottom="50dp">
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Barber"
+            android:id="@+id/barberbutton"
+            android:fontFamily="sans-serif-thin"
+            android:textSize="15dp"
+            android:typeface="sans"
+            android:textColor="#fff"
+            android:background="#000"
+            android:layout_gravity="right"
+            android:layout_marginLeft="5dp" />
 
-</LinearLayout>
+        <Button
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:text="Client"
+            android:id="@+id/clientbutton"
+            android:fontFamily="sans-serif-thin"
+            android:typeface="sans"
+            android:focusable="false"
+            android:textSize="15dp"
+            android:background="#000"
+            android:textColor="#fff"
+            android:layout_marginLeft="10dp" />
+
+    </TableRow>
+
+
+</RelativeLayout>
