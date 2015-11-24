@@ -2,6 +2,7 @@ package com.example.seraphshroud.huber;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v4.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
@@ -47,7 +48,7 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
         else {
             min = Integer.toString(minute);
         }
-
+/*
         if(hourOfDay >= 12) {
             if(hourOfDay > 12) {
                 hourOfDay -= 12;
@@ -61,5 +62,8 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
         else {
             timeView.setText(Integer.toString(hourOfDay) + ":" + min + "am");
         }
+        */
+        timeView.setText(Integer.toString(hourOfDay) + ":" + min);
+
     }
 }
