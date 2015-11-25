@@ -30,11 +30,17 @@ public class BarberWelcome extends Activity {
         // Convert currentUser into String
         String struser = currentUser.getUsername().toString();
 
+
         // Locate TextView in welcome.xml
         TextView txtuser = (TextView) findViewById(R.id.txtuser);
 
         // Set the currentUser String into TextView
         txtuser.setText("You are logged in as " + struser);
+
+        // Show the message of barbers
+        TextView message = (TextView) findViewById(R.id.messages);
+
+        message.setText(currentUser.getString("message"));
 
         // Locate Button in welcome.xml
         logout = (Button) findViewById(R.id.logout);

@@ -44,7 +44,16 @@
         android:background="#000"
         android:textColor="#fff"
         android:textSize="20dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" />
+        android:layout_below="@+id/txtuser"
+        android:layout_alignLeft="@+id/logout"
+        android:layout_alignStart="@+id/logout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/messages"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/txtuser"
+        android:layout_alignEnd="@+id/txtuser" />
 
 </RelativeLayout>

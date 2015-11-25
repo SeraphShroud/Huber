@@ -3,6 +3,7 @@ package com.example.seraphshroud.huber;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,11 +13,15 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
+
 import java.text.ParseException;
 import java.text.DecimalFormat;
 
@@ -26,38 +31,34 @@ import java.text.DecimalFormat;
  */
 public class BarberProfile extends Activity {
 
+    // Helper/Setter method to get the params from another activity and set it's TextView
+    final public void setParams(String param, int id){
+        String data = getIntent().getExtras().getString(param);
+        TextView dataText = (TextView) findViewById(id);
+        dataText.setText(data);
+    }
+
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.barber_profile);
 
-        final DecimalFormat df = new DecimalFormat("#.00");
-
         // Retrieve all the information from barber's search results to display on profile page
-        String nameTxt = getIntent().getExtras().getString("name");
-        String locationTxt = getIntent().getExtras().getString("location");
+        final String idTxt = getIntent().getExtras().getString("id");
+        setParams("name", R.id.barber_name);
+        setParams("location", R.id.barber_location);
+        setParams("specialty", R.id.barber_specialty);
+        setParams("schedule", R.id.barber_schedule);
+
+        // Retrieve barber prices and reformat it
+        final DecimalFormat df = new DecimalFormat("#.00");
         double price = getIntent().getExtras().getDouble("price");
         String priceTxt = "$" + df.format(price);
-        String specTxt = getIntent().getExtras().getString("specialty");
-        String scheduleTxt = getIntent().getExtras().getString("schedule");
-
-        final Button messageBtn = (Button) findViewById(R.id.messageBtn);
-        final EditText messageTxt = (EditText) findViewById(R.id.message);
-
-
-        TextView barberNameTxt = (TextView) findViewById(R.id.barber_name);
-        TextView barberPriceTxt = (TextView) findViewById(R.id.barber_price);
-        final TextView barberLocationTxt = (TextView) findViewById(R.id.barber_location);
-        TextView barberSpecTxt = (TextView) findViewById(R.id.barber_specialty);
-        TextView barberScheduleTxt = (TextView) findViewById(R.id.barber_schedule);
-
-        barberScheduleTxt.setText(scheduleTxt);
-        barberNameTxt.setText(nameTxt);
-        barberLocationTxt.setText(locationTxt);
+        final TextView barberPriceTxt = (TextView) findViewById(R.id.barber_price);
         barberPriceTxt.setText(priceTxt);
-        barberSpecTxt.setText(specTxt);
 
-
+        // When message btn is clicked, popup window should show
+        final Button messageBtn = (Button) findViewById(R.id.messageBtn);
 
         messageBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
@@ -67,15 +68,27 @@ public class BarberProfile extends Activity {
                 Button dismissBtn = (Button) popupView.findViewById(R.id.dismiss);
                 Button sendBtn = (Button) popupView.findViewById(R.id.send);
                 popupWindow.setFocusable(true);
+                final EditText messageTxt = (EditText) popupView.findViewById(R.id.message);
 
                 sendBtn.setOnClickListener(new Button.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         // Send the message to specific barber
-                        //ParseUser bUser = ParseUser.getCurrentUser();
-                        //barberMessage = messageTxt.getText();
-                        //bUser.put("message", barberMessage);
-                        //bUser.saveInBackground();
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
+                        //query.whereEqualTo("objectId", idTxt);
+                        query.getInBackground(idTxt, new GetCallback<ParseObject>() {
+                            @Override
+                            public void done(ParseObject object, com.parse.ParseException e) {
+                                System.err.println("Barber id is: " + object.getString("name"));
+                                System.err.println("error::  " + e);
+                                //object.remove("message");
+                                final String mess = messageTxt.getText().toString();
+                                object.put("message", mess);
+
+                                object.saveInBackground();
+                                System.err.println("message: " + object.getString("message"));
+                            }
+                        });
                         popupWindow.dismiss();
                     }
                 });
@@ -86,7 +99,8 @@ public class BarberProfile extends Activity {
                         popupWindow.dismiss();
                     }
                 });
-                popupWindow.showAsDropDown(barberLocationTxt, Gravity.LEFT, Gravity.TOP);
+
+                popupWindow.showAsDropDown(findViewById(R.id.textView10), Gravity.LEFT, Gravity.TOP);
             }
         });
     }

@@ -75,6 +75,7 @@ public class BarberSearchResults extends Activity {
         listView.setAdapter(userAdapter);*/
 
         // Create new arrays to store barber's name, location, price, and specialty
+        final ArrayList<String> barberId = new ArrayList<String>();
         final ArrayList<String> barberNames = new ArrayList<String>();
         final ArrayList<String> barberLocation = new ArrayList<String>();
         final ArrayList<Double> barberPrice = new ArrayList<Double>();
@@ -130,11 +131,13 @@ public class BarberSearchResults extends Activity {
 
                         // Only display the barbers that fit within the schedule chosen
                         if (startTime <= start && endTime >= end) {
+                            String bId = u.getObjectId();
                             String name = u.getString("name");
                             String location = u.getString("location");
                             double priceTxt = u.getDouble("price");
                             String specTxt = u.getString("specialty");
 
+                            barberId.add(bId);
                             barberNames.add(name);
                             barberLocation.add(location);
                             barberPrice.add(priceTxt);
@@ -158,6 +161,7 @@ public class BarberSearchResults extends Activity {
                         public void onItemClick(AdapterView<?> a, View v, int position,
                                                 long id) {
 
+                            String itemId = barberId.get(position);
                             String itemName = barberNames.get(position);
                             String itemLoc = barberLocation.get(position);
                             double itemPrice = barberPrice.get(position);
@@ -168,6 +172,7 @@ public class BarberSearchResults extends Activity {
                             Intent intent = new Intent(BarberSearchResults.this, BarberProfile.class);
 
                             // Pass all the barber's information to be used in profile page
+                            intent.putExtra("id", itemId);
                             intent.putExtra("name", itemName);
                             intent.putExtra("location", itemLoc);
                             intent.putExtra("price", itemPrice);
