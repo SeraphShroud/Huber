@@ -110,14 +110,16 @@ public class Calendar extends AppCompatActivity {
                     tvarray[i].setText("time");
                 }
                 else {
-                    tvarray[i].setText(schedule[i / 2].substring(0, schedule[i / 2].indexOf(" ")));
+                    tvarray[i].setText(schedule[i / 2].substring(0, schedule[i / 2].indexOf(" ")-2) + ":" +
+                            schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")));
                 }
                 if ((schedule[i/2].substring(schedule[i/2].indexOf(" ") + 1).equals("0")))
                 {
                     tvarray[i+1].setText("time");
                 }
                 else {
-                    tvarray[i + 1].setText(schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 1));
+                    tvarray[i+1].setText(schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 1, schedule[i / 2].indexOf(" ") + 3)
+                        + ":" + schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3));
                 }
             }
 
@@ -203,10 +205,15 @@ public class Calendar extends AppCompatActivity {
         ParseUser currentUser = ParseUser.getCurrentUser();
         currentUser.remove("schedule");
         for (int i = 0; i < 14; i+=2) {
-            if( tvarray[i].getText().toString() == "time" || tvarray[i+1].getText().toString() == "time")
+            if( tvarray[i].getText().toString().equals("time") || tvarray[i+1].getText().toString().equals("time"))
                 currentUser.add("schedule", "0 0");
-            else
-                currentUser.add("schedule", tvarray[i].getText().toString() + " " + tvarray[i+1].getText().toString() );
+            else {
+                String temp = tvarray[i].getText().toString().substring(0,2) +
+                        tvarray[i].getText().toString().substring(3,5) +
+                        " " + tvarray[i + 1].getText().toString().substring(0,2) +
+                        tvarray[i + 1].getText().toString().substring(3,5);
+                currentUser.add("schedule", temp);
+            }
         }
         /*
         currentUser.add("schedule", time0.getText().toString() + " " + time1.getText().toString() );
