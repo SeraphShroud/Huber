@@ -84,6 +84,9 @@ public class Calendar extends AppCompatActivity {
         if(temp != null) {
             String[] schedule = new String[7];
             temp.toArray(schedule);
+
+
+
             /*
             time0.setText(schedule[0].substring(0, schedule[0].indexOf(" ")));
             time1.setText(schedule[0].substring(schedule[0].indexOf(" ") + 1));
@@ -100,15 +103,99 @@ public class Calendar extends AppCompatActivity {
             time12.setText(schedule[6].substring(0, schedule[6].indexOf(" ")));
             time13.setText(schedule[6].substring(schedule[6].indexOf(" ") + 1));
             */
+
             for (int i = 0; i < 14; i+=2) {
-                tvarray[i].setText(schedule[i/2].substring(0, schedule[i/2].indexOf(" ")));
-                tvarray[i+1].setText(schedule[i/2].substring(schedule[i/2].indexOf(" ") + 1));
+                if ((schedule[i/2].substring(0, schedule[i/2].indexOf(" ")).equals("0")))
+                {
+                    tvarray[i].setText("time");
+                }
+                else {
+                    tvarray[i].setText(schedule[i / 2].substring(0, schedule[i / 2].indexOf(" ")));
+                }
+                if ((schedule[i/2].substring(schedule[i/2].indexOf(" ") + 1).equals("0")))
+                {
+                    tvarray[i+1].setText("time");
+                }
+                else {
+                    tvarray[i + 1].setText(schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 1));
+                }
             }
+
+            /*
+            if ((schedule[6].substring(schedule[6].indexOf(" ")) == "0"))
+            {
+                tvarray[6].setText("poopy");
+            }
+
+            tvarray[0].setText((schedule[6].substring(schedule[6].indexOf(" "))));
+            */
+
+            /*
+            for(int i = 0; i < 14; i+=2) {
+                if ((schedule[i/2].substring(0, schedule[i/2].indexOf(" ")) == "0"))
+                {
+                    tvarray[i].setText("time");
+                }
+                if ((schedule[i/2].substring(schedule[i/2].indexOf(" ") + 1) == "0"))
+                {
+                    tvarray[i+1].setText("time");
+                }
+
+            }*/
+
+            //for (int i = 0; i < 14; i++)
+            //{
+            //    tvarray[i].setText("time");
+            //}
         }
     }
 
     public void buttonOnClick(View v)
     {
+        if(tvarray[0].getText() == "time" ^ tvarray[1].getText() == "time") {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Schedule not saved. Please fill entire schedule. ",
+                    Toast.LENGTH_LONG).show();
+        }
+        else if(tvarray[2].getText() == "time" ^ tvarray[3].getText() == "time") {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Schedule not saved. Please fill entire schedule",
+                    Toast.LENGTH_LONG).show();
+        }
+        else if(tvarray[4].getText() == "time" ^ tvarray[5].getText() == "time") {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Schedule not saved. Please fill entire schedule",
+                    Toast.LENGTH_LONG).show();
+        }
+        else if(tvarray[6].getText() == "time" ^ tvarray[7].getText() == "time") {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Schedule not saved. Please fill entire schedule",
+                    Toast.LENGTH_LONG).show();
+        }
+        else if(tvarray[8].getText() == "time" ^ tvarray[9].getText() == "time") {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Schedule not saved. Please fill entire schedule",
+                    Toast.LENGTH_LONG).show();
+        }
+        else if(tvarray[10].getText() == "time" ^ tvarray[11].getText() == "time") {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Schedule not saved. Please fill entire schedule",
+                    Toast.LENGTH_LONG).show();
+        }
+        else if(tvarray[12].getText() == "time" ^ tvarray[13].getText() == "time") {
+            Toast.makeText(
+                    getApplicationContext(),
+                    "Schedule not saved. Please fill entire schedule",
+                    Toast.LENGTH_LONG).show();
+        }
+
+
         ((Button) v).setText("Added!");
 
         //TODO: Add Code to Add the Data to the Database
