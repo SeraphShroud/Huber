@@ -15,6 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -24,6 +25,7 @@ import com.parse.SaveCallback;
 
 import java.text.ParseException;
 import java.text.DecimalFormat;
+import java.util.List;
 
 
 /**
@@ -74,21 +76,37 @@ public class BarberProfile extends Activity {
                     @Override
                     public void onClick(View v) {
                         // Send the message to specific barber
-                        ParseQuery<ParseObject> query = ParseQuery.getQuery("_User");
-                        //query.whereEqualTo("objectId", idTxt);
-                        query.getInBackground(idTxt, new GetCallback<ParseObject>() {
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Message");
+                        final ParseUser currentUser = ParseUser.getCurrentUser();
+                        query.findInBackground(new FindCallback<ParseObject>() {
                             @Override
-                            public void done(ParseObject object, com.parse.ParseException e) {
-                                System.err.println("Barber id is: " + object.getString("name"));
-                                System.err.println("error::  " + e);
-                                //object.remove("message");
-                                final String mess = messageTxt.getText().toString();
-                                object.put("message", mess);
-
-                                object.saveInBackground();
-                                System.err.println("message: " + object.getString("message"));
+                            public void done(List<ParseObject> messageList, com.parse.ParseException e) {
+                                if (e == null) {
+                                    if (messageList.size() == 0) {
+                                        ParseObject parseMessage = new ParseObject("ParseMessage");
+                                        final String mess = messageTxt.getText().toString();
+                                        parseMessage.put("sender", currentUser);
+                                        parseMessage.put("receiver",idTxt);
+                                        parseMessage.put("message", mess);
+                                        parseMessage.saveInBackground();
+                                    }
+                                }
                             }
                         });
+                        //query.whereEqualTo("objectId", idTxt);
+//                        query.getInBackground(idTxt, new GetCallback<ParseObject>() {
+//                            @Override
+//                            public void done(ParseObject object, com.parse.ParseException e) {
+//                                System.err.println("Barber id is: " + object.getString("name"));
+//                                System.err.println("error::  " + e);
+//                                //object.remove("message");
+//                                final String mess = messageTxt.getText().toString();
+//                                object.put("message", mess);
+//
+//                                object.saveInBackground();
+//                                System.err.println("message: " + object.getString("message"));
+//                            }
+//                        });
                         popupWindow.dismiss();
                     }
                 });
