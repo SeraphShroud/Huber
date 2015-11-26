@@ -40,7 +40,7 @@ public class BarberWelcome extends Activity {
         // Show the message of barbers
         TextView message = (TextView) findViewById(R.id.messages);
 
-        message.setText(currentUser.getString("message"));
+        //message.setText(currentUser.getString("message"));
 
         // Locate Button in welcome.xml
         logout = (Button) findViewById(R.id.logout);
