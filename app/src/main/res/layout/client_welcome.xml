@@ -33,8 +33,7 @@
         android:textColor="#fff"
         android:textSize="20dp"
         android:layout_below="@+id/txtuser"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="98dp" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/logout"
@@ -48,5 +47,24 @@
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/findBarber"
         android:layout_alignStart="@+id/findBarber" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/clientList"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/findBarber"
+        android:layout_above="@+id/logout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Appointment Requests"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/findBarber"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

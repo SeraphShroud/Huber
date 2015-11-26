@@ -51,9 +51,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/messages"
-        android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/txtuser"
-        android:layout_alignEnd="@+id/txtuser" />
+        android:text="Messages"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/calendar"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/messageList"
+        android:layout_below="@+id/textView4"
+        android:layout_toStartOf="@+id/calendar"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/logout" />
 
 </RelativeLayout>

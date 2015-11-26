@@ -178,6 +178,7 @@ public class BarberSearchResults extends Activity {
                             intent.putExtra("price", itemPrice);
                             intent.putExtra("specialty", itemSpec);
                             intent.putExtra("schedule", itemSchedule);
+                            intent.putExtra("day", day);
                             startActivity(intent);
                         }
                     }

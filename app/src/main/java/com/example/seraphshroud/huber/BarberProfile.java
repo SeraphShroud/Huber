@@ -51,6 +51,10 @@ public class BarberProfile extends Activity {
         setParams("location", R.id.barber_location);
         setParams("specialty", R.id.barber_specialty);
         setParams("schedule", R.id.barber_schedule);
+        final String scheduleTxt = getIntent().getExtras().getString("schedule");
+        final String dayTxt = getIntent().getExtras().getString("day");
+
+        //final TextView s
 
         // Retrieve barber prices and reformat it
         final DecimalFormat df = new DecimalFormat("#.00");
@@ -86,27 +90,16 @@ public class BarberProfile extends Activity {
                                         ParseObject parseMessage = new ParseObject("ParseMessage");
                                         final String mess = messageTxt.getText().toString();
                                         parseMessage.put("sender", currentUser);
+                                        parseMessage.put("clientName", currentUser.get("name"));
                                         parseMessage.put("receiver",idTxt);
                                         parseMessage.put("message", mess);
+                                        parseMessage.put("aptDay", dayTxt);
+                                        parseMessage.put("ptTime", scheduleTxt);
                                         parseMessage.saveInBackground();
                                     }
                                 }
                             }
                         });
-                        //query.whereEqualTo("objectId", idTxt);
-//                        query.getInBackground(idTxt, new GetCallback<ParseObject>() {
-//                            @Override
-//                            public void done(ParseObject object, com.parse.ParseException e) {
-//                                System.err.println("Barber id is: " + object.getString("name"));
-//                                System.err.println("error::  " + e);
-//                                //object.remove("message");
-//                                final String mess = messageTxt.getText().toString();
-//                                object.put("message", mess);
-//
-//                                object.saveInBackground();
-//                                System.err.println("message: " + object.getString("message"));
-//                            }
-//                        });
                         popupWindow.dismiss();
                     }
                 });
