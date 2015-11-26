@@ -4,10 +4,17 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
+import com.parse.FindCallback;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseUser;
+
+import java.util.List;
 
 /**
  * Created by Alicia on 11/5/2015.
@@ -17,6 +24,8 @@ public class ClientWelcome extends Activity {
     // Declare Variable
     Button logout;
     Button findBarber;
+    String barberName, day, time, barberPhone;
+    boolean confirmed;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -35,6 +44,35 @@ public class ClientWelcome extends Activity {
 
         // Set the currentUser String into TextView
         txtuser.setText("You are logged in as " + struser);
+
+        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1);
+        final ListView listView = (ListView) findViewById(R.id.clientList);
+        listView.setAdapter(listAdapter);
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Appointments");
+        query.whereEqualTo("client", currentUser.getString("name"));
+        query.findInBackground(new FindCallback<ParseObject>() {
+            @Override
+            public void done(List<ParseObject> objects, com.parse.ParseException e) {
+                for (int i = 0; i < objects.size(); i++) {
+                    ParseObject u = objects.get(i);
+                    confirmed = u.getBoolean("confirmed");
+                    barberName = u.getString("barber");
+                    barberPhone = u.getString("barberPhone");
+                    day = u.getString("aptDay");
+                    time = u.getString("aptTime");
+                    if(confirmed) {
+                        listAdapter.add("Your barber " + barberName + " has confirmed your appointment on " + day + " " + time +
+                                        ". \nPlease contact your barber: " + barberPhone);
+                    } else {
+                        listAdapter.add("We're sorry. Your barber " + barberName + " has declined your request appointment on " + day + " " + time);
+                    }
+
+                }
+            }
+
+        });
 
         // Locate Button in welcome.xml
         logout = (Button) findViewById(R.id.logout);

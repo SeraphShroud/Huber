@@ -228,7 +228,7 @@
         <!--</LinearLayout>-->
 
         <Button
-            android:layout_width="360dp"
+            android:layout_width="fill_parent"
             android:layout_height="60dp"
             android:text="Next"
             android:id="@+id/next"
@@ -237,6 +237,8 @@
             android:textColor="#fff"
             android:textSize="15dp"
             android:fontFamily="sans-serif-light"
-            android:layout_marginTop="60dp" />
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
     </LinearLayout>
 </ScrollView>
