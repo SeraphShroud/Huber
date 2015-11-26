@@ -24,7 +24,7 @@ public class ClientWelcome extends Activity {
     // Declare Variable
     Button logout;
     Button findBarber;
-    String barberName, day, time;
+    String barberName, day, time, barberPhone;
     boolean confirmed;
 
     @Override
@@ -59,10 +59,12 @@ public class ClientWelcome extends Activity {
                     ParseObject u = objects.get(i);
                     confirmed = u.getBoolean("confirmed");
                     barberName = u.getString("barber");
+                    barberPhone = u.getString("barberPhone");
                     day = u.getString("aptDay");
                     time = u.getString("aptTime");
                     if(confirmed) {
-                        listAdapter.add("Your barber " + barberName + " has confirmed your appointment on " + day + " " + time);
+                        listAdapter.add("Your barber " + barberName + " has confirmed your appointment on " + day + " " + time +
+                                        ". \nPlease contact your barber: " + barberPhone);
                     } else {
                         listAdapter.add("We're sorry. Your barber " + barberName + " has declined your request appointment on " + day + " " + time);
                     }

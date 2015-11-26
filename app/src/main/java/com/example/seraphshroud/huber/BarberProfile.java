@@ -94,7 +94,7 @@ public class BarberProfile extends Activity {
                                         parseMessage.put("receiver",idTxt);
                                         parseMessage.put("message", mess);
                                         parseMessage.put("aptDay", dayTxt);
-                                        parseMessage.put("ptTime", scheduleTxt);
+                                        parseMessage.put("aptTime", scheduleTxt);
                                         parseMessage.saveInBackground();
                                     }
                                 }

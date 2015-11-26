@@ -96,7 +96,7 @@ public class BarberWelcome extends Activity {
                 acceptBtn.setOnClickListener(new Button.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Message");
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Appointment");
                         final ParseUser currentUser = ParseUser.getCurrentUser();
                         query.findInBackground(new FindCallback<ParseObject>() {
                             @Override
@@ -122,7 +122,7 @@ public class BarberWelcome extends Activity {
                 rejectBtn.setOnClickListener(new Button.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Message");
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Appointment");
                         final ParseUser currentUser = ParseUser.getCurrentUser();
                         query.findInBackground(new FindCallback<ParseObject>() {
                             @Override
