@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -14,6 +13,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,7 +24,7 @@ public class ClientWelcome extends Activity {
     // Declare Variable
     Button logout;
     Button findBarber;
-    String barberName, day, time, barberPhone;
+    String name, day, time, phone;
     boolean confirmed;
 
     @Override
@@ -40,15 +40,23 @@ public class ClientWelcome extends Activity {
         String struser = currentUser.getUsername().toString();
 
         // Locate TextView in welcome.xml
-        TextView txtuser = (TextView) findViewById(R.id.txtuser);
+        TextView txtuser = (TextView) findViewById(R.id.clientName);
 
         // Set the currentUser String into TextView
-        txtuser.setText("You are logged in as " + struser);
+        txtuser.setText(struser);
 
-        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1);
+        // Create new arrays to store barber's name, location, price, and specialty
+        final ArrayList<String> barberName = new ArrayList<String>();
+        final ArrayList<String> barberPhone = new ArrayList<String>();
+        final ArrayList<String> barberDay = new ArrayList<>();
+        final ArrayList<String> barberTime = new ArrayList<String>();
+        final ArrayList<String> barberConfirm = new ArrayList<>();
+
+        final ApptListAdapter listAdapter = new ApptListAdapter(this, barberName, barberPhone,
+                                                                barberDay, barberTime, barberConfirm);
+
         final ListView listView = (ListView) findViewById(R.id.clientList);
-        listView.setAdapter(listAdapter);
+
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Appointments");
         query.whereEqualTo("client", currentUser.getString("name"));
@@ -58,16 +66,23 @@ public class ClientWelcome extends Activity {
                 for (int i = 0; i < objects.size(); i++) {
                     ParseObject u = objects.get(i);
                     confirmed = u.getBoolean("confirmed");
-                    barberName = u.getString("barber");
-                    barberPhone = u.getString("barberPhone");
+                    name = u.getString("barber");
+                    phone = u.getString("barberPhone");
                     day = u.getString("aptDay");
                     time = u.getString("aptTime");
+
+                    barberName.add(name);
+                    barberPhone.add(phone);
+                    barberDay.add(day);
+                    barberTime.add(time);
+
                     if(confirmed) {
-                        listAdapter.add("Your barber " + barberName + " has confirmed your appointment on " + day + " " + time +
-                                        ". \nPlease contact your barber: " + barberPhone);
+                        barberConfirm.add("accepted");
                     } else {
-                        listAdapter.add("We're sorry. Your barber " + barberName + " has declined your request appointment on " + day + " " + time);
+                        barberConfirm.add("declined");
                     }
+
+                    listView.setAdapter(listAdapter);
 
                 }
             }
