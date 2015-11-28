@@ -50,10 +50,10 @@ public class ApptListAdapter extends ArrayAdapter<String> {
         txtbName.setText(bName.get(position));
         txtbDate.setText(bDay.get(position) + " " + bTime.get(position) );
         txtbConfirmed.setText(bConfirm.get(position));
-        if(bConfirm.get(position).compareTo("accepted") == 0)
+        if(bConfirm.get(position).compareTo("Accepted") == 0)
             txtbPhone.setText(bPhone.get(position));
         else
-            txtbPhone.setText("Please find another appointment time.");
+            txtbPhone.setText("Please schedule another appointment time.");
 
         return rowView;
 
