@@ -41,25 +41,11 @@ public class BarberWelcome extends Activity {
         // Get the view from singleitemview.xml
         setContentView(R.layout.barber_welcome);
 
-        // Retrieve current user from Parse.com
+        // Display User's name
         ParseUser currentUser = ParseUser.getCurrentUser();
-
-        // Convert currentUser into String
         String struser = currentUser.getUsername().toString();
-
-        // Locate TextView in welcome.xml
         TextView txtuser = (TextView) findViewById(R.id.barberName);
-
-        // Set the currentUser String into TextView
         txtuser.setText(struser);
-
-        // Show the message of barbers
-        //final TextView message = (TextView) findViewById(R.id.messages);
-
-        //ParseUser currentUser = ParseUser.getCurrentUser();
-        System.err.println("current: " + currentUser.getObjectId());
-
-        final ArrayList<String> barberMessages = new ArrayList<String>();
 
         // Create new arrays to store barber's name, location, price, and specialty
         final ArrayList<String> clientName = new ArrayList<String>();
@@ -90,9 +76,6 @@ public class BarberWelcome extends Activity {
                     clientMessage.add(bMessage);
 
                     listView.setAdapter(listAdapter);
-                    //barberMessages.add(bMessage);
-                    //listAdapter.add("Client: " + clientName + "\nMessage: " + bMessage + "\nOn: " + day + " " + time);
-
                 }
             }
 

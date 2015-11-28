@@ -31,19 +31,14 @@ public class ClientWelcome extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // Get the view from singleitemview.xml
         setContentView(R.layout.client_welcome);
 
-        // Retrieve current user from Parse.com
+        // Displays User's name
         ParseUser currentUser = ParseUser.getCurrentUser();
-
-        // Convert currentUser into String
         String struser = currentUser.getUsername().toString();
-
-        // Locate TextView in welcome.xml
         TextView txtuser = (TextView) findViewById(R.id.clientName);
-
-        // Set the currentUser String into TextView
         txtuser.setText(struser);
 
         // Create new arrays to store barber's name, location, price, and specialty

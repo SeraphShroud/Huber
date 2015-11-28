@@ -10,11 +10,12 @@
     android:weightSum="1">
 
     <ImageView
-        android:layout_width="93dp"
-        android:layout_height="71dp"
+        android:layout_width="49dp"
+        android:layout_height="52dp"
         android:src="@drawable/message"
         android:id="@+id/imageView"
-        android:layout_gravity="center_vertical" />
+        android:layout_gravity="center_vertical"
+        android:layout_weight="0.07" />
 
     <LinearLayout android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,7 +39,7 @@
             android:textSize="15sp"
             android:paddingTop="5dp"
             android:fontFamily="sans-serif"
-            android:textColor="#98D92A"
+            android:textColor="#3BA389"
             android:layout_weight="3.64"
             android:layout_marginLeft="15dp" />
 
@@ -70,7 +71,7 @@
                 android:textSize="15sp"
                 android:paddingTop="5dp"
                 android:fontFamily="sans-serif-light"
-                android:textColor="#3BA389" />
+                android:textColor="#98D92A" />
 
         </LinearLayout>
 
@@ -95,7 +96,7 @@
                 android:textSize="15sp"
                 android:paddingTop="5dp"
                 android:fontFamily="sans-serif-light"
-                android:textColor="#FE3B40" />
+                android:textColor="#DE2B47" />
 
         </LinearLayout>
 
