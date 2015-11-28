@@ -33,7 +33,7 @@ public class BarberWelcome extends Activity {
     // Declare Variable
     Button logout;
     View calendar;
-    String clientName, day, time;
+    String name, day, time;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,10 +48,10 @@ public class BarberWelcome extends Activity {
         String struser = currentUser.getUsername().toString();
 
         // Locate TextView in welcome.xml
-        TextView txtuser = (TextView) findViewById(R.id.txtuser);
+        TextView txtuser = (TextView) findViewById(R.id.barberName);
 
         // Set the currentUser String into TextView
-        txtuser.setText("You are logged in as " + struser);
+        txtuser.setText(struser);
 
         // Show the message of barbers
         //final TextView message = (TextView) findViewById(R.id.messages);
@@ -61,10 +61,16 @@ public class BarberWelcome extends Activity {
 
         final ArrayList<String> barberMessages = new ArrayList<String>();
 
-        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1);
+        // Create new arrays to store barber's name, location, price, and specialty
+        final ArrayList<String> clientName = new ArrayList<String>();
+        final ArrayList<String> clientDay = new ArrayList<>();
+        final ArrayList<String> clientTime = new ArrayList<String>();
+        final ArrayList<String> clientMessage = new ArrayList<>();
+
+        final MessageListAdapter listAdapter = new MessageListAdapter(this, clientName, clientDay,
+                                                                clientTime, clientMessage);
+
         final ListView listView = (ListView) findViewById(R.id.messageList);
-        listView.setAdapter(listAdapter);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("ParseMessage");
         query.whereEqualTo("receiver", currentUser.getObjectId());
@@ -74,11 +80,18 @@ public class BarberWelcome extends Activity {
                 for (int i = 0; i < objects.size(); i++) {
                     ParseObject u = objects.get(i);
                     String bMessage = u.getString("message");
-                    clientName = u.getString("clientName");
+                    name = u.getString("clientName");
                     day = u.getString("aptDay");
                     time = u.getString("aptTime");
+
+                    clientName.add(name);
+                    clientDay.add(day);
+                    clientTime.add(time);
+                    clientMessage.add(bMessage);
+
+                    listView.setAdapter(listAdapter);
                     //barberMessages.add(bMessage);
-                    listAdapter.add("Client: " + clientName + "\nMessage: " + bMessage + "\nOn: " + day + " " + time);
+                    //listAdapter.add("Client: " + clientName + "\nMessage: " + bMessage + "\nOn: " + day + " " + time);
 
                 }
             }

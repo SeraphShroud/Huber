@@ -1,57 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F8F8F8">
+    android:weightSum="1">
 
-    <TextView
-        android:id="@+id/txtuser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:id="@+id/logout"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="@string/LogoutBtn"
-        android:layout_marginBottom="28dp"
-        android:background="#000"
-        android:textColor="#fff"
-        android:textSize="20dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/txtuser"
-        android:layout_toEndOf="@+id/txtuser" />
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="90dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="15dp">
 
-    <Button
-        android:id="@+id/calendar"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:text="Calendar"
-        android:background="#000"
-        android:textColor="#fff"
-        android:textSize="20dp"
-        android:layout_alignTop="@+id/logout"
-        android:layout_toLeftOf="@+id/txtuser"
-        android:layout_toStartOf="@+id/txtuser" />
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="105dp"
+            android:id="@+id/imageView2"
+            android:src="@drawable/person"
+            android:layout_marginLeft="20dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Messages"
-        android:id="@+id/textView4"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:textSize="20dp" />
+        <TextView
+            android:id="@+id/barberName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:layout_gravity="center_vertical" />
+
+
+    </LinearLayout>
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="385dp"
+        android:layout_height="425dp"
         android:id="@+id/messageList"
-        android:layout_below="@+id/textView4"
-        android:layout_toStartOf="@+id/calendar"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_above="@+id/logout" />
-</RelativeLayout>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_above="@+id/logout"
+        android:layout_below="@+id/txtuser"
+        android:layout_weight="0.28" />
+
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="75dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_vertical"
+        android:weightSum="1"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/calendar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#000"
+            android:text="Calendar"
+            android:fontFamily="sans-serif-light"
+            android:textColor="#fff"
+            android:layout_weight="0.99" />
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="194dp"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-light"
+            android:text="Logout"
+            android:background="#000"
+            android:textColor="#fff"
+            android:layout_weight="0.22" />
+
+    </LinearLayout>
+</LinearLayout>
