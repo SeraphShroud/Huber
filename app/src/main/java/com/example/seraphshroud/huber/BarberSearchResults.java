@@ -83,10 +83,12 @@ public class BarberSearchResults extends Activity {
         final ArrayList<String> barberSpecialty = new ArrayList<String>();
 
         // Populates the barber search results list
-        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1);
+//        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,
+//                R.layout.mylist);
+
         final ListView listView = (ListView)findViewById(R.id.barberList);
-        listView.setAdapter(listAdapter);
+        final CustomListAdapter listAdapter = new CustomListAdapter(this, barberNames, barberLocation, barberPrice, barberAvailability);
+        //listView.setAdapter(listAdapter);
 
         // Check the database for Users
         final ParseQuery query = ParseUser.getQuery();
@@ -144,15 +146,22 @@ public class BarberSearchResults extends Activity {
                             barberSpecialty.add(specTxt);
                             barberAvailability.add(availability);
 
+
+                            listView.setAdapter(listAdapter);
+
                             // Tabs sometimes don't show on phones
-                            listAdapter.add("Barber:\t\t" + name + "\n" + "Location:\t" + location + "\n" + "Price:\t\t\t" + "$" + df.format(priceTxt) + "\n" +
-                                    "Available on " + day + " from " + times[0] + " to " + times[1]);
+                            //listAdapter.add("Barber:\t\t" + name + "\n" + "Location:\t" + location + "\n" + "Price:\t\t\t" + "$" + df.format(priceTxt) + "\n" +
+                              //      "Available on " + day + " from " + times[0] + " to " + times[1]);
 
                         }
                     }
                 }
             }
         });
+
+//        final ListView listView = (ListView)findViewById(R.id.barberList);
+//        CustomListAdapter listAdapter = new CustomListAdapter(this, barberNames, barberLocation, barberPrice, barberAvailability);
+//        listView.setAdapter(listAdapter);
 
             // Clicking on a certain item will redirect to profile page
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener()

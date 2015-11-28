@@ -3,25 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#9B9DA0">
-
-    <TextView
-        android:id="@+id/txtwelcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:text="@string/Welcome"
-        android:paddingTop="50dp"
-        android:textSize="25sp"
-        android:textColor="#fff"
-        android:typeface="sans"
-        android:visibility="visible" />
+    android:background="#F8F8F8">
 
     <TextView
         android:id="@+id/txtuser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtwelcome"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -29,12 +16,13 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="@string/LogoutBtn"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="29dp"
+        android:layout_marginBottom="28dp"
         android:background="#000"
         android:textColor="#fff"
-        android:textSize="20dp" />
+        android:textSize="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/txtuser"
+        android:layout_toEndOf="@+id/txtuser" />
 
     <Button
         android:id="@+id/calendar"
@@ -44,18 +32,18 @@
         android:background="#000"
         android:textColor="#fff"
         android:textSize="20dp"
-        android:layout_below="@+id/txtuser"
-        android:layout_alignLeft="@+id/logout"
-        android:layout_alignStart="@+id/logout" />
+        android:layout_alignTop="@+id/logout"
+        android:layout_toLeftOf="@+id/txtuser"
+        android:layout_toStartOf="@+id/txtuser" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Messages"
         android:id="@+id/textView4"
-        android:layout_below="@+id/calendar"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="false"
+        android:textSize="20dp" />
 
     <ListView
         android:layout_width="wrap_content"
@@ -66,5 +54,4 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/logout" />
-
 </RelativeLayout>

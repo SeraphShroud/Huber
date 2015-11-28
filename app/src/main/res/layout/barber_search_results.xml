@@ -15,11 +15,11 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Found Barbers"
-            android:fontFamily="sans-serif-regular"
+            android:fontFamily="sans-serif-bold"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:textSize="30dp" />
     </TableRow>
 
     <ListView
@@ -27,7 +27,6 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
         android:id="@+id/barberList"
-        android:layout_marginLeft="5dp"
         android:textFilterEnabled="false"
         android:scrollingCache="false"
         android:footerDividersEnabled="false"
