@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -14,6 +14,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -24,31 +25,34 @@ public class ClientWelcome extends Activity {
     // Declare Variable
     Button logout;
     Button findBarber;
-    String barberName, day, time, barberPhone;
+    String name, day, time, phone;
     boolean confirmed;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         // Get the view from singleitemview.xml
         setContentView(R.layout.client_welcome);
 
-        // Retrieve current user from Parse.com
+        // Displays User's name
         ParseUser currentUser = ParseUser.getCurrentUser();
-
-        // Convert currentUser into String
         String struser = currentUser.getUsername().toString();
+        TextView txtuser = (TextView) findViewById(R.id.clientName);
+        txtuser.setText(struser);
 
-        // Locate TextView in welcome.xml
-        TextView txtuser = (TextView) findViewById(R.id.txtuser);
+        // Create new arrays to store barber's name, location, price, and specialty
+        final ArrayList<String> barberName = new ArrayList<String>();
+        final ArrayList<String> barberPhone = new ArrayList<String>();
+        final ArrayList<String> barberDay = new ArrayList<>();
+        final ArrayList<String> barberTime = new ArrayList<String>();
+        final ArrayList<String> barberConfirm = new ArrayList<>();
 
-        // Set the currentUser String into TextView
-        txtuser.setText("You are logged in as " + struser);
+        final ApptListAdapter listAdapter = new ApptListAdapter(this, barberName, barberPhone,
+                                                                barberDay, barberTime, barberConfirm);
 
-        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1);
         final ListView listView = (ListView) findViewById(R.id.clientList);
-        listView.setAdapter(listAdapter);
+
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Appointments");
         query.whereEqualTo("client", currentUser.getString("name"));
@@ -58,16 +62,23 @@ public class ClientWelcome extends Activity {
                 for (int i = 0; i < objects.size(); i++) {
                     ParseObject u = objects.get(i);
                     confirmed = u.getBoolean("confirmed");
-                    barberName = u.getString("barber");
-                    barberPhone = u.getString("barberPhone");
+                    name = u.getString("barber");
+                    phone = u.getString("barberPhone");
                     day = u.getString("aptDay");
                     time = u.getString("aptTime");
+
+                    barberName.add(name);
+                    barberPhone.add(phone);
+                    barberDay.add(day);
+                    barberTime.add(time);
+
                     if(confirmed) {
-                        listAdapter.add("Your barber " + barberName + " has confirmed your appointment on " + day + " " + time +
-                                        ". \nPlease contact your barber: " + barberPhone);
+                        barberConfirm.add("Accepted");
                     } else {
-                        listAdapter.add("We're sorry. Your barber " + barberName + " has declined your request appointment on " + day + " " + time);
+                        barberConfirm.add("Declined");
                     }
+
+                    listView.setAdapter(listAdapter);
 
                 }
             }

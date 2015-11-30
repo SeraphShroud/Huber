@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
@@ -33,7 +34,7 @@ public class BarberWelcome extends Activity {
     // Declare Variable
     Button logout;
     View calendar;
-    String clientName, day, time;
+    String name, day, time;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,30 +42,22 @@ public class BarberWelcome extends Activity {
         // Get the view from singleitemview.xml
         setContentView(R.layout.barber_welcome);
 
-        // Retrieve current user from Parse.com
+        // Display User's name
         ParseUser currentUser = ParseUser.getCurrentUser();
-
-        // Convert currentUser into String
         String struser = currentUser.getUsername().toString();
+        TextView txtuser = (TextView) findViewById(R.id.barberName);
+        txtuser.setText(struser);
 
-        // Locate TextView in welcome.xml
-        TextView txtuser = (TextView) findViewById(R.id.txtuser);
+        // Create new arrays to store barber's name, location, price, and specialty
+        final ArrayList<String> clientName = new ArrayList<String>();
+        final ArrayList<String> clientDay = new ArrayList<>();
+        final ArrayList<String> clientTime = new ArrayList<String>();
+        final ArrayList<String> clientMessage = new ArrayList<>();
 
-        // Set the currentUser String into TextView
-        txtuser.setText("You are logged in as " + struser);
+        final MessageListAdapter listAdapter = new MessageListAdapter(this, clientName, clientDay,
+                                                                clientTime, clientMessage);
 
-        // Show the message of barbers
-        //final TextView message = (TextView) findViewById(R.id.messages);
-
-        //ParseUser currentUser = ParseUser.getCurrentUser();
-        System.err.println("current: " + currentUser.getObjectId());
-
-        final ArrayList<String> barberMessages = new ArrayList<String>();
-
-        final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1);
         final ListView listView = (ListView) findViewById(R.id.messageList);
-        listView.setAdapter(listAdapter);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("ParseMessage");
         query.whereEqualTo("receiver", currentUser.getObjectId());
@@ -74,12 +67,16 @@ public class BarberWelcome extends Activity {
                 for (int i = 0; i < objects.size(); i++) {
                     ParseObject u = objects.get(i);
                     String bMessage = u.getString("message");
-                    clientName = u.getString("clientName");
+                    name = u.getString("clientName");
                     day = u.getString("aptDay");
                     time = u.getString("aptTime");
-                    //barberMessages.add(bMessage);
-                    listAdapter.add("Client: " + clientName + "\nMessage: " + bMessage + "\nOn: " + day + " " + time);
 
+                    clientName.add(name);
+                    clientDay.add(day);
+                    clientTime.add(time);
+                    clientMessage.add(bMessage);
+
+                    listView.setAdapter(listAdapter);
                 }
             }
 
@@ -93,6 +90,14 @@ public class BarberWelcome extends Activity {
                 final PopupWindow popupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 Button acceptBtn = (Button) popupView.findViewById(R.id.accept);
                 Button rejectBtn = (Button) popupView.findViewById(R.id.reject);
+                ImageView closeBtn = (ImageView) popupView.findViewById(R.id.closeBtn);
+
+                closeBtn.setOnClickListener(new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        popupWindow.dismiss();
+                    }
+                });
                 acceptBtn.setOnClickListener(new Button.OnClickListener(){
                     @Override
                     public void onClick(View v) {
@@ -143,7 +148,7 @@ public class BarberWelcome extends Activity {
                         popupWindow.dismiss();
                     }
                 });
-                popupWindow.showAsDropDown(findViewById(R.id.calendar), Gravity.LEFT, Gravity.TOP);
+                popupWindow.showAsDropDown(findViewById(R.id.imageView), Gravity.LEFT, Gravity.TOP);
             }
         });
 
