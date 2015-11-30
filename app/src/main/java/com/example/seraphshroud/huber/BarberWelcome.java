@@ -24,6 +24,7 @@ import com.parse.ParseUser;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,6 +36,7 @@ public class BarberWelcome extends Activity {
     Button logout;
     View calendar;
     String name, day, time;
+    Date createdAt;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,14 +55,16 @@ public class BarberWelcome extends Activity {
         final ArrayList<String> clientDay = new ArrayList<>();
         final ArrayList<String> clientTime = new ArrayList<String>();
         final ArrayList<String> clientMessage = new ArrayList<>();
+        final ArrayList<Date> clientCreatedAt = new ArrayList<>();
 
         final MessageListAdapter listAdapter = new MessageListAdapter(this, clientName, clientDay,
-                                                                clientTime, clientMessage);
+                                                                clientTime, clientMessage, clientCreatedAt);
 
         final ListView listView = (ListView) findViewById(R.id.messageList);
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("ParseMessage");
         query.whereEqualTo("receiver", currentUser.getObjectId());
+        query.orderByDescending("createdAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, com.parse.ParseException e) {
@@ -70,11 +74,14 @@ public class BarberWelcome extends Activity {
                     name = u.getString("clientName");
                     day = u.getString("aptDay");
                     time = u.getString("aptTime");
+                    createdAt = u.getCreatedAt();
+
 
                     clientName.add(name);
                     clientDay.add(day);
                     clientTime.add(time);
                     clientMessage.add(bMessage);
+                    clientCreatedAt.add(createdAt);
 
                     listView.setAdapter(listAdapter);
                 }

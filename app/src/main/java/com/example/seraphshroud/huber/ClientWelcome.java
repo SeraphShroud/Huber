@@ -56,6 +56,7 @@ public class ClientWelcome extends Activity {
 
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Appointments");
         query.whereEqualTo("client", currentUser.getString("name"));
+        query.orderByAscending("createdAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, com.parse.ParseException e) {

@@ -73,8 +73,8 @@
         android:backgroundTint="#0000"
         android:layout_marginBottom="8dp"
         android:textSize="15dp"
-        android:layout_toRightOf="@+id/textView16"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:layout_marginLeft="-30dp" />
 
 
 
