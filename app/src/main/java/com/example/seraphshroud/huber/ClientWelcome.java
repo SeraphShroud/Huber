@@ -15,6 +15,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,6 +27,7 @@ public class ClientWelcome extends Activity {
     Button logout;
     Button findBarber;
     String name, day, time, phone;
+    Date date;
     boolean confirmed;
 
     @Override
@@ -37,9 +39,14 @@ public class ClientWelcome extends Activity {
 
         // Displays User's name
         ParseUser currentUser = ParseUser.getCurrentUser();
-        String struser = currentUser.getUsername().toString();
+        String struser = currentUser.getString("name");
         TextView txtuser = (TextView) findViewById(R.id.clientName);
         txtuser.setText(struser);
+
+        // Locate Button in welcome.xml
+        logout = (Button) findViewById(R.id.logout);
+        findBarber = (Button) findViewById(R.id.findBarber);
+
 
         // Create new arrays to store barber's name, location, price, and specialty
         final ArrayList<String> barberName = new ArrayList<String>();
@@ -47,16 +54,17 @@ public class ClientWelcome extends Activity {
         final ArrayList<String> barberDay = new ArrayList<>();
         final ArrayList<String> barberTime = new ArrayList<String>();
         final ArrayList<String> barberConfirm = new ArrayList<>();
+        final ArrayList<Date> barberDate = new ArrayList<>();
 
         final ApptListAdapter listAdapter = new ApptListAdapter(this, barberName, barberPhone,
-                                                                barberDay, barberTime, barberConfirm);
+                                                                barberDay, barberTime, barberConfirm, barberDate);
 
         final ListView listView = (ListView) findViewById(R.id.clientList);
 
 
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Appointments");
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("ParseAppointments");
         query.whereEqualTo("client", currentUser.getString("name"));
-        query.orderByAscending("createdAt");
+        query.orderByDescending("createdAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             @Override
             public void done(List<ParseObject> objects, com.parse.ParseException e) {
@@ -67,11 +75,13 @@ public class ClientWelcome extends Activity {
                     phone = u.getString("barberPhone");
                     day = u.getString("aptDay");
                     time = u.getString("aptTime");
+                    date = u.getCreatedAt();
 
                     barberName.add(name);
                     barberPhone.add(phone);
                     barberDay.add(day);
                     barberTime.add(time);
+                    barberDate.add(date);
 
                     if(confirmed) {
                         barberConfirm.add("Accepted");
@@ -85,11 +95,6 @@ public class ClientWelcome extends Activity {
             }
 
         });
-
-        // Locate Button in welcome.xml
-        logout = (Button) findViewById(R.id.logout);
-
-        findBarber = (Button) findViewById(R.id.findBarber);
 
         // Logout Button Click Listener
         logout.setOnClickListener(new View.OnClickListener() {

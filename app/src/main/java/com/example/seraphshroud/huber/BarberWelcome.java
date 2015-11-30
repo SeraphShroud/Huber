@@ -91,39 +91,41 @@ public class BarberWelcome extends Activity {
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 LayoutInflater lay = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
                 final View popupView = lay.inflate(R.layout.confirm_popup, null);
                 final PopupWindow popupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 Button acceptBtn = (Button) popupView.findViewById(R.id.accept);
                 Button rejectBtn = (Button) popupView.findViewById(R.id.reject);
-                ImageView closeBtn = (ImageView) popupView.findViewById(R.id.closeBtn);
+                //ImageView closeBtn = (ImageView) popupView.findViewById(R.id.closeBtn);
 
-                closeBtn.setOnClickListener(new Button.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-                        popupWindow.dismiss();
-                    }
-                });
+//                closeBtn.setOnClickListener(new Button.OnClickListener(){
+//                    @Override
+//                    public void onClick(View v) {
+//                        popupWindow.dismiss();
+//                    }
+//                });
                 acceptBtn.setOnClickListener(new Button.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Appointment");
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Appointments");
                         final ParseUser currentUser = ParseUser.getCurrentUser();
                         query.findInBackground(new FindCallback<ParseObject>() {
                             @Override
                             public void done(List<ParseObject> aptList, com.parse.ParseException e) {
                                 if (e == null) {
-                                    if (aptList.size() == 0) {
-                                        ParseObject appointments = new ParseObject("Appointments");
+                                    System.err.println("asss");
+                                    //if (aptList.size() == 0) {
+                                        System.err.println("2asss");
+                                        ParseObject appointments = new ParseObject("ParseAppointments");
                                         appointments.put("barber", currentUser.get("name"));
-                                        appointments.put("client", clientName);
+                                        appointments.put("client", clientName.get(position));
                                         appointments.put("confirmed",true);
                                         appointments.put("aptDay", day);
                                         appointments.put("aptTime", time);
                                         appointments.put("barberPhone", currentUser.get("phoneNumber"));
                                         appointments.saveInBackground();
-                                    }
+                                    //}
                                 }
                             }
                         });

@@ -1,6 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="385dp"
-    android:layout_height="150dp"
+    android:layout_height="170dp"
     android:orientation="horizontal"
     android:background="@drawable/border"
     android:gravity="center_vertical"
@@ -19,6 +19,32 @@
     <LinearLayout android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#000"
+                android:text="Date:"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/date"
+                android:layout_marginTop="10dp" />
+        </LinearLayout>
+
+
         <TextView
             android:id="@+id/appt"
             android:layout_width="wrap_content"
