@@ -3,48 +3,79 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical"
-    android:background="@android:color/background_light"
+    android:background="@drawable/border"
     android:weightSum="1">
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="321dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@drawable/border"
         android:layout_margin="1dp"
-        android:background="@android:color/darker_gray">
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
         >
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="287dp"
+            android:layout_height="210dp"
             android:orientation="vertical"
             android:layout_margin="20dp">
             <TextView
-                android:layout_width="fill_parent"
+                android:layout_width="281dp"
                 android:layout_height="wrap_content"
-                android:text="Message you barber for appointment availability!"
-                android:layout_marginBottom="20dp" />
+                android:text="Message your barber for a haircuit!"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="20dp"
+                android:textAlignment="center"
+                android:textSize="17dp"
+                android:layout_marginTop="15dp"
+                android:textColor="#000" />
 
             <EditText
                 android:id="@+id/message"
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
+                android:fontFamily="sans-serif-light"
                 android:hint="Enter your message"
                 android:maxLength="2000"
                 android:maxLines="5"
                 android:inputType="text|textMultiLine|textLongMessage"
-                android:textSize="15dp" />
+                android:textSize="15dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#000" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+                android:weightSum="1"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="12dp">
 
 
-            <Button
-                android:id="@+id/send"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Send" />
+                <Button
+                    android:id="@+id/send"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="Send"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_weight="0.57"
+                    android:layout_marginRight="10dp"
+                    android:background="#000"
+                    android:textColor="#FFF" />
 
-            <Button
-                android:id="@+id/dismiss"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="Close" />
+                <Button
+                    android:id="@+id/dismiss"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:text="Close"
+                    android:fontFamily="sans-serif-light"
+                    android:layout_weight="0.24"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#FFF"
+                    android:background="#000" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
