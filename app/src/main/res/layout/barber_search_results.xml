@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Found Barbers"
-            android:fontFamily="sans-serif-bold"
+            android:fontFamily="sans-serif-regular"
             android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
             android:layout_marginBottom="20dp"
@@ -30,7 +30,9 @@
         android:textFilterEnabled="false"
         android:scrollingCache="false"
         android:footerDividersEnabled="false"
-        android:clickable="false" />
+        android:clickable="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="15.0sp"/>
 
 
 </LinearLayout>

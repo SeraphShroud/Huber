@@ -9,19 +9,24 @@
     <LinearLayout android:layout_width="fill_parent"
         android:layout_height="90dp"
         android:orientation="horizontal"
-        android:layout_marginTop="15dp">
+        android:layout_marginTop="15dp"
+        android:background="@drawable/border"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
 
         <ImageView
             android:layout_width="75dp"
             android:layout_height="105dp"
             android:id="@+id/imageView2"
-            android:src="@drawable/person"
-            android:layout_marginLeft="20dp" />
+            android:src="@drawable/barber"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp" />
 
         <TextView
             android:id="@+id/barberName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
             android:textSize="30dp"
             android:layout_gravity="center_vertical" />
 
@@ -29,7 +34,7 @@
     </LinearLayout>
 
     <ListView
-        android:layout_width="385dp"
+        android:layout_width="fill_parent"
         android:layout_height="425dp"
         android:id="@+id/messageList"
         android:layout_alignParentLeft="true"
@@ -37,7 +42,11 @@
         android:layout_marginTop="20dp"
         android:layout_above="@+id/logout"
         android:layout_below="@+id/txtuser"
-        android:layout_weight="0.28" />
+        android:layout_weight="0.28"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="15.0sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
 
     <LinearLayout android:layout_width="fill_parent"
         android:layout_height="75dp"
@@ -53,19 +62,21 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#000"
-            android:text="Calendar"
+            android:text="CALENDAR"
             android:fontFamily="sans-serif-light"
             android:textColor="#fff"
-            android:layout_weight="0.99" />
+            android:layout_weight="0.99"
+            android:paddingBottom="10dp" />
         <Button
             android:id="@+id/logout"
             android:layout_width="194dp"
             android:layout_height="match_parent"
             android:fontFamily="sans-serif-light"
-            android:text="Logout"
+            android:text="LOGOUT"
             android:background="#000"
             android:textColor="#fff"
-            android:layout_weight="0.22" />
+            android:layout_weight="0.22"
+            android:paddingBottom="10dp" />
 
     </LinearLayout>
 </LinearLayout>

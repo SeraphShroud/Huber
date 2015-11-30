@@ -1,6 +1,6 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="#FFFFFF"
+    android:layout_height="match_parent"
     tools:context="com.example.seraphshroud.huber.Calendar">
 
     <!-- The primary full-screen view. This can be replaced with whatever view
@@ -12,14 +12,21 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="614dp"
+        android:layout_height="fill_parent"
         android:id="@+id/scrollView"
-        android:fillViewport="false" />
+        android:fillViewport="false" >
+
+    </ScrollView>
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="473dp"
-        android:layout_gravity="center_horizontal|bottom">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/border"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:orientation="horizontal"
@@ -35,37 +42,42 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Monday"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/monday"
-                android:textSize="25dp" />
+                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:textColor="#000" />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:text="time"
                 android:id="@+id/time0"
+                android:fontFamily="sans-serif-light"
                 android:layout_column="11"
                 android:textAlignment="center"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog" />
+                android:onClick="showTimePickerDialog"
+                android:layout_marginTop="10dp"
+                android:textSize="20dp"
+                android:textColor="#3BA389" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="time"
                 android:id="@+id/time1"
+                android:fontFamily="sans-serif-light"
                 android:layout_column="18"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog2" />
+                android:onClick="showTimePickerDialog2"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
         </TableRow>
 
@@ -77,27 +89,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tuesday"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/tuesday"
-                android:textSize="25dp" />
+                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:textColor="#000" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:text="time"
                 android:id="@+id/time2"
                 android:layout_column="11"
                 android:textAlignment="center"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog3" />
+                android:onClick="showTimePickerDialog3"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
                 android:text="time"
                 android:id="@+id/time3"
                 android:layout_column="18"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog4" />
+                android:onClick="showTimePickerDialog4"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
         </TableRow>
 
@@ -109,9 +132,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Wednesday"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/wednesday"
-                android:textSize="25dp"
-                android:layout_column="0" />
+                android:textSize="20dp"
+                android:layout_column="0"
+                android:layout_margin="10dp"
+                android:textColor="#000" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -119,9 +145,13 @@
                 android:text="time"
                 android:id="@+id/time4"
                 android:layout_column="11"
+                android:fontFamily="sans-serif-light"
                 android:textAlignment="center"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog5" />
+                android:onClick="showTimePickerDialog5"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -129,8 +159,12 @@
                 android:text="time"
                 android:id="@+id/time5"
                 android:layout_column="18"
+                android:fontFamily="sans-serif-light"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog6" />
+                android:onClick="showTimePickerDialog6"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
         </TableRow>
 
@@ -142,27 +176,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thursday"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/thursday"
-                android:textSize="25dp" />
+                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:textColor="#000" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="time"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/time6"
                 android:layout_column="11"
                 android:textAlignment="center"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog7" />
+                android:onClick="showTimePickerDialog7"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="time"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/time7"
                 android:layout_column="18"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog8" />
+                android:onClick="showTimePickerDialog8"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
         </TableRow>
 
@@ -174,27 +219,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Friday"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/friday"
-                android:textSize="25dp" />
+                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:textColor="#000" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="time"
                 android:id="@+id/time8"
+                android:fontFamily="sans-serif-light"
                 android:layout_column="11"
                 android:textAlignment="center"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog9" />
+                android:onClick="showTimePickerDialog9"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="time"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/time9"
                 android:layout_column="18"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog10" />
+                android:onClick="showTimePickerDialog10"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
         </TableRow>
 
@@ -206,8 +262,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Saturday"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/saturday"
-                android:textSize="25dp" />
+                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:textColor="#000" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -216,17 +275,25 @@
                 android:id="@+id/time10"
                 android:layout_column="11"
                 android:textAlignment="center"
+                android:fontFamily="sans-serif-light"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog11" />
+                android:onClick="showTimePickerDialog11"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="time"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/time11"
                 android:layout_column="18"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog12" />
+                android:onClick="showTimePickerDialog12"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
         </TableRow>
 
@@ -238,27 +305,38 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sunday"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/sunday"
-                android:textSize="25dp" />
+                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:textColor="#000" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="time"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/time12"
                 android:layout_column="11"
                 android:textAlignment="center"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog13" />
+                android:onClick="showTimePickerDialog13"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="time"
+                android:fontFamily="sans-serif-light"
                 android:id="@+id/time13"
                 android:layout_column="18"
                 android:clickable="true"
-                android:onClick="showTimePickerDialog14" />
+                android:onClick="showTimePickerDialog14"
+                android:textSize="20dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#3BA389" />
 
         </TableRow>
 
@@ -295,19 +373,65 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"></TableRow>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="ADD TO SCHEDULE"
-                android:id="@+id/button3"
-                android:onClick="buttonOnClick"
-                android:layout_column="0" />
-        </TableRow>
-
     </TableLayout>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="ADD TO SCHEDULE"
+        android:fontFamily="sans-serif-light"
+        android:id="@+id/button3"
+        android:onClick="buttonOnClick"
+        android:layout_column="0"
+        android:layout_span="19"
+        android:textColor="#fff"
+        android:background="#000"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp" />
+
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:weightSum="1"
+        android:background="@drawable/border"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="10dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="62dp"
+            android:id="@+id/calendar"
+            android:src="@drawable/calendar"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Calendar"
+            android:id="@+id/textView4"
+            android:fontFamily="sans-serif-light"
+            android:textSize="35dp"
+            android:layout_marginTop="27dp"
+            android:textColor="#000" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edit Your Schedule Times"
+        android:fontFamily="sans-serif-light"
+        android:id="@+id/textView5"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="135dp"
+        android:textSize="20dp" />
 
 </FrameLayout>
