@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class CustomListAdapter extends ArrayAdapter<String> {
@@ -21,6 +22,8 @@ public class CustomListAdapter extends ArrayAdapter<String> {
     final ArrayList<String> bLoc;
     final ArrayList<Double> bPrice;
     final ArrayList<String> bAvail;
+
+    final DecimalFormat df = new DecimalFormat("#.00");
 
     public CustomListAdapter(Activity context,  final ArrayList<String> barberName, final ArrayList<String> barberLoc,
                              final ArrayList<Double> barberPrice,  final ArrayList<String> barberAvail) {
@@ -47,7 +50,7 @@ public class CustomListAdapter extends ArrayAdapter<String> {
 
         txtbName.setText(bName.get(position));
         txtbLoc.setText(bLoc.get(position));
-        txtbPrice.setText(bPrice.get(position).toString());
+        txtbPrice.setText("$" + bPrice.get(position).toString());
         txtbAvail.setText(bAvail.get(position));
 
         return rowView;

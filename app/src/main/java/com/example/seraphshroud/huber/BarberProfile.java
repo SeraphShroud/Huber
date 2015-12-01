@@ -100,6 +100,9 @@ public class BarberProfile extends Activity {
                                 }
                             }
                         });
+                        Toast.makeText(getApplicationContext(),
+                                "Message successfully sent!", Toast.LENGTH_SHORT)
+                                .show();
                         popupWindow.dismiss();
                     }
                 });

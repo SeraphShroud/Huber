@@ -26,6 +26,7 @@ import java.util.List;
 public class BarberSearchResults extends Activity {
 
     final static int DAYS_IN_WEEK = 7;
+    String begin, finish;
     String[] schedule = new String[DAYS_IN_WEEK];
     String day;
     int startTime, endTime;
@@ -123,21 +124,34 @@ public class BarberSearchResults extends Activity {
                         int start = Integer.parseInt(times[0]);
                         int end = Integer.parseInt(times[1]);
 
-                        /*Date d1, d2;
+                        try {
+                            begin = times[0].toString();
+                            finish = times[1].toString();
 
-                        // Format the 24 hour clock to 12 hour for readability
-                        d1 = new SimpleDateFormat("hhmm").parse(String.format("%04d", times[0]));
-                        d2 = new SimpleDateFormat("hhmm").parse(String.format("%04d", times[1]));
+                            // Format the 24 hour clock to 12 hour for readability
+                            SimpleDateFormat hour24Display = new SimpleDateFormat("HHmm");
+                            SimpleDateFormat hour12Display = new SimpleDateFormat("h:mma");
 
-                        SimpleDateFormat sdf = new SimpleDateFormat("hh:mma"); sdf.format(d1)*/
+                            Date start24Clock = hour24Display.parse(begin);
+                            Date end24Clock = hour24Display.parse(finish);
+
+                            begin = hour12Display.format(start24Clock);
+                            finish = hour12Display.format(end24Clock);
+
+                        }
+                        catch (Exception ex) {
+                            ex.printStackTrace();
+                        }
+                        //System.out.println(hr%12 + ":" + min + " " + ((hr>=12) ? "PM" : "AM"));
 
                         // Only display the barbers that fit within the schedule chosen
-                        if (startTime <= start && endTime >= end) {
+                        if (startTime <= start && endTime <= end) {
                             String bId = u.getObjectId();
                             String name = u.getString("name");
                             String location = u.getString("location");
                             double priceTxt = u.getDouble("price");
                             String specTxt = u.getString("specialty");
+                            availability = begin + " - " + finish;
 
                             barberId.add(bId);
                             barberNames.add(name);
@@ -164,33 +178,32 @@ public class BarberSearchResults extends Activity {
 //        listView.setAdapter(listAdapter);
 
             // Clicking on a certain item will redirect to profile page
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-                    {
-                        @Override
-                        public void onItemClick(AdapterView<?> a, View v, int position,
-                                                long id) {
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                                @Override
+                                                public void onItemClick(AdapterView<?> a, View v, int position,
+                                                                        long id) {
 
-                            String itemId = barberId.get(position);
-                            String itemName = barberNames.get(position);
-                            String itemLoc = barberLocation.get(position);
-                            double itemPrice = barberPrice.get(position);
-                            String itemSpec = barberSpecialty.get(position);
-                            String itemSchedule = barberAvailability.get(position);
+                                                    String itemId = barberId.get(position);
+                                                    String itemName = barberNames.get(position);
+                                                    String itemLoc = barberLocation.get(position);
+                                                    double itemPrice = barberPrice.get(position);
+                                                    String itemSpec = barberSpecialty.get(position);
+                                                    String itemSchedule = barberAvailability.get(position);
 
 
-                            Intent intent = new Intent(BarberSearchResults.this, BarberProfile.class);
+                                                    Intent intent = new Intent(BarberSearchResults.this, BarberProfile.class);
 
-                            // Pass all the barber's information to be used in profile page
-                            intent.putExtra("id", itemId);
-                            intent.putExtra("name", itemName);
-                            intent.putExtra("location", itemLoc);
-                            intent.putExtra("price", itemPrice);
-                            intent.putExtra("specialty", itemSpec);
-                            intent.putExtra("schedule", itemSchedule);
-                            intent.putExtra("day", day);
-                            startActivity(intent);
-                        }
-                    }
+                                                    // Pass all the barber's information to be used in profile page
+                                                    intent.putExtra("id", itemId);
+                                                    intent.putExtra("name", itemName);
+                                                    intent.putExtra("location", itemLoc);
+                                                    intent.putExtra("price", itemPrice);
+                                                    intent.putExtra("specialty", itemSpec);
+                                                    intent.putExtra("schedule", itemSchedule);
+                                                    intent.putExtra("day", day);
+                                                    startActivity(intent);
+                                                }
+                                            }
 
             );
         }
