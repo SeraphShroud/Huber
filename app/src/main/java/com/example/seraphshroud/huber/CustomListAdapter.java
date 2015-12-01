@@ -50,7 +50,11 @@ public class CustomListAdapter extends ArrayAdapter<String> {
 
         txtbName.setText(bName.get(position));
         txtbLoc.setText(bLoc.get(position));
-        txtbPrice.setText("$" + bPrice.get(position).toString());
+        if (bPrice.get(position) == 0)
+            txtbPrice.setText("FREE");
+        else
+            txtbPrice.setText("$" + df.format(bPrice.get(position)));
+        //txtbPrice.setText("$" + bPrice.get(position).toString());
         txtbAvail.setText(bAvail.get(position));
 
         return rowView;

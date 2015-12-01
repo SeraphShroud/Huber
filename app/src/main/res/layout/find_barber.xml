@@ -127,19 +127,21 @@
 
             <TextView
                 android:id="@+id/txtTime"
-                android:layout_width="wrap_content"
+                android:layout_width="106dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif-light"
                 android:layout_centerHorizontal="true"
-                android:text="@string/Time"
-                android:paddingTop="30dp"
+                android:text="Available at:"
+                android:paddingTop="20dp"
                 android:paddingLeft="25dp"
                 android:textSize="20sp"
                 android:textColor="#000"
                 android:typeface="sans"
                 android:visibility="visible"
                 android:layout_marginTop="-15dp"
-                android:layout_marginLeft="-20dp" />
+                android:layout_marginLeft="-20dp"
+                android:singleLine="false"
+                android:textAlignment="center" />
 
             <Spinner
                 android:id="@+id/time_range"

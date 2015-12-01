@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.parse.FindCallback;
@@ -13,7 +12,6 @@ import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
-import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -142,10 +140,9 @@ public class BarberSearchResults extends Activity {
                         catch (Exception ex) {
                             ex.printStackTrace();
                         }
-                        //System.out.println(hr%12 + ":" + min + " " + ((hr>=12) ? "PM" : "AM"));
 
                         // Only display the barbers that fit within the schedule chosen
-                        if (startTime <= start && endTime <= end) {
+                        if (startTime >= start && start != 0/*&& endTime <= end*/) {
                             String bId = u.getObjectId();
                             String name = u.getString("name");
                             String location = u.getString("location");

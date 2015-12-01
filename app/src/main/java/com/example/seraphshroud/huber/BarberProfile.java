@@ -59,9 +59,15 @@ public class BarberProfile extends Activity {
         // Retrieve barber prices and reformat it
         final DecimalFormat df = new DecimalFormat("#.00");
         double price = getIntent().getExtras().getDouble("price");
-        String priceTxt = "$" + df.format(price);
-        final TextView barberPriceTxt = (TextView) findViewById(R.id.barber_price);
-        barberPriceTxt.setText(priceTxt);
+        if ( price == 0 ) {
+            final TextView barberPriceTxt = (TextView) findViewById(R.id.barber_price);
+            barberPriceTxt.setText("FREE");
+        }
+        else {
+            String priceTxt = "$" + df.format(price);
+            final TextView barberPriceTxt = (TextView) findViewById(R.id.barber_price);
+            barberPriceTxt.setText(priceTxt);
+        }
 
         // When message btn is clicked, popup window should show
         final Button messageBtn = (Button) findViewById(R.id.messageBtn);
