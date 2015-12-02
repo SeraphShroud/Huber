@@ -63,7 +63,12 @@ public class TimePickerFragment extends DialogFragment implements TimePickerDial
             timeView.setText(Integer.toString(hourOfDay) + ":" + min + "am");
         }
         */
-        timeView.setText(Integer.toString(hourOfDay) + ":" + min);
+        if( hourOfDay < 12) {
+            timeView.setText("0" + Integer.toString(hourOfDay) + ":" + min);
+        }
+        else {
+            timeView.setText(Integer.toString(hourOfDay) + ":" + min);
+        }
 
     }
 }

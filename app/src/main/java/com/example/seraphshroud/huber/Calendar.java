@@ -110,16 +110,116 @@ public class Calendar extends AppCompatActivity {
                     tvarray[i].setText("time");
                 }
                 else {
-                    tvarray[i].setText(schedule[i / 2].substring(0, schedule[i / 2].indexOf(" ")-2) + ":" +
-                            schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")));
+                    int hour = Integer.parseInt(schedule[i/2].substring(0, schedule[i/2].indexOf(" ")-2));
+                    switch( hour ) {
+                        case 0: tvarray[i].setText("12" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "am");
+                            break;
+                        case 12: tvarray[i].setText("12" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        case 13: tvarray[i].setText("01" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        case 14: tvarray[i].setText("02" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        case 15: tvarray[i].setText("03" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        case 16: tvarray[i].setText("04" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        case 17: tvarray[i].setText("05" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        case 18: tvarray[i].setText("06" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        case 19: tvarray[i].setText("07" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        case 20: tvarray[i].setText("08" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        case 21: tvarray[i].setText("09" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        case 22: tvarray[i].setText("10" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        case 23: tvarray[i].setText("11" + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "pm");
+                            break;
+                        default: tvarray[i].setText(schedule[i/2].substring(0, schedule[i/2].indexOf(" ")-2) + ":" +
+                                schedule[i / 2].substring(schedule[i / 2].indexOf(" ")-2,schedule[i / 2].indexOf(" ")) + "am");
+                            break;
+                    }
                 }
                 if ((schedule[i/2].substring(schedule[i/2].indexOf(" ") + 1).equals("0")))
                 {
                     tvarray[i+1].setText("time");
                 }
                 else {
-                    tvarray[i+1].setText(schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 1, schedule[i / 2].indexOf(" ") + 3)
-                        + ":" + schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3));
+                    int hour = Integer.parseInt(schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 1, schedule[i / 2].indexOf(" ") + 3));
+                    switch( hour ) {
+                        case 0:
+                            tvarray[i + 1].setText("12" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "am");
+                            break;
+                        case 12:
+                            tvarray[i + 1].setText("12" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        case 13:
+                            tvarray[i + 1].setText("01" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        case 14:
+                            tvarray[i + 1].setText("02" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        case 15:
+                            tvarray[i + 1].setText("03" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        case 16:
+                            tvarray[i + 1].setText("04" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        case 17:
+                            tvarray[i + 1].setText("05" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        case 18:
+                            tvarray[i + 1].setText("06" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        case 19:
+                            tvarray[i + 1].setText("07" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        case 20:
+                            tvarray[i + 1].setText("08" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        case 21:
+                            tvarray[i + 1].setText("09" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        case 22:
+                            tvarray[i + 1].setText("10" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        case 23:
+                            tvarray[i + 1].setText("11" + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "pm");
+                            break;
+                        default:
+                            tvarray[i + 1].setText(schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 1, schedule[i / 2].indexOf(" ") + 3) + ":" +
+                                    schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3) + "am");
+                            break;
+                    }
                 }
             }
 
