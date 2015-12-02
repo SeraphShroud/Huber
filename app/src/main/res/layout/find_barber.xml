@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/beach"
     android:layout_height="match_parent">
 
 
@@ -9,30 +10,23 @@
         android:layout_height="90dp"
         android:orientation="horizontal"
         android:layout_marginTop="25dp"
-        android:background="@drawable/border"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 
-        <ImageView
-            android:layout_width="75dp"
-            android:layout_height="105dp"
-            android:id="@+id/imageView2"
-            android:src="@drawable/barber"
-            android:layout_marginLeft="20dp" />
-
         <TextView
             android:id="@+id/txtFindBarber"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:fontFamily="sans-serif"
+            android:fontFamily="sans-serif-light"
             android:text="@string/FindBarber"
             android:paddingTop="30dp"
             android:paddingLeft="25dp"
-            android:textSize="25sp"
-            android:textColor="#000"
+            android:textSize="40dp"
+            android:textColor="#fff"
             android:typeface="sans"
-            android:visibility="visible" />
+            android:visibility="visible"
+            android:textAlignment="center" />
 
     </LinearLayout>
 
@@ -60,7 +54,7 @@
                 android:paddingLeft="25dp"
                 android:fontFamily="sans-serif-light"
                 android:textSize="20sp"
-                android:textColor="#000"
+                android:textColor="#fff"
                 android:typeface="sans"
                 android:visibility="visible"
                 android:layout_marginTop="-15dp"
@@ -97,7 +91,7 @@
                 android:paddingTop="30dp"
                 android:paddingLeft="25dp"
                 android:textSize="20sp"
-                android:textColor="#000"
+                android:textColor="#fff"
                 android:typeface="sans"
                 android:visibility="visible"
                 android:layout_marginRight="10dp"
@@ -135,7 +129,7 @@
                 android:paddingTop="20dp"
                 android:paddingLeft="25dp"
                 android:textSize="20sp"
-                android:textColor="#000"
+                android:textColor="#fff"
                 android:typeface="sans"
                 android:visibility="visible"
                 android:layout_marginTop="-15dp"

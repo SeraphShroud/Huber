@@ -97,14 +97,14 @@ public class BarberWelcome extends Activity {
                 final PopupWindow popupWindow = new PopupWindow(popupView, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
                 Button acceptBtn = (Button) popupView.findViewById(R.id.accept);
                 Button rejectBtn = (Button) popupView.findViewById(R.id.reject);
-                //ImageView closeBtn = (ImageView) popupView.findViewById(R.id.closeBtn);
+                ImageView closeBtn = (ImageView) popupView.findViewById(R.id.closeBtn);
 
-//                closeBtn.setOnClickListener(new Button.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v) {
-//                        popupWindow.dismiss();
-//                    }
-//                });
+                closeBtn.setOnClickListener(new Button.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        popupWindow.dismiss();
+                    }
+                });
                 acceptBtn.setOnClickListener(new Button.OnClickListener(){
                     @Override
                     public void onClick(View v) {
@@ -157,7 +157,7 @@ public class BarberWelcome extends Activity {
                         popupWindow.dismiss();
                     }
                 });
-                popupWindow.showAsDropDown(findViewById(R.id.imageView), Gravity.LEFT, Gravity.TOP);
+                popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
             }
         });
 

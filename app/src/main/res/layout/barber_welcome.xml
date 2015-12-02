@@ -3,32 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/beach">
 
 
     <LinearLayout android:layout_width="fill_parent"
         android:layout_height="90dp"
         android:orientation="horizontal"
         android:layout_marginTop="15dp"
-        android:background="@drawable/border"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 
-        <ImageView
-            android:layout_width="75dp"
-            android:layout_height="105dp"
-            android:id="@+id/imageView2"
-            android:src="@drawable/barber"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp" />
-
         <TextView
             android:id="@+id/barberName"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:textSize="30dp"
-            android:layout_gravity="center_vertical" />
+            android:textSize="40dp"
+            android:layout_gravity="center_vertical"
+            android:text="Alicia Nguyen"
+            android:textColor="#fff"
+            android:textAlignment="center" />
 
 
     </LinearLayout>

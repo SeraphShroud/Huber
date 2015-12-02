@@ -9,7 +9,7 @@
         android:layout_width="321dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/border"
+        android:background="@drawable/border_header"
         android:layout_margin="1dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">

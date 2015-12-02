@@ -120,7 +120,7 @@ public class BarberProfile extends Activity {
                     }
                 });
 
-                popupWindow.showAsDropDown(findViewById(R.id.textView10), Gravity.LEFT, Gravity.TOP);
+                popupWindow.showAtLocation(popupView, Gravity.CENTER, 0, 0);
             }
         });
     }

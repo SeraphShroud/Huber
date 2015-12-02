@@ -5,6 +5,7 @@ package com.example.seraphshroud.huber;
  */
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -65,8 +66,10 @@ public class ApptListAdapter extends ArrayAdapter<String> {
 
         if(bConfirm.get(position).compareTo("Accepted") == 0)
             txtbPhone.setText(bPhone.get(position));
-        else
+        else {
             txtbPhone.setText("Please schedule another appointment time.");
+            txtbConfirmed.setTextColor(Color.parseColor("#921B26"));
+        }
 
         return rowView;
 
