@@ -5,21 +5,28 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/beach"
     android:weightSum="1">
 
     <TableRow
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="15dp">
+
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Found Barbers"
-            android:fontFamily="sans-serif-regular"
-            android:layout_marginTop="30dp"
+            android:fontFamily="sans-serif-light"
+            android:layout_marginTop="40dp"
             android:layout_marginLeft="10dp"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:textSize="40dp"
+            android:textAlignment="center"
+            android:textColor="#fff" />
     </TableRow>
 
     <ListView
@@ -27,11 +34,15 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-light"
         android:id="@+id/barberList"
-        android:layout_marginLeft="5dp"
         android:textFilterEnabled="false"
         android:scrollingCache="false"
         android:footerDividersEnabled="false"
-        android:clickable="false" />
+        android:clickable="false"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="15.0sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp" />
 
 
 </LinearLayout>

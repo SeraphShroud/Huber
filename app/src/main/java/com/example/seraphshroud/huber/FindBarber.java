@@ -107,19 +107,19 @@ public class FindBarber extends Activity {
                 timeTxt = time;
                 switch (pos) {
                     case 0: startTime = 800;
-                            endTime = 1100;
+                            endTime = 2400;
                         break;
                     case 1: startTime = 1100;
-                            endTime = 1400;
+                            endTime = 2400;
                         break;
                     case 2: startTime = 1400;
-                            endTime = 1700;
+                            endTime = 2400;
                         break;
                     case 3: startTime = 1700;
-                            endTime = 2000;
+                            endTime = 2400;
                         break;
                     case 4: startTime = 2000;
-                            endTime = 2300;
+                            endTime = 2400;
                         break;
                     default: startTime = 0000; // might have to be 0
                              endTime = 2400;
@@ -133,7 +133,7 @@ public class FindBarber extends Activity {
             }
 
         });
-        String[] timeItems = new String[]{"8:00am - 11:00am", "11:00am - 2:00pm", "2:00pm - 5:00pm", "5:00pm - 8:00pm", "8:00pm - 11:00pm"};
+        String[] timeItems = new String[]{"8:00am", "11:00am", "2:00pm", "5:00pm", "8:00pm"};
 
         Button searchbtn = (Button) findViewById(R.id.searchbtn);
 

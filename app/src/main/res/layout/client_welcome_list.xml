@@ -1,0 +1,175 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="385dp"
+    android:layout_height="220dp"
+    android:orientation="vertical"
+    android:background="@drawable/border"
+    android:gravity="center_vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:padding="10dp"
+    android:weightSum="1">
+
+
+    <LinearLayout android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:paddingTop="10dp">
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="-15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#000"
+                android:text="Date:"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginLeft="190dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/date"
+                android:layout_marginTop="20dp" />
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="35dp"
+                android:src="@drawable/calendar"
+                android:id="@+id/imageView"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/appt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="17dp"
+                android:paddingTop="5dp"
+                android:fontFamily="sans-serif"
+                android:textColor="#000"
+                android:layout_marginLeft="10dp"
+                android:text="Appointment Pending Request" />
+            </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="0.75">
+
+
+        <TextView
+            android:id="@+id/confirmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"
+            android:paddingTop="5dp"
+            android:fontFamily="sans-serif"
+            android:textColor="#297E17"
+            android:layout_weight="3.64"
+            android:layout_marginLeft="15dp" />
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Barber:"
+                android:fontFamily="sans-serif"
+                android:id="@+id/textView7"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/barberName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:paddingTop="5dp"
+                android:fontFamily="sans-serif-light" />
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Appt Date:"
+                android:fontFamily="sans-serif"
+                android:id="@+id/textView9"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/barberDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:paddingTop="5dp"
+                android:fontFamily="sans-serif-light" />
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone:"
+                android:fontFamily="sans-serif"
+                android:id="@+id/textView8"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="15dp"
+                android:textColor="#000"
+                android:layout_marginBottom="20dp"
+                android:textSize="15dp" />
+
+            <TextView
+                android:id="@+id/barberPhone"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:paddingTop="5dp"
+                android:fontFamily="sans-serif-light"
+                android:layout_weight="9.90" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

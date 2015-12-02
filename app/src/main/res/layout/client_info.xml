@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="900dp"
     android:scrollIndicators="right">
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@drawable/beach">
 
         <TextView
@@ -33,7 +33,7 @@
             android:layout_height="50dp"
             android:inputType="text"
             android:paddingLeft="10dp"
-            android:background="#33333333"
+            android:background="#33ffffff"
             android:fontFamily="sans-serif-light"
             android:layout_below="@+id/textView15"
             android:layout_alignParentLeft="true"
@@ -51,7 +51,7 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/client_password"
-            android:background="#33333333"
+            android:background="#33ffffff"
             android:fontFamily="sans-serif-light"
             android:hint="Password"
             android:textColor="#fff"
@@ -69,7 +69,7 @@
             android:layout_height="50dp"
             android:inputType="text"
             android:paddingLeft="10dp"
-            android:background="#33333333"
+            android:background="#33ffffff"
             android:fontFamily="sans-serif-light"
             android:layout_below="@+id/textView15"
             android:layout_alignParentLeft="true"
@@ -88,7 +88,7 @@
             android:layout_height="50dp"
             android:inputType="text"
             android:paddingLeft="10dp"
-            android:background="#33333333"
+            android:background="#33ffffff"
             android:fontFamily="sans-serif-light"
             android:layout_below="@+id/textView15"
             android:layout_alignParentLeft="true"
@@ -107,7 +107,7 @@
             android:layout_width="fill_parent"
             android:layout_height="50dp"
             android:paddingLeft="10dp"
-            android:background="#33333333"
+            android:background="#33ffffff"
             android:fontFamily="sans-serif-light"
             android:layout_below="@+id/textView15"
             android:layout_alignParentLeft="true"
@@ -126,7 +126,7 @@
             android:layout_height="50dp"
             android:inputType="text"
             android:paddingLeft="10dp"
-            android:background="#33333333"
+            android:background="#33ffffff"
             android:fontFamily="sans-serif-light"
             android:layout_below="@+id/textView15"
             android:layout_alignParentLeft="true"
@@ -139,7 +139,7 @@
             android:layout_marginRight="10dp" />
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="fill_parent"
             android:layout_height="60dp"
             android:text="Done"
             android:fontFamily="sans-serif-light"
@@ -148,7 +148,7 @@
             android:textColor="#fff"
             android:textSize="17dp"
             android:layout_marginTop="50dp"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="12dp"
             android:layout_marginRight="10dp" />
 
     </LinearLayout>
