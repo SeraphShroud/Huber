@@ -82,9 +82,8 @@ public class Calendar extends AppCompatActivity {
 
         final ParseUser user = ParseUser.getCurrentUser();
 
-
-        final String price = user.getNumber("price").toString();
-        final EditText priceTxt = (EditText) findViewById(R.id.bPrice);
+        String price = user.getNumber("price").toString();
+        EditText priceTxt = (EditText) findViewById(R.id.bPrice);
         priceTxt.setHint(price);
 
         List<String> temp;
@@ -216,9 +215,9 @@ public class Calendar extends AppCompatActivity {
         EditText priceTxt = (EditText) findViewById(R.id.bPrice);
 
         String price = priceTxt.getText().toString();
-        Double priceDouble = Double.parseDouble(price);
 
-        if (priceTxt != null || !priceTxt.equals(currentUser.getNumber("price").toString())) {
+        if (!price.isEmpty() || price.equals(currentUser.getNumber("price").toString())) {
+            Double priceDouble = Double.parseDouble(price);
             currentUser.put("price", priceDouble);
             currentUser.saveInBackground();
         }

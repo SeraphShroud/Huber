@@ -50,8 +50,7 @@ public class BarberSearchResults extends Activity {
 
         /*System.out.println("Start time is: " + startTime + "\n End time is: " + endTime);
         System.out.println("Day is: " + day + ", dayPos is: " + pos);
-        System.out.println("Low price is: " + low + "\n High price is: " + high);*/
-/*
+        System.out.println("Low price is: " + low + "\n High price is: " + high);
 
         // Create the Query adapter and search for only barbers
         ParseQueryAdapter<ParseUser> userAdapter =

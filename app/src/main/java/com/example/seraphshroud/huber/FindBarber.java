@@ -51,7 +51,7 @@ public class FindBarber extends Activity {
                             high = 20;
                         break;
                     case 3: low = 20;
-                            high = 25;
+                            high = 100;
                         break;
                     default: low = 0;
                             high = 100;
@@ -65,7 +65,7 @@ public class FindBarber extends Activity {
             }
 
         });
-        String[] priceItems = new String[]{"$0 - $10", "$10 - $15", "$15 - $20", "$20 - $25"};
+        String[] priceItems = new String[]{"$0 - $10", "$10 - $15", "$15 - $20", "$20+"};
 
         // Create the spinner for days
         final Spinner dayDropdown = (Spinner) findViewById(R.id.day_range);
