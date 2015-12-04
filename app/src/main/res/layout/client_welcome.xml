@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="1"
-    android:background="@drawable/beach">
+    android:background="@drawable/beach2">
 
 
     <LinearLayout android:layout_width="match_parent"
@@ -42,7 +42,8 @@
         android:divider="@android:color/transparent"
         android:dividerHeight="15.0sp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp" />
 
     <LinearLayout android:layout_width="fill_parent"
         android:layout_height="75dp"
@@ -52,7 +53,7 @@
         android:weightSum="1"
         android:layout_alignParentBottom="true"
         android:gravity="bottom"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="80dp">
 
         <Button
             android:id="@+id/findBarber"
