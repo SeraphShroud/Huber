@@ -136,16 +136,16 @@ public class BarberWelcome extends Activity {
                 rejectBtn.setOnClickListener(new Button.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-                        ParseQuery<ParseObject> query = ParseQuery.getQuery("Appointment");
+                        ParseQuery<ParseObject> query = ParseQuery.getQuery("ParseAppointment");
                         final ParseUser currentUser = ParseUser.getCurrentUser();
                         query.findInBackground(new FindCallback<ParseObject>() {
                             @Override
                             public void done(List<ParseObject> aptList, com.parse.ParseException e) {
                                 if (e == null) {
                                     if (aptList.size() == 0) {
-                                        ParseObject appt = new ParseObject("Appointments");
+                                        ParseObject appt = new ParseObject("ParseAppointments");
                                         appt.put("barber", currentUser.get("name"));
-                                        appt.put("client", clientName);
+                                        appt.put("client", clientName.get(position));
                                         appt.put("confirmed", false);
                                         appt.put("aptDay", day);
                                         appt.put("aptTime", time);
