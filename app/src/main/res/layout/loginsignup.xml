@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:padding="10dp"
-    android:background="@drawable/beach">
+    android:background="@drawable/beach2">
 
     <EditText
         android:id="@+id/client_username"
