@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -17,8 +18,10 @@ import android.widget.Toast;
 
 import com.parse.ParseUser;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 
@@ -76,7 +79,13 @@ public class Calendar extends AppCompatActivity {
         tvarray[12] = (TextView) findViewById(R.id.time12);
         tvarray[13] = (TextView) findViewById(R.id.time13);
 
-        ParseUser user = ParseUser.getCurrentUser();
+
+        final ParseUser user = ParseUser.getCurrentUser();
+
+        String price = user.getNumber("price").toString();
+        EditText priceTxt = (EditText) findViewById(R.id.bPrice);
+        priceTxt.setHint(price);
+
         List<String> temp;
 
         temp = user.getList("schedule");
@@ -119,7 +128,7 @@ public class Calendar extends AppCompatActivity {
                 }
                 else {
                     tvarray[i+1].setText(schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 1, schedule[i / 2].indexOf(" ") + 3)
-                        + ":" + schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3));
+                            + ":" + schedule[i / 2].substring(schedule[i / 2].indexOf(" ") + 3));
                 }
             }
 
@@ -203,6 +212,16 @@ public class Calendar extends AppCompatActivity {
         //TODO: Add Code to Add the Data to the Database
 
         ParseUser currentUser = ParseUser.getCurrentUser();
+        EditText priceTxt = (EditText) findViewById(R.id.bPrice);
+
+        String price = priceTxt.getText().toString();
+
+        if (!price.isEmpty() || price.equals(currentUser.getNumber("price").toString())) {
+            Double priceDouble = Double.parseDouble(price);
+            currentUser.put("price", priceDouble);
+            currentUser.saveInBackground();
+        }
+
         currentUser.remove("schedule");
         for (int i = 0; i < 14; i+=2) {
             if( tvarray[i].getText().toString().equals("time") || tvarray[i+1].getText().toString().equals("time"))
